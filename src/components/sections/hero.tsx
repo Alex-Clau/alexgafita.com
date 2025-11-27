@@ -55,7 +55,8 @@ export function HeroSection() {
                     height={144}
                     priority
                     fetchPriority="high"
-                    className="relative rounded-full object-cover border-2 border-amber-900/40 shadow-lg"
+                    decoding="async"
+                    className="relative rounded-full object-cover border-2 border-amber-900/40 shadow-lg bg-amber-950/20"
                   />
                 </div>
               </motion.div>
