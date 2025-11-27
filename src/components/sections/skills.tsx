@@ -15,7 +15,7 @@ export function SkillsSection() {
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={getOptimizedTransition({ duration: 0.2 })}
-        className="space-y-3"
+        className="space-y-3 animate-on-mount"
       >
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-amber-100">
           Skills &amp; Stack

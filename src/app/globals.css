@@ -248,3 +248,26 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Fix gradient button rendering issues - prevent flicker and sizing problems */
+[data-slot="button"][class*="bg-gradient"] {
+  /* Force hardware acceleration */
+  will-change: transform, background-image;
+  backface-visibility: hidden;
+  
+  /* Smooth gradient color transitions to prevent flicker */
+  transition: background-image 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Prevent gradient from causing layout shifts */
+  background-origin: padding-box;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+
+/* Prevent flash of initial state - hide until Framer Motion is ready */
+.animate-on-mount {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+

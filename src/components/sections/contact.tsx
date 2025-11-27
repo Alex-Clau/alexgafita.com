@@ -12,7 +12,7 @@ export function ContactSection() {
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={getOptimizedTransition({ duration: 0.2 })}
-      className="mt-auto rounded-2xl border border-amber-900/40 bg-gradient-to-r from-amber-950/40 via-stone-950/30 to-amber-950/40 p-8 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] sm:p-10 transition-all duration-300 hover:border-amber-800/50 hover:shadow-[0_12px_40px_rgba(0,0,0,0.4)]"
+      className="mt-auto rounded-2xl border border-amber-900/40 bg-gradient-to-r from-amber-950/40 via-stone-950/30 to-amber-950/40 p-8 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] sm:p-10 transition-all duration-300 hover:border-amber-800/50 hover:shadow-[0_12px_40px_rgba(0,0,0,0.4)] animate-on-mount"
     >
       <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <div className="space-y-2">
