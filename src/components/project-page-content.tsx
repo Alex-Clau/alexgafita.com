@@ -63,7 +63,9 @@ export function AnimatedProjectContent({ project }: AnimatedProjectContentProps)
                   src={project.image}
                   alt={`${project.name} logo`}
                   fill
-                  sizes="96px"
+                  loading="lazy"
+                  decoding="async"
+                  sizes="(min-width: 640px) 96px, 80px"
                   className="object-contain p-2"
                 />
               </motion.div>
