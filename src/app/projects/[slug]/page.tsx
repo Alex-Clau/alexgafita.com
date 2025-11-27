@@ -54,7 +54,7 @@ export default async function ProjectPage({ params }: PageProps) {
     <main className="relative min-h-screen overflow-hidden bg-gradient-to-br from-black via-neutral-950 to-black text-foreground">
       <BackgroundAnimations />
 
-      <div className="relative mx-auto flex min-h-screen max-w-4xl flex-col gap-8 px-4 pb-16 pt-24 sm:px-6 lg:px-8">
+      <div className="relative mx-auto flex min-h-screen max-w-4xl flex-col gap-8 px-4 pb-16 pt-12 sm:px-6 lg:px-8">
         <AnimatedProjectContent project={project} />
       </div>
     </main>

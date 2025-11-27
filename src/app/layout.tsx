@@ -1,4 +1,4 @@
-import type {Metadata} from "next";
+import type {Metadata, Viewport} from "next";
 import {Geist, Geist_Mono} from "next/font/google";
 import "./globals.css";
 import {LoadingScreen} from "@/components/loading-screen";
@@ -64,6 +64,13 @@ export const metadata: Metadata = {
   }
 ;
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -77,7 +84,11 @@ export default function RootLayout({
     <LoadingScreen/>
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-amber-600 focus:text-white focus:rounded-md focus:shadow-lg"
+          className="sr-only focus:not-sr-only focus:fixed focus:z-50 focus:px-4 focus:py-2 focus:bg-amber-600 focus:text-white focus:rounded-md focus:shadow-lg"
+          style={{
+            top: `calc(1rem + env(safe-area-inset-top))`,
+            left: `calc(1rem + env(safe-area-inset-left))`,
+          }}
         >
           Skip to main content
         </a>

@@ -1,20 +1,22 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export function LoadingScreen() {
   const [isLoading, setIsLoading] = useState(true);
+  const [isNavigating, setIsNavigating] = useState(false);
+  const pathname = usePathname();
 
+  // Initial page load
   useEffect(() => {
     const handleLoad = () => {
-      // Small delay for smooth transition
       setTimeout(() => {
         setIsLoading(false);
       }, 300);
     };
 
-    // Page is not laoded wait till load finishes
     if (document.readyState === 'complete') {
       handleLoad();
     } else {
@@ -23,9 +25,25 @@ export function LoadingScreen() {
     }
   }, []);
 
+  // Show loading on route change
+  useEffect(() => {
+    if (!isLoading) {
+      setIsNavigating(true);
+      
+      // Hide loading when page is ready
+      const timer = setTimeout(() => {
+        setIsNavigating(false);
+      }, 400);
+
+      return () => clearTimeout(timer);
+    }
+  }, [pathname, isLoading]);
+
+  const shouldShow = isLoading || isNavigating;
+
   return (
     <AnimatePresence>
-      {isLoading && (
+      {shouldShow && (
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}

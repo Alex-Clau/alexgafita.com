@@ -75,9 +75,36 @@
   }
   html {
     scroll-behavior: smooth;
+    /* Ensure background extends into safe areas */
+    background-color: #0a0a0a;
+    min-height: 100%;
+    min-height: -webkit-fill-available;
   }
   body {
     @apply bg-background text-foreground;
+    /* Extend background into safe areas (notch, home indicator) */
+    background-color: #0a0a0a;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    min-height: 100dvh; /* Dynamic viewport height for mobile */
+  }
+  
+  /* Main content area with safe area insets */
+  main#main-content > div {
+    padding-top: calc(5rem + env(safe-area-inset-top));
+    padding-bottom: calc(6rem + env(safe-area-inset-bottom));
+  }
+  
+  @media (min-width: 640px) {
+    main#main-content > div {
+      padding-top: calc(6rem + env(safe-area-inset-top));
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    main#main-content > div {
+      padding-top: calc(7rem + env(safe-area-inset-top));
+    }
   }
 }
 

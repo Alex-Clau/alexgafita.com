@@ -71,7 +71,10 @@ function BackgroundGradient() {
 
 function Fireflies() {
   return (
-    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden style={{ contain: 'layout style paint', transform: 'translateZ(0)' }}>
+    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden style={{ 
+      contain: 'layout style paint', 
+      transform: 'translateZ(0)',
+    }}>
       {FIREFLIES.map((i) => {
         const size = 1.5 + (i % 3) * 0.5;
         const opacity = 0.4 + (i % 3) * 0.2;
@@ -109,7 +112,10 @@ function FloatingEmbers() {
 
   return (
     <>
-      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden style={{ contain: 'layout style paint', transform: 'translateZ(0)' }}>
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden style={{ 
+        contain: 'layout style paint', 
+        transform: 'translateZ(0)',
+      }}>
         {EMBERS.map((i) => {
           const s1 = i * 0.618, s2 = i * 0.314, s3 = i * 0.271;
           const left = `${5 + random(s1) * 90}%`;

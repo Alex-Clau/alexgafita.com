@@ -83,11 +83,11 @@ function ProjectCard({ project }: ProjectCardProps) {
               className="object-contain transition-transform scale-90 duration-700 group-hover:scale-100 relative z-10"
               sizes="(min-width: 768px) 50vw, 100vw"
             />
-            <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 px-5 py-4 z-20">
-              <CardTitle className="text-base sm:text-lg font-bold text-amber-50 drop-shadow-lg">
-                {project.name}
-              </CardTitle>
-            </div>
+          </div>
+          <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 px-5 pb-4 z-20">
+            <CardTitle className="text-base sm:text-lg font-bold text-amber-50 drop-shadow-lg">
+              {project.name}
+            </CardTitle>
           </div>
         </Card>
       </Link>
