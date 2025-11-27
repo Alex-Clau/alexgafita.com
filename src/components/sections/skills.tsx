@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { skills } from "@/data/portfolio";
 import { getAbbreviation } from "@/components/stack-badges";
+import { getOptimizedTransition, prefersReducedMotion } from "@/lib/motion-utils";
 
 export function SkillsSection() {
   return (
@@ -12,8 +13,8 @@ export function SkillsSection() {
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.3 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={getOptimizedTransition({ duration: 0.2 })}
         className="space-y-3"
       >
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-amber-100">
@@ -29,13 +30,13 @@ export function SkillsSection() {
         className="grid gap-8 md:grid-cols-3"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-50px" }}
+        viewport={{ once: true, amount: 0.2 }}
         variants={{
           hidden: {},
           visible: {
             transition: {
-              staggerChildren: 0.05,
-              delayChildren: 0.05
+              staggerChildren: prefersReducedMotion() ? 0 : 0.03,
+              delayChildren: prefersReducedMotion() ? 0 : 0.03
             }
           }
         }}
@@ -86,10 +87,7 @@ function SkillGroup({ title, items }: SkillGroupProps) {
         visible: {
           opacity: 1,
           scale: 1,
-          transition: {
-            duration: 0.3,
-            ease: [0.25, 0.46, 0.45, 0.94]
-          }
+          transition: getOptimizedTransition({ duration: 0.25 })
         }
       }}
       className="group relative space-y-5 rounded-xl border border-amber-900/20 bg-gradient-to-br from-black/40 via-amber-950/15 to-black/40 backdrop-blur-sm p-6 sm:p-7 transition-all duration-300 hover:border-amber-800/50 hover:bg-black/50 hover:shadow-xl hover:shadow-amber-900/30 overflow-hidden"
@@ -109,8 +107,8 @@ function SkillGroup({ title, items }: SkillGroupProps) {
           hidden: {},
           visible: {
             transition: {
-              staggerChildren: 0.03,
-              delayChildren: 0.05
+              staggerChildren: prefersReducedMotion() ? 0 : 0.02,
+              delayChildren: prefersReducedMotion() ? 0 : 0.03
             }
           }
         }}
@@ -142,10 +140,7 @@ function SkillIcon({ label }: SkillIconProps) {
           visible: {
             opacity: 1,
             scale: 1,
-            transition: {
-              duration: 0.3,
-              ease: [0.34, 1.56, 0.64, 1]
-            }
+            transition: getOptimizedTransition({ duration: 0.2 })
           }
         }}
         whileHover={{ scale: 1.15, y: -2, transition: { duration: 0.2 } }}
@@ -168,10 +163,7 @@ function SkillIcon({ label }: SkillIconProps) {
         visible: {
           opacity: 1,
           scale: 1,
-          transition: {
-            duration: 0.4,
-            ease: [0.34, 1.56, 0.64, 1]
-          }
+          transition: getOptimizedTransition({ duration: 0.2 })
         }
       }}
       whileHover={{ scale: 1.15, y: -2, transition: { duration: 0.2 } }}

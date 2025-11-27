@@ -11,6 +11,7 @@ import {
 import Image from "next/image";
 
 import { motion } from "framer-motion";
+import { getOptimizedTransition } from "@/lib/motion-utils";
 
 export function HeroSection() {
   return (
@@ -18,7 +19,7 @@ export function HeroSection() {
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        transition={getOptimizedTransition({ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] })}
         className="w-full max-w-3xl relative z-10"
       >
         <Card className="
@@ -42,7 +43,7 @@ export function HeroSection() {
               <motion.div
                 initial={{ scale: 0.85, opacity: 0, rotate: -5 }}
                 animate={{ scale: 1, opacity: 1, rotate: 0 }}
-                transition={{ delay: 0.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                transition={getOptimizedTransition({ delay: 0.1, duration: 0.4, ease: [0.25, 0.1, 0.25, 1] })}
                 className="relative flex-shrink-0"
               >
                 <div className="relative w-32 h-32 sm:w-36 sm:h-36">
@@ -64,7 +65,7 @@ export function HeroSection() {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.25, duration: 0.5 }}
+                  transition={getOptimizedTransition({ delay: 0.15, duration: 0.3 })}
                 >
                   <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-stone-50 mb-2">
                     Gafița Claudiu-Alexandru
@@ -78,7 +79,7 @@ export function HeroSection() {
                 <motion.div
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3, duration: 0.5 }}
+                  transition={getOptimizedTransition({ delay: 0.2, duration: 0.3 })}
                   className="flex flex-wrap justify-center md:justify-start gap-2.5"
                 >
                   <span className="rounded-full border border-amber-800/60 bg-amber-950/50 px-3.5 py-1.5 text-[11px] sm:text-xs text-amber-300 font-medium backdrop-blur-sm">
@@ -96,7 +97,7 @@ export function HeroSection() {
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.35, duration: 0.5 }}
+              transition={getOptimizedTransition({ delay: 0.25, duration: 0.3 })}
               className="flex flex-wrap gap-3 sm:gap-4 justify-center md:justify-end"
             >
               <Button

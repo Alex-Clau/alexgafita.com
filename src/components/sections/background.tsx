@@ -1,5 +1,5 @@
-const FIREFLY_COUNT = 50; // Reduced from 80 for better performance
-const EMBER_COUNT = 25;
+const FIREFLY_COUNT = 30; // Optimized for performance
+const EMBER_COUNT = 15; // Reduced for smoother animations
 const FIREFLIES = Array.from({ length: FIREFLY_COUNT }, (_, i) => i);
 const EMBERS = Array.from({ length: EMBER_COUNT }, (_, i) => i);
 
@@ -71,7 +71,7 @@ function BackgroundGradient() {
 
 function Fireflies() {
   return (
-    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden style={{ contain: 'layout style paint' }}>
+    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden style={{ contain: 'layout style paint', transform: 'translateZ(0)' }}>
       {FIREFLIES.map((i) => {
         const size = 1.5 + (i % 3) * 0.5;
         const opacity = 0.4 + (i % 3) * 0.2;
@@ -87,7 +87,9 @@ function Fireflies() {
               opacity,
               animationDelay: `${i * 0.3}s`,
               animationDuration: `${3.5 + (i % 4) * 1.5}s`,
-              boxShadow: `0 0 ${size * 2}px rgba(251, 191, 36, ${opacity * 0.6})`,
+              boxShadow: `0 0 ${size * 1.5}px rgba(251, 191, 36, ${opacity * 0.5})`,
+              transform: 'translateZ(0)',
+              willChange: 'transform, opacity',
             }}
           />
         );
@@ -102,25 +104,20 @@ const random = (s: number) => {
 };
 
 function FloatingEmbers() {
-  const animations = EMBERS.map((i) => {
-    const s1 = i * 0.618, s2 = i * 0.314, s3 = i * 0.271, s4 = i * 0.141;
-    const drift = (random(s1 * 5) - 0.5) * 30;
-    const rot = random(s3 * 4) * 360;
-    const rotEnd = rot + 180 + random(s4 * 5) * 360;
-    return `@keyframes fall-${i}{0%{transform:translateY(0) translateX(0) rotate(${rot}deg);opacity:0}5%{opacity:0.5}50%{transform:translateY(100vh) translateX(${drift * 0.5}px) rotate(${rot + (rotEnd - rot) * 0.5}deg);opacity:0.4}100%{transform:translateY(200vh) translateX(${drift}px) rotate(${rotEnd}deg);opacity:0}}`;
-  }).join('');
+  // Keyframes are now in globals.css for better production compatibility
+  const animationTypes = ['fall-slow', 'fall-medium', 'fall-fast'];
 
   return (
     <>
-      <style>{animations}</style>
-      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden style={{ contain: 'layout style paint' }}>
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden style={{ contain: 'layout style paint', transform: 'translateZ(0)' }}>
         {EMBERS.map((i) => {
           const s1 = i * 0.618, s2 = i * 0.314, s3 = i * 0.271;
           const left = `${5 + random(s1) * 90}%`;
           const delay = random(s2) * 15;
-          const duration = 18 + random(s3) * 30;
-          const size = 12 + random(s1 * 2) * 20;
-          const opacity = 0.2 + random(s2 * 3) * 0.5;
+          const duration = 20 + random(s3) * 25; // Slightly faster for smoother feel
+          const size = 10 + random(s1 * 2) * 18; // Slightly smaller
+          const opacity = 0.2 + random(s2 * 3) * 0.4;
+          const animType = animationTypes[i % animationTypes.length];
           return (
             <div
               key={i}
@@ -128,10 +125,12 @@ function FloatingEmbers() {
               style={{
                 left, top: "-8%", width: `${size}px`, height: `${size}px`,
                 animationDelay: `${delay}s`, animationDuration: `${duration}s`,
-                animationName: `fall-${i}`, animationTimingFunction: 'linear',
-                animationIterationCount: 'infinite', willChange: 'transform, opacity',
-                background: `radial-gradient(circle, rgba(251, 146, 60, ${opacity}) 0%, rgba(234, 88, 12, ${opacity * 0.8}) 50%, rgba(194, 65, 12, ${opacity * 0.4}) 100%)`,
-                boxShadow: `0 0 ${size * 1.2}px rgba(251, 146, 60, ${opacity * 0.8}), 0 0 ${size * 2.4}px rgba(234, 88, 12, ${opacity * 0.4})`,
+                animationName: animType, animationTimingFunction: 'linear',
+                animationIterationCount: 'infinite', 
+                willChange: 'transform, opacity',
+                transform: 'translateZ(0)',
+                background: `radial-gradient(circle, rgba(251, 146, 60, ${opacity}) 0%, rgba(234, 88, 12, ${opacity * 0.7}) 50%, rgba(194, 65, 12, ${opacity * 0.3}) 100%)`,
+                boxShadow: `0 0 ${size * 0.8}px rgba(251, 146, 60, ${opacity * 0.6})`,
               }}
             />
           );

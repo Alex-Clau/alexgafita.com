@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { getOptimizedTransition, prefersReducedMotion } from "@/lib/motion-utils";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -17,8 +18,8 @@ export function ProjectsSection() {
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.3 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={getOptimizedTransition({ duration: 0.2 })}
         className="space-y-3"
       >
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-amber-100">
@@ -36,14 +37,14 @@ export function ProjectsSection() {
           visible: {
             opacity: 1,
             transition: {
-              staggerChildren: 0.05,
-              delayChildren: 0.05
+              staggerChildren: prefersReducedMotion() ? 0 : 0.03,
+              delayChildren: prefersReducedMotion() ? 0 : 0.03
             }
           }
         }}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-50px" }}
+        viewport={{ once: true, amount: 0.2 }}
       >
         {projects.map((project) => (
           <ProjectCard key={project.name} project={project} />
@@ -65,10 +66,7 @@ function ProjectCard({ project }: ProjectCardProps) {
         visible: {
           opacity: 1,
           scale: 1,
-          transition: {
-            duration: 0.5,
-            ease: [0.25, 0.46, 0.45, 0.94]
-          }
+          transition: getOptimizedTransition({ duration: 0.3 })
         }
       }}
     >
