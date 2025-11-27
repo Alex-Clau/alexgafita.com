@@ -1,3 +1,22 @@
+import { HeroSection } from "@/components/sections/hero";
+import { BackgroundAnimations } from "@/components/sections/background";
+
+import dynamic from "next/dynamic";
+
+const SkillsSection = dynamic(() => import("@/components/sections/skills").then(mod => ({ default: mod.SkillsSection })), { ssr: true });
+const ProjectsSection = dynamic(() => import("@/components/sections/projects").then(mod => ({ default: mod.ProjectsSection })), { ssr: true });
+const ContactSection = dynamic(() => import("@/components/sections/contact").then(mod => ({ default: mod.ContactSection })), { ssr: true });
+
 export default function Home() {
-  return <>yay new project</>
+  return (
+    <main id="main-content" className="relative min-h-screen overflow-x-hidden text-foreground">
+      <BackgroundAnimations />
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col gap-20 px-4 pb-24 pt-20 sm:px-6 sm:gap-24 sm:pt-24 lg:px-8 lg:gap-28 lg:pt-28">
+        <HeroSection />
+        <SkillsSection />
+        <ProjectsSection />
+        <ContactSection />
+      </div>
+    </main>
+  );
 }
