@@ -1,8 +1,8 @@
-import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import Link from "next/link";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -12,12 +12,11 @@ export function ProjectsSection() {
   return (
     <section id="projects" className="space-y-6">
       <div className="space-y-2">
-        <h2 className="text-lg font-semibold text-emerald-100 sm:text-xl">
+        <h2 className="text-lg font-semibold text-amber-100 sm:text-xl">
           Selected projects
         </h2>
         <p className="max-w-2xl text-sm text-muted-foreground">
-          A few things I&apos;ve built recently that combine product thinking,
-          performance, and clean UX.
+          Click a project card to see the full case study, stack, and links.
         </p>
       </div>
 
@@ -36,41 +35,25 @@ type ProjectCardProps = {
 
 function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <Card className="group border-emerald-900/40 bg-gradient-to-b from-zinc-950/80 via-zinc-950/60 to-black/80 transition-transform duration-300 hover:-translate-y-1 hover:border-emerald-500/70 hover:shadow-[0_0_60px_rgba(16,185,129,0.24)]">
-      <CardHeader>
-        <div className="flex items-start justify-between gap-2">
-          <CardTitle className="text-sm font-semibold text-emerald-50">
-            {project.name}
-          </CardTitle>
-          <Button
-            asChild
-            size="sm"
-            variant="outline"
-            className="border-emerald-700/50 bg-black/30 text-xs text-emerald-100 hover:bg-emerald-500 hover:text-emerald-950"
-          >
-            <a href={project.href} target="_blank" rel="noreferrer">
-              View code
-            </a>
-          </Button>
+    <Link href={`/projects/${project.slug}`} className="block">
+      <Card className="group overflow-hidden border border-amber-900/30 bg-black/40 transition-transform duration-300 hover:-translate-y-1 hover:border-amber-500/70 hover:shadow-[0_0_60px_rgba(120,53,15,0.45)]">
+        <div className="relative aspect-2/1 w-full overflow-hidden">
+          <Image
+            src={project.image}
+            alt={project.name}
+            fill
+            className="object-contain transition-transform duration-500 group-hover:scale-105"
+            sizes="(min-width: 768px) 50vw, 100vw"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 px-4 pb-3">
+            <CardTitle className="text-sm font-semibold text-amber-50">
+              {project.name}
+            </CardTitle>
+          </div>
         </div>
-        <CardDescription className="pt-1 text-xs">
-          {project.description}
-        </CardDescription>
-      </CardHeader>
-      <CardContent className="space-y-4 text-sm">
-        <ul className="space-y-1.5 text-muted-foreground">
-          {project.highlights.map((item) => (
-            <li key={item} className="flex gap-2">
-              <span className="mt-1 h-1 w-1 rounded-full bg-emerald-400" />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-        <p className="text-xs text-emerald-300">
-          {project.stack.join(" · ")}
-        </p>
-      </CardContent>
-    </Card>
+      </Card>
+    </Link>
   );
 }
 
