@@ -1,6 +1,6 @@
 'use client';
 
-import { DEVICON_CLASS } from "./sections/skills";
+import { DEVICON_COMPONENTS } from "@/lib/devicon-components";
 
 type StackBadgesProps = {
   items: string[];
@@ -11,10 +11,10 @@ export function StackBadges({ items, className = "" }: StackBadgesProps) {
   return (
     <div className={`flex flex-wrap gap-3 ${className}`}>
       {items.map((item) => {
-        const iconClass = DEVICON_CLASS[item];
+        const IconComponent = DEVICON_COMPONENTS[item];
         const displayName = item.includes("(") ? item.split("(")[0].trim() : item;
         
-        if (iconClass) {
+        if (IconComponent) {
           return (
             <div
               key={item}
@@ -22,14 +22,7 @@ export function StackBadges({ items, className = "" }: StackBadgesProps) {
               title={item}
               aria-label={item}
             >
-              <i 
-                className={iconClass} 
-                style={{ 
-                  fontSize: '2rem',
-                  lineHeight: '1',
-                  display: 'inline-block'
-                }} 
-              />
+              <IconComponent size="2rem" />
               <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
                 <div className="whitespace-nowrap rounded bg-amber-950/95 px-2 py-1 text-xs text-amber-200 border border-amber-800/60 backdrop-blur-sm">
                   {displayName}

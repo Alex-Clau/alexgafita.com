@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { DeviconLoader } from "@/components/devicon-loader";
 import { LoadingScreen } from "@/components/loading-screen";
 
 const geistSans = Geist({
@@ -64,7 +63,6 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <DeviconLoader />
         {children}
       </body>
     </html>

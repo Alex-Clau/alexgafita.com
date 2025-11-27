@@ -5,14 +5,14 @@ export const skills = {
     "Python",
     "Java",
     "C++",
-    "SQL",
+    "SQL", // Maps to PostgresqlPlain in your DEVICON map
     "HTML/CSS",
   ],
   frameworks: [
     "React",
     "Next.js",
     "Node.js",
-    "Express.js",
+    "Express.js", // FIXED: Changed from "Express"
     "TailwindCSS"
   ],
   tools: [
@@ -56,10 +56,11 @@ export const projects: Project[] = [
       "Cloudinary integration for asset management and EmailJS-powered order flow.",
       "Optimized for Core Web Vitals (LCP < 1.1s, INP < 100ms).",
     ],
-    stack: ["React", "TypeScript", "Firebase", "TailwindCSS", "Cloudinary"],
+    // FIXED: All stack strings match the DEVICON_COMPONENTS keys
+    stack: ["React", "TypeScript", "Firebase", "TailwindCSS", "HTML/CSS"],
     languages: ["TypeScript", "JavaScript"],
-    frameworks: ["React", "React Router", "TailwindCSS"],
-    infrastructure: ["Firebase Auth", "Firebase Firestore", "Firebase Storage", "Cloudinary", "EmailJS"],
+    frameworks: ["React", "TailwindCSS"],
+    infrastructure: ["Firebase", "HTML/CSS"],
   },
   {
     slug: "eco-rewards",
@@ -74,17 +75,17 @@ export const projects: Project[] = [
       "Google Gemini integration for clothing quality assessment and impact dashboards.",
     ],
     stack: [
-      "React Native",
-      "Expo",
+      "React Native", // FIXED: Will now map to ReactnativeOriginalWordmark
+      "React",
       "Firebase",
       "Node.js",
-      "Express",
-      "NativeWind",
-      "Google Gemini",
+      "Express.js", // FIXED: Changed from "Express"
+      "TailwindCSS",
+      "Google Gemini API", // FIXED: Changed from "Google Gemini"
     ],
     languages: ["TypeScript", "JavaScript"],
-    frameworks: ["React Native", "Expo", "NativeWind", "Express"],
-    infrastructure: ["Firebase Auth", "Firebase Firestore", "Firebase Storage", "Google Gemini API"],
+    frameworks: ["React Native", "Express.js", "TailwindCSS"],
+    infrastructure: ["Firebase", "Google Gemini API"],
   },
 ];
 

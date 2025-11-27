@@ -1,18 +1,8 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { BackgroundAnimations } from "@/components/sections/background";
-import { projects, type Project } from "@/data/portfolio";
-import Image from "next/image";
-import Link from "next/link";
-import { StackBadges } from "@/components/stack-badges";
+import { projects } from "@/data/portfolio";
 import { AnimatedProjectContent } from "@/components/project-page-content";
 
 type PageProps = {

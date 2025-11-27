@@ -8,13 +8,13 @@ export function LoadingScreen() {
 
   useEffect(() => {
     const handleLoad = () => {
-      // Small delay to ensure smooth transition
+      // Small delay for smooth transition
       setTimeout(() => {
         setIsLoading(false);
       }, 300);
     };
 
-    // If page is already loaded
+    // Page is not laoded wait till load finishes
     if (document.readyState === 'complete') {
       handleLoad();
     } else {
