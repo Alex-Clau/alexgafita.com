@@ -13,10 +13,7 @@ export const skills = {
     "Next.js",
     "Node.js",
     "Express.js",
-    "TailwindCSS",
-    "React Native",
-    "NativeWind",
-    "Expo",
+    "TailwindCSS"
   ],
   tools: [
     "Git",
