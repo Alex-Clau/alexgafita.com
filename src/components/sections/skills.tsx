@@ -1,7 +1,7 @@
 'use client';
-
 import { motion } from 'framer-motion';
 import { skills } from "@/data/portfolio";
+import { getAbbreviation } from "@/components/stack-badges";
 
 export function SkillsSection() {
   return (
@@ -10,10 +10,10 @@ export function SkillsSection() {
       className="space-y-8"
     >
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.3 }}
         className="space-y-3"
       >
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-amber-100">
@@ -24,11 +24,26 @@ export function SkillsSection() {
           with just enough frontend to ship complete features.
         </p>
       </motion.div>
-      <div className="grid gap-8 md:grid-cols-3">
-        <SkillGroup title="Languages" items={skills.languages} delay={0.1} />
-        <SkillGroup title="Frameworks" items={skills.frameworks} delay={0.2} />
-        <SkillGroup title="Tools &amp; Infra" items={skills.tools} delay={0.3} />
-      </div>
+
+      <motion.div
+        className="grid gap-8 md:grid-cols-3"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              staggerChildren: 0.05,
+              delayChildren: 0.05
+            }
+          }
+        }}
+      >
+        <SkillGroup title="Languages" items={skills.languages} />
+        <SkillGroup title="Frameworks" items={skills.frameworks} />
+        <SkillGroup title="Tools &amp; Infra" items={skills.tools} />
+      </motion.div>
     </section>
   );
 }
@@ -36,10 +51,9 @@ export function SkillsSection() {
 type SkillGroupProps = {
   title: string;
   items: string[];
-  delay?: number;
 };
 
-const DEVICON_CLASS: Record<string, string> = {
+export const DEVICON_CLASS: Record<string, string> = {
   // Languages
   JavaScript: "devicon-javascript-plain colored",
   TypeScript: "devicon-typescript-plain colored",
@@ -52,7 +66,7 @@ const DEVICON_CLASS: Record<string, string> = {
   React: "devicon-react-original colored",
   "Next.js": "devicon-nextjs-original",
   "Node.js": "devicon-nodejs-plain colored",
-  "Express.js": "devicon-express-original colored",
+  "Express.js": "devicon-express-original",
   TailwindCSS: "devicon-tailwindcss-plain colored",
   // Tools & Infrastructure
   Git: "devicon-git-plain colored",
@@ -64,33 +78,56 @@ const DEVICON_CLASS: Record<string, string> = {
   "AWS (Lambda, DynamoDB, S3, EC2)": "devicon-amazonwebservices-plain-wordmark colored",
 };
 
-function SkillGroup({ title, items, delay = 0 }: SkillGroupProps) {
+function SkillGroup({ title, items }: SkillGroupProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay }}
-      className="space-y-4 rounded-xl border border-amber-900/20 bg-black/30 backdrop-blur-sm p-6 transition-all duration-300 hover:border-amber-800/40 hover:bg-black/40"
+      variants={{
+        hidden: { opacity: 0, scale: 0.9 },
+        visible: {
+          opacity: 1,
+          scale: 1,
+          transition: {
+            duration: 0.3,
+            ease: [0.25, 0.46, 0.45, 0.94]
+          }
+        }
+      }}
+      className="group relative space-y-5 rounded-xl border border-amber-900/20 bg-gradient-to-br from-black/40 via-amber-950/15 to-black/40 backdrop-blur-sm p-6 sm:p-7 transition-all duration-300 hover:border-amber-800/50 hover:bg-black/50 hover:shadow-xl hover:shadow-amber-900/30 overflow-hidden"
     >
-      <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-300/95">
-        {title}
-      </p>
-      <div className="flex flex-wrap gap-4 sm:gap-5">
-        {items.map((item, idx) => (
-          <SkillIcon key={item} label={item} delay={delay + idx * 0.05} />
-        ))}
+      <div className="absolute inset-0 bg-gradient-to-br from-amber-950/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+      <div className="relative">
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-300/95 mb-1">
+          {title}
+        </p>
+        <div className="h-px w-12 bg-gradient-to-r from-amber-600/60 to-transparent" />
       </div>
+
+      <motion.div
+        className="relative flex flex-wrap gap-4 sm:gap-5"
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              staggerChildren: 0.03,
+              delayChildren: 0.05
+            }
+          }
+        }}
+      >
+        {items.map((item) => (
+          <SkillIcon key={item} label={item} />
+        ))}
+      </motion.div>
     </motion.div>
   );
 }
 
 type SkillIconProps = {
   label: string;
-  delay?: number;
 };
 
-function SkillIcon({ label, delay = 0 }: SkillIconProps) {
+function SkillIcon({ label }: SkillIconProps) {
   const className = DEVICON_CLASS[label];
 
   // All skills should have icons - if one doesn't, log a warning
@@ -100,16 +137,24 @@ function SkillIcon({ label, delay = 0 }: SkillIconProps) {
     const abbreviation = getAbbreviation(label);
     return (
       <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.3, delay }}
-        whileHover={{ scale: 1.1 }}
-        className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-xl border border-amber-900/60 bg-amber-950/30 backdrop-blur-sm transition-all duration-200 hover:border-amber-800/80 hover:bg-amber-950/40 hover:shadow-lg hover:shadow-amber-900/40"
+        variants={{
+          hidden: { opacity: 0, scale: 0 },
+          visible: {
+            opacity: 1,
+            scale: 1,
+            transition: {
+              duration: 0.3,
+              ease: [0.34, 1.56, 0.64, 1]
+            }
+          }
+        }}
+        whileHover={{ scale: 1.15, y: -2, transition: { duration: 0.2 } }}
+        className="group/icon relative flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-xl border border-amber-900/60 bg-gradient-to-br from-amber-950/30 to-amber-900/20 backdrop-blur-sm transition-all duration-200 hover:border-amber-700/80 hover:bg-amber-950/50 hover:shadow-xl hover:shadow-amber-900/50 hover:shadow-amber-500/30"
         title={label}
         aria-label={label}
       >
-        <span className="text-lg sm:text-xl font-bold text-amber-300/90">
+        <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-amber-600/0 to-amber-800/0 group-hover/icon:from-amber-600/20 group-hover/icon:to-amber-800/10 transition-all duration-200" />
+        <span className="relative text-lg sm:text-xl font-bold text-amber-300/90">
           {abbreviation}
         </span>
       </motion.div>
@@ -118,46 +163,31 @@ function SkillIcon({ label, delay = 0 }: SkillIconProps) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.8 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.3, delay }}
-      whileHover={{ scale: 1.1 }}
-      className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-xl border border-amber-900/60 bg-amber-950/30 backdrop-blur-sm transition-all duration-200 hover:border-amber-800/80 hover:bg-amber-950/40 hover:shadow-lg hover:shadow-amber-900/40"
+      variants={{
+        hidden: { opacity: 0, scale: 0 },
+        visible: {
+          opacity: 1,
+          scale: 1,
+          transition: {
+            duration: 0.4,
+            ease: [0.34, 1.56, 0.64, 1]
+          }
+        }
+      }}
+      whileHover={{ scale: 1.15, y: -2, transition: { duration: 0.2 } }}
+      className="group/icon relative flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-xl border border-amber-900/60 bg-gradient-to-br from-amber-950/30 to-amber-900/20 backdrop-blur-sm transition-all duration-200 hover:border-amber-700/80 hover:bg-amber-950/50 hover:shadow-xl hover:shadow-amber-900/50 hover:shadow-amber-500/30"
       title={label}
       aria-label={label}
     >
-      <i 
-        className={className} 
-        style={{ 
-          fontSize: '2.5rem',
+      <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-amber-600/0 to-amber-800/0 group-hover/icon:from-amber-600/20 group-hover/icon:to-amber-800/10 transition-all duration-200" />
+      <i
+        className={`${className} relative z-10`}
+        style={{
+          fontSize: '2.75rem',
           lineHeight: '1',
           display: 'inline-block'
-        }} 
+        }}
       />
     </motion.div>
   );
 }
-
-// Helper to get abbreviation for skills without icons (fallback only)
-function getAbbreviation(label: string): string {
-  if (label.includes("(")) {
-    // For "AWS (Lambda, DynamoDB, S3, EC2)" -> "AWS"
-    return label.split("(")[0].trim();
-  }
-  if (label.includes("/")) {
-    // For "HTML/CSS" -> "HC"
-    return label
-      .split("/")
-      .map((word) => word.charAt(0))
-      .join("");
-  }
-  // Get first letters of words
-  return label
-    .split(" ")
-    .map((word) => word.charAt(0).toUpperCase())
-    .join("")
-    .slice(0, 3);
-}
-
-

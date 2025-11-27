@@ -42,16 +42,18 @@ export function HeroSection() {
               <motion.div
                 initial={{ scale: 0.85, opacity: 0, rotate: -5 }}
                 animate={{ scale: 1, opacity: 1, rotate: 0 }}
-                transition={{ delay: 0.3, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ delay: 0.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                 className="relative flex-shrink-0"
               >
                 <div className="relative w-32 h-32 sm:w-36 sm:h-36">
                   <div className="absolute inset-0 rounded-full bg-gradient-to-br from-amber-600/30 to-amber-900/30 blur-2xl animate-pulse" />
                   <Image
                     src="/profil.jpeg"
-                    alt="Profile"
+                    alt="Alex Gafița - Software Engineer and Computer Science Student"
                     width={144}
                     height={144}
+                    priority
+                    fetchPriority="high"
                     className="relative rounded-full object-cover border-2 border-amber-900/40 shadow-lg"
                   />
                 </div>
@@ -62,11 +64,11 @@ export function HeroSection() {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4, duration: 0.6 }}
+                  transition={{ delay: 0.25, duration: 0.5 }}
                 >
-                  <CardTitle className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-stone-50 mb-2">
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-stone-50 mb-2">
                     Gafița Claudiu-Alexandru
-                  </CardTitle>
+                  </h1>
                   <CardDescription className="text-sm sm:text-base text-amber-400/95 font-medium mb-4">
                     Software Engineer · Computer Science Student
                   </CardDescription>
@@ -76,7 +78,7 @@ export function HeroSection() {
                 <motion.div
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5, duration: 0.6 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
                   className="flex flex-wrap justify-center md:justify-start gap-2.5"
                 >
                   <span className="rounded-full border border-amber-800/60 bg-amber-950/50 px-3.5 py-1.5 text-[11px] sm:text-xs text-amber-300 font-medium backdrop-blur-sm">
@@ -94,13 +96,14 @@ export function HeroSection() {
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
+              transition={{ delay: 0.35, duration: 0.5 }}
               className="flex flex-wrap gap-3 sm:gap-4 justify-center md:justify-end"
             >
               <Button
                 asChild
                 size="lg"
                 className="bg-gradient-to-r from-amber-600 to-amber-700 text-white hover:from-amber-500 hover:to-amber-600 font-semibold shadow-lg shadow-amber-900/50 px-8 transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-amber-900/60"
+                aria-label="Navigate to projects section"
               >
                 <a href="#projects">View Projects</a>
               </Button>
@@ -109,6 +112,7 @@ export function HeroSection() {
                 size="lg"
                 variant="outline"
                 className="border-2 border-amber-700/60 bg-amber-800/40 text-white hover:text-amber-400 hover:border-amber-600 hover:bg-amber-800/50 font-semibold px-8 backdrop-blur-sm transition-all duration-200 hover:scale-105"
+                aria-label="Navigate to contact section"
               >
                 <a href="#contact">Get in Touch</a>
               </Button>

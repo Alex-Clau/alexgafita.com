@@ -1,11 +1,16 @@
 import type { NextConfig } from "next";
 
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
+
 const nextConfig: NextConfig = {
-  output: "export", // tells next.js to generate static html
+  output: "export",
   images: {
-    unoptimized: true // required: S3 cannot resize images on the fly like Vercel
+    unoptimized: true,
   },
-  trailingSlash: true // clean up html output
+  trailingSlash: true,
+  poweredByHeader: false,
 };
 
-export default nextConfig;
+export default withBundleAnalyzer(nextConfig);

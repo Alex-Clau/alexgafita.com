@@ -15,10 +15,10 @@ export function ProjectsSection() {
   return (
     <section id="projects" className="space-y-8">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.3 }}
         className="space-y-3"
       >
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-amber-100">
@@ -29,35 +29,57 @@ export function ProjectsSection() {
         </p>
       </motion.div>
 
-      <div className="grid gap-6 md:grid-cols-2">
-        {projects.map((project, idx) => (
-          <ProjectCard key={project.name} project={project} delay={idx * 0.15} />
+      <motion.div
+        className="grid gap-6 md:grid-cols-2"
+        variants={{
+          hidden: { opacity: 0 },
+          visible: {
+            opacity: 1,
+            transition: {
+              staggerChildren: 0.05,
+              delayChildren: 0.05
+            }
+          }
+        }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+      >
+        {projects.map((project) => (
+          <ProjectCard key={project.name} project={project} />
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }
 
 type ProjectCardProps = {
   project: (typeof projects)[number];
-  delay?: number;
 };
 
-function ProjectCard({ project, delay = 0 }: ProjectCardProps) {
+function ProjectCard({ project }: ProjectCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}
+      variants={{
+        hidden: { opacity: 0, scale: 0.8 },
+        visible: {
+          opacity: 1,
+          scale: 1,
+          transition: {
+            duration: 0.5,
+            ease: [0.25, 0.46, 0.45, 0.94]
+          }
+        }
+      }}
     >
       <Link href={`/projects/${project.slug}`} className="block">
         <Card className="group overflow-hidden border border-amber-900/40 bg-black/50 backdrop-blur-sm rounded-xl transition-all duration-300 hover:-translate-y-2 hover:border-amber-600/60 hover:shadow-[0_8px_32px_rgba(0,0,0,0.4),0_0_80px_rgba(180,83,9,0.3)]">
           <div className="relative aspect-2/1 w-full overflow-hidden">
             <Image
               src={project.image}
-              alt={project.name}
+              alt={`${project.name} - Project preview`}
               fill
+              loading="lazy"
               className="object-contain transition-transform duration-700 group-hover:scale-110"
               sizes="(min-width: 768px) 50vw, 100vw"
             />
