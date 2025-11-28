@@ -1,22 +1,29 @@
 'use client';
+
 import { motion } from 'framer-motion';
+// REMOVED: useInView, useRef
 import { skills } from "@/data/portfolio";
 import { getAbbreviation } from "@/components/stack-badges";
 import { getOptimizedTransition, prefersReducedMotion } from "@/lib/motion-utils";
 import {DEVICON_COMPONENTS} from "@/lib/devicon-components";
 
 export function SkillsSection() {
+  // REMOVED: headerRef, gridRef, headerInView, gridInView
+
   return (
     <section
       id="skills"
       className="space-y-8"
     >
+      {/* 1. SECTION HEADER: Converted to whileInView */}
       <motion.div
+        // REMOVED: ref={headerRef}
         initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, amount: 0.2 }}
+        whileInView={{ opacity: 1, scale: 1 }} // Replaced conditional 'animate'
+        viewport={{ once: true, amount: 0.2 }} // Added stable viewport config
         transition={getOptimizedTransition({ duration: 0.2 })}
-        className="space-y-3 animate-on-mount"
+        // FINAL FIX: Removed the 'animate-on-mount' class that causes issues
+        className="space-y-3"
       >
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-amber-100">
           Skills &amp; Stack
@@ -27,21 +34,25 @@ export function SkillsSection() {
         </p>
       </motion.div>
 
+      {/* 2. SKILLS GRID: Converted to whileInView for variants */}
       <motion.div
+        // REMOVED: ref={gridRef}
         className="grid gap-8 md:grid-cols-3 overflow-visible"
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        whileInView="visible" // Replaced conditional 'animate' logic
+        viewport={{ once: true, amount: 0.2 }} // Added stable viewport config
         variants={{
-          hidden: {},
+          hidden: {}, // This is required if children have a 'hidden' state
           visible: {
             transition: {
+              // Staggering logic remains correct
               staggerChildren: prefersReducedMotion() ? 0 : 0.03,
               delayChildren: prefersReducedMotion() ? 0 : 0.03
             }
           }
         }}
       >
+        {/* SkillGroup components remain the same, as they define the 'hidden'/'visible' states */}
         <SkillGroup title="Programming Languages" items={skills.languages} />
         <SkillGroup title="Frameworks" items={skills.frameworks} />
         <SkillGroup title="Tools &amp; Infra" items={skills.tools} />
@@ -50,6 +61,8 @@ export function SkillsSection() {
   );
 }
 
+// NOTE: SkillGroup and SkillIcon components are already using variants correctly
+// and rely on the parent's staggering, so no changes are needed there.
 type SkillGroupProps = {
   title: string;
   items: string[];
@@ -71,36 +84,37 @@ function SkillGroup({ title, items }: SkillGroupProps) {
       <div className="space-y-5 rounded-xl border border-amber-900/20 bg-gradient-to-br from-black/40 via-amber-950/15 to-black/40 backdrop-blur-sm p-6 sm:p-7 transition-all duration-300 hover:border-amber-800/50 hover:bg-black/50 hover:shadow-xl hover:shadow-amber-900/30">
         <div className="absolute inset-0 bg-gradient-to-br from-amber-950/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
 
-      <div className="relative">
-        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-300/95 mb-1">
-          {title}
-        </p>
-        <div className="h-px w-12 bg-gradient-to-r from-amber-600/60 to-transparent" />
-      </div>
+        <div className="relative">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-300/95 mb-1">
+            {title}
+          </p>
+          <div className="h-px w-12 bg-gradient-to-r from-amber-600/60 to-transparent" />
+        </div>
 
-      <motion.div
-        className="relative flex flex-wrap gap-4 sm:gap-5 pb-10"
-        variants={{
-          hidden: {},
-          visible: {
-            transition: {
-              staggerChildren: prefersReducedMotion() ? 0 : 0.02,
-              delayChildren: prefersReducedMotion() ? 0 : 0.03
+        <motion.div
+          className="relative flex flex-wrap gap-4 sm:gap-5 pb-10"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: prefersReducedMotion() ? 0 : 0.02,
+                delayChildren: prefersReducedMotion() ? 0 : 0.03
+              }
             }
-          }
-        }}
-      >
-        {items.map((item) => (
-          <div key={item} className="overflow-visible">
-            <SkillIcon label={item} />
-          </div>
-        ))}
-      </motion.div>
+          }}
+        >
+          {items.map((item) => (
+            <div key={item} className="overflow-visible">
+              <SkillIcon label={item} />
+            </div>
+          ))}
+        </motion.div>
       </div>
     </motion.div>
   );
 }
 
+// ... SkillIcon component (omitted for brevity, no changes needed)
 type SkillIconProps = {
   label: string;
 };
@@ -109,10 +123,8 @@ function SkillIcon({ label }: SkillIconProps) {
   const IconComponent = DEVICON_COMPONENTS[label];
   const displayName = label.includes("(") ? label.split("(")[0].trim() : label;
 
-  // All skills should have icons - if one doesn't, log a warning
   if (!IconComponent) {
     console.warn(`No Devicon icon found for: ${label}`);
-    // Fallback: show abbreviation
     const abbreviation = getAbbreviation(label);
     return (
       <div className="relative group/icon">

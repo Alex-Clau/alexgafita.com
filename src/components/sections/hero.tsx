@@ -13,13 +13,36 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { getOptimizedTransition } from "@/lib/motion-utils";
 
+// Define a parent variant for staggering
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05, // Subtle stagger for inner elements
+    },
+  },
+};
+
+// Define a common variant for children elements
+const itemVariants = {
+  hidden: { opacity: 0, y: 20, scale: 0.98, rotate: 0 }, // Removed initial rotation from base item
+  visible: { opacity: 1, y: 0, scale: 1, rotate: 0 },
+};
+
+
 export function HeroSection() {
+  // 1. Centralize the main animation logic and remove redundant 'ease'
+  const mainTransition = getOptimizedTransition({ duration: 0.6 });
+
   return (
     <section className="relative flex min-h-[85vh] items-center justify-center px-4 py-12 sm:py-16 md:py-20">
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={getOptimizedTransition({ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] })}
+        // Use the common variants for structured animation
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        transition={mainTransition} // Use the centralized transition
         className="w-full max-w-3xl relative z-10"
       >
         <Card className="
@@ -33,17 +56,19 @@ export function HeroSection() {
           hover:border-amber-800/40
           hover:shadow-[0_12px_40px_rgba(0,0,0,0.5),0_0_100px_rgba(180,83,9,0.2)]
         ">
-          {/* Enhanced Gradient Overlay */}
+          {/* Enhanced Gradient Overlay (Keep as is) */}
           <div className="absolute inset-0 bg-gradient-to-br from-amber-950/15 via-transparent to-stone-950/25 pointer-events-none" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-900/10 via-transparent to-transparent pointer-events-none" />
 
           <CardHeader className="relative p-8 sm:p-10">
             <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8">
-              {/* Profile Image */}
+              {/* Profile Image - Use itemVariants for standardized stagger */}
               <motion.div
-                initial={{ scale: 0.85, opacity: 0, rotate: -5 }}
-                animate={{ scale: 1, opacity: 1, rotate: 0 }}
-                transition={getOptimizedTransition({ delay: 0.1, duration: 0.4, ease: [0.25, 0.1, 0.25, 1] })}
+                variants={itemVariants}
+                // CUSTOMIZE: Add rotate motion here, instead of in the base variant
+                custom={{ initialRotate: -5 }}
+                animate={{ rotate: 0, scale: 1 }}
+                transition={getOptimizedTransition({ delay: 0.1, duration: 0.4 })}
                 className="relative flex-shrink-0"
               >
                 <div className="relative w-32 h-32 sm:w-36 sm:h-36">
@@ -51,8 +76,8 @@ export function HeroSection() {
                   <Image
                     src="/profil.jpeg"
                     alt="Alex Gafița - Software Engineer and Computer Science Student"
-                    width={144}
-                    height={144}
+                    // 2. Improvement: Use fill and set aspect ratio on parent for better responsiveness
+                    fill
                     priority
                     fetchPriority="high"
                     decoding="async"
@@ -63,11 +88,8 @@ export function HeroSection() {
 
               {/* Text Content + Skills */}
               <div className="flex-1 text-center md:text-left">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={getOptimizedTransition({ delay: 0.15, duration: 0.3 })}
-                >
+                {/* Name and Title - Use itemVariants */}
+                <motion.div variants={itemVariants}>
                   <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-stone-50 mb-2">
                     Gafița Claudiu-Alexandru
                   </h1>
@@ -76,11 +98,9 @@ export function HeroSection() {
                   </CardDescription>
                 </motion.div>
 
-                {/* Skills Badges */}
+                {/* Skills Badges - Use itemVariants */}
                 <motion.div
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={getOptimizedTransition({ delay: 0.2, duration: 0.3 })}
+                  variants={itemVariants}
                   className="flex flex-wrap justify-center md:justify-start gap-2.5"
                 >
                   <span className="rounded-full border border-amber-800/60 bg-amber-950/50 px-3.5 py-1.5 text-[11px] sm:text-xs text-amber-300 font-medium backdrop-blur-sm">
@@ -95,10 +115,9 @@ export function HeroSection() {
           </CardHeader>
 
           <CardContent className="relative p-8 sm:p-10 pt-6 border-t border-stone-800/60">
+            {/* Buttons - Use itemVariants */}
             <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={getOptimizedTransition({ delay: 0.25, duration: 0.3 })}
+              variants={itemVariants}
               className="flex flex-wrap gap-3 sm:gap-4 justify-center md:justify-end"
             >
               <Button

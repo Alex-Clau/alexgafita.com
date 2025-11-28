@@ -24,7 +24,7 @@ export function prefersReducedMotion(): boolean {
 export function getOptimizedTransition(overrides?: Partial<Transition>): Transition {
   const base: Transition = {
     duration: prefersReducedMotion() ? 0.01 : 0.3,
-    ease: [0.25, 0.1, 0.25, 1], // Simpler easing for better performance
+    ease: [0.42, 0, 0.58, 1],
   };
   return { ...base, ...overrides };
 }

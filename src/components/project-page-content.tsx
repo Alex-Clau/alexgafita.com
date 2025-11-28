@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { getOptimizedTransition, prefersReducedMotion } from "@/lib/motion-utils";
 import {
@@ -19,6 +20,14 @@ type AnimatedProjectContentProps = {
 };
 
 export function AnimatedProjectContent({ project }: AnimatedProjectContentProps) {
+  const overviewRef = useRef(null);
+  const stackRef = useRef(null);
+  const highlightsRef = useRef(null);
+  const linksRef = useRef(null);
+  const overviewInView = useInView(overviewRef, { once: true, amount: 0.2 });
+  const stackInView = useInView(stackRef, { once: true, amount: 0.2 });
+  const highlightsInView = useInView(highlightsRef, { once: true, amount: 0.2 });
+  const linksInView = useInView(linksRef, { once: true, amount: 0.2 });
   return (
     <>
       <motion.div
@@ -85,9 +94,9 @@ export function AnimatedProjectContent({ project }: AnimatedProjectContentProps)
           
           <CardContent className="relative space-y-8 p-8 sm:p-10 pt-0 text-sm text-stone-300">
             <motion.section
+              ref={overviewRef}
               initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, amount: 0.2 }}
+              animate={overviewInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
               transition={getOptimizedTransition({ duration: 0.2 })}
               className="space-y-3"
             >
@@ -100,9 +109,9 @@ export function AnimatedProjectContent({ project }: AnimatedProjectContentProps)
             <div className="h-px bg-gradient-to-r from-transparent via-amber-900/40 to-transparent" />
 
             <motion.section
+              ref={stackRef}
               initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, amount: 0.2 }}
+              animate={stackInView ? { opacity: 1 } : { opacity: 0 }}
               transition={getOptimizedTransition({ duration: 0.2 })}
               className="space-y-6"
             >
@@ -122,8 +131,7 @@ export function AnimatedProjectContent({ project }: AnimatedProjectContentProps)
                   }
                 }}
                 initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
+                animate={stackInView ? "visible" : "hidden"}
               >
                 <motion.div
                   variants={{
@@ -179,9 +187,9 @@ export function AnimatedProjectContent({ project }: AnimatedProjectContentProps)
             <div className="h-px bg-gradient-to-r from-transparent via-amber-900/40 to-transparent" />
 
             <motion.section
+              ref={highlightsRef}
               initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, amount: 0.2 }}
+              animate={highlightsInView ? { opacity: 1 } : { opacity: 0 }}
               transition={getOptimizedTransition({ duration: 0.2 })}
               className="space-y-4"
             >
@@ -201,8 +209,7 @@ export function AnimatedProjectContent({ project }: AnimatedProjectContentProps)
                   }
                 }}
                 initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
+                animate={highlightsInView ? "visible" : "hidden"}
               >
                 {project.highlights.map((item) => (
                   <motion.li
@@ -227,16 +234,15 @@ export function AnimatedProjectContent({ project }: AnimatedProjectContentProps)
             <div className="h-px bg-gradient-to-r from-transparent via-amber-900/40 to-transparent" />
 
             <motion.section
+              ref={linksRef}
               initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, amount: 0.2 }}
+              animate={linksInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
               transition={getOptimizedTransition({ duration: 0.2 })}
               className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-2"
             >
               <motion.div
                 initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
+                animate={linksInView ? { opacity: 1 } : { opacity: 0 }}
                 transition={getOptimizedTransition({ duration: 0.2, delay: 0.05 })}
                 className="space-y-2"
               >
@@ -256,8 +262,7 @@ export function AnimatedProjectContent({ project }: AnimatedProjectContentProps)
                     }
                   }}
                   initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-50px" }}
+                  animate={linksInView ? "visible" : "hidden"}
                 >
                   {project.stack.map((tech) => (
                     <motion.span
@@ -279,8 +284,7 @@ export function AnimatedProjectContent({ project }: AnimatedProjectContentProps)
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-50px" }}
+                animate={linksInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
                 transition={getOptimizedTransition({ duration: 0.2, delay: 0.1 })}
               >
                 <Button

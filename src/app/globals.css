@@ -47,6 +47,7 @@
   --border: oklch(0.9 0.01 150);
   --input: var(--border);
   --ring: oklch(0.7 0.08 150);
+  overflow-x: hidden;
 }
 
 .dark {
@@ -75,7 +76,6 @@
   }
   html {
     scroll-behavior: smooth;
-    /* Ensure background extends into safe areas */
     background-color: #0a0a0a;
     min-height: 100%;
     min-height: -webkit-fill-available;
@@ -185,7 +185,6 @@
   animation: float 4s ease-in-out infinite;
   will-change: transform, opacity;
   transform: translateZ(0);
-  backface-visibility: hidden;
 }
 
 /* Respect user's motion preferences */
@@ -204,16 +203,10 @@
 
 /* Fix gradient button rendering issues - prevent flicker and sizing problems */
 [data-slot="button"][class*="bg-gradient"] {
-  /* Force hardware acceleration */
   will-change: transform, background-image;
   backface-visibility: hidden;
-  
-  /* Smooth gradient color transitions to prevent flicker */
   transition: background-image 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  
-  /* Prevent gradient from causing layout shifts */
   background-origin: padding-box;
-  -webkit-background-clip: padding-box;
   background-clip: padding-box;
 }
 
