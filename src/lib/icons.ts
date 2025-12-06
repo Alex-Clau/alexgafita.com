@@ -1,7 +1,4 @@
-/**
- * Devicon icon components mapping
- * Maps skill names to their corresponding Devicon React components
- */
+// Maps skill names to their corresponding Devicon React components
 
 import type React from "react";
 import {
@@ -24,7 +21,7 @@ import {
   PythonPlain,
   ReactOriginal,
   TailwindcssPlainWordmark,
-  TypescriptPlain
+  TypescriptPlain, ExpoOriginal
 } from "devicons-react";
 
 export const DEVICON_COMPONENTS: Record<string, React.ComponentType<{ size?: string | number; className?: string }>> = {
@@ -42,14 +39,17 @@ export const DEVICON_COMPONENTS: Record<string, React.ComponentType<{ size?: str
   "Next.js": NextjsOriginal,
   "Node.js": NodejsOriginalWordmark,
   "Express.js": ExpressOriginal,
+  Expo: ExpoOriginal,
   TailwindCSS: TailwindcssPlainWordmark,
   // Tools & Infrastructure
   Git: GitPlain,
   Docker: DockerPlain,
   Firebase: FirebasePlain,
+  "Firebase (Firestore, Auth)": FirebasePlain,
   MongoDB: MongodbPlain,
   MySQL: MysqlPlainWordmark,
   "Google Gemini API": GooglePlain,
   "AWS (Lambda, DynamoDB, S3, EC2)": AmazonwebservicesPlainWordmark,
+  "AWS (S3, CloudFront, CodePipeline, Lambda, DynamoDB, EC2)": AmazonwebservicesPlainWordmark,
 };
 

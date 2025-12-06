@@ -1,7 +1,4 @@
-/**
- * StackBadges component
- * Displays a collection of technology badges with icons
- */
+// Displays a collection of technology badges with icons
 
 'use client';
 
@@ -24,7 +21,7 @@ export function StackBadges({ items, className = "" }: StackBadgesProps) {
           return (
             <div
               key={item}
-              className="group relative flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-lg border border-blue-900/60 bg-indigo-950/30 backdrop-blur-sm transition-all duration-200 hover:border-blue-800/80 hover:bg-indigo-950/40 hover:shadow-lg hover:shadow-blue-900/40 hover:shadow-blue-500/20 hover:scale-105"
+              className="group relative flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-lg border border-blue-900/60 bg-indigo-950/30 backdrop-blur-sm hover:border-blue-800/80 hover:bg-indigo-950/40 hover:shadow-lg hover:shadow-blue-900/40 hover:shadow-blue-500/20 hover:scale-105"
               title={item}
               aria-label={item}
             >

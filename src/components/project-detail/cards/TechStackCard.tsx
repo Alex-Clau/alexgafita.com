@@ -1,7 +1,4 @@
-/**
- * TechStackCard component
- * Displays detailed tech stack organized by category
- */
+// Displays detailed tech stack organized by category
 
 'use client';
 

@@ -1,7 +1,4 @@
-/**
- * Type definitions
- * Centralized type definitions for the portfolio
- */
+// Centralized type definitions for the portfolio
 
 import { ReactNode } from 'react';
 
@@ -22,7 +19,8 @@ export type Project = {
 export type Skills = {
   readonly languages: readonly string[];
   readonly frameworks: readonly string[];
-  readonly tools: readonly string[];
+  readonly cloudDevops: readonly string[];
+  readonly databasesTools: readonly string[];
 };
 
 // Component types

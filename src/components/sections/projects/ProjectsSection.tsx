@@ -1,7 +1,4 @@
-/**
- * ProjectsSection component
- * Main section displaying all projects in a grid layout
- */
+// Main section displaying all projects in a grid layout
 
 'use client';
 
@@ -16,12 +13,12 @@ export function ProjectsSection() {
   return (
     <section id="projects" className="space-y-8">
       <SectionHeader
-        title="Selected projects"
+        title="Main Projects"
         description="Click a project card to see the full case study, stack, and links."
       />
 
       <motion.div
-        className="grid gap-6 md:grid-cols-2"
+        className="grid gap-6 md:grid-cols-3"
         variants={staggerContainer}
         {...scrollVariantsProps}
       >

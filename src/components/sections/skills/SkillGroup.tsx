@@ -1,7 +1,4 @@
-/**
- * SkillGroup component
- * Displays a group of skills with a title
- */
+// Displays a group of skills with a title
 
 'use client';
 
@@ -20,25 +17,28 @@ export function SkillGroup({ title, items }: SkillGroupProps) {
       variants={fadeScaleVariants}
       className="group relative overflow-visible"
     >
-      <div className="space-y-5 rounded-xl border border-blue-900/20 bg-gradient-to-br from-black/40 via-indigo-950/15 to-black/40 backdrop-blur-sm p-6 sm:p-7 transition-all duration-300 hover:border-blue-800/50 hover:bg-black/50 hover:shadow-xl hover:shadow-blue-900/30">
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
+      <div className="space-y-6 rounded-xl border border-blue-900/30 bg-gradient-to-br from-black/50 via-indigo-950/20 to-black/50 backdrop-blur-sm p-6 sm:p-7 hover:border-blue-800/60 hover:bg-black/60 hover:shadow-xl hover:shadow-blue-900/40 group-hover:scale-[1.02]">
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/15 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
 
         <div className="relative">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-300/95 mb-1">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-200 mb-2">
             {title}
           </p>
-          <div className="h-px w-12 bg-gradient-to-r from-blue-600/60 to-transparent" />
+          <div className="h-px w-16 bg-gradient-to-r from-blue-600/70 via-blue-500/50 to-transparent" />
         </div>
 
         <motion.div
           className="relative flex flex-wrap gap-4 sm:gap-5 pb-10"
           variants={staggerContainerFast}
         >
-          {items.map((item) => (
-            <div key={item} className="overflow-visible">
-              <SkillIcon label={item} />
-            </div>
-          ))}
+          {items.map((item) => {
+            const icon = <SkillIcon label={item} />;
+            return icon ? (
+              <div key={item} className="overflow-visible">
+                {icon}
+              </div>
+            ) : null;
+          })}
         </motion.div>
       </div>
     </motion.div>

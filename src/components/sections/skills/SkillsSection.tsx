@@ -1,7 +1,4 @@
-/**
- * SkillsSection component
- * Main section displaying skills organized by category
- */
+// Main section displaying skills organized by category
 
 'use client';
 
@@ -21,13 +18,14 @@ export function SkillsSection() {
       />
 
       <motion.div
-        className="grid gap-8 md:grid-cols-3 overflow-visible"
+        className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 overflow-visible"
         variants={staggerContainer}
         {...scrollVariantsProps}
       >
         <SkillGroup title="Programming Languages" items={skills.languages} />
         <SkillGroup title="Frameworks" items={skills.frameworks} />
-        <SkillGroup title="Tools & Infrastructure" items={skills.tools} />
+        <SkillGroup title="Cloud & DevOps" items={skills.cloudDevops} />
+        <SkillGroup title="Databases & Tools" items={skills.databasesTools} />
       </motion.div>
     </section>
   );

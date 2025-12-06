@@ -1,7 +1,4 @@
-/**
- * ProjectHeader component
- * Header section for project detail page with logo and title
- */
+// Header section for project detail page with logo and title
 
 'use client';
 

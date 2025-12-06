@@ -1,7 +1,4 @@
-/**
- * QuickStackCard component
- * Displays quick stack summary and repository link
- */
+// Displays quick stack summary and repository link
 
 'use client';
 
@@ -69,7 +66,7 @@ export function QuickStackCard({ project }: QuickStackCardProps) {
         <Button
           asChild
           size="lg"
-          className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-500 hover:to-indigo-500 font-semibold shadow-lg shadow-blue-900/50 transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-blue-900/60"
+          className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-500 hover:to-indigo-500 font-semibold shadow-lg shadow-blue-900/50 hover:scale-105 hover:shadow-xl hover:shadow-blue-900/60"
         >
           <a href={project.href} target="_blank" rel="noreferrer">
             View repository →

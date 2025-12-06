@@ -77,6 +77,7 @@ export default function RootLayout({children}: Readonly<{ children: React.ReactN
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
     <a
+      href="#main-content"
       className="focus:fixed focus:z-50 focus:px-4 focus:py-2 focus:bg-amber-600 focus:text-white focus:rounded-md focus:shadow-lg"
       style={{
         top: `calc(1rem + env(safe-area-inset-top))`,

@@ -1,7 +1,4 @@
-/**
- * ProjectDetailPage component
- * Main component for displaying project detail page
- */
+// Main component for displaying project detail page
 
 'use client';
 

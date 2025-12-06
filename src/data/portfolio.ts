@@ -11,57 +11,79 @@ export const skills: Skills = {
     "HTML/CSS",
   ],
   frameworks: [
-    "React",
     "Next.js",
+    "React",
     "Node.js",
     "Express.js",
-    "TailwindCSS"
+    "React Native",
+    "TailwindCSS",
   ],
-  tools: [
+  cloudDevops: [
+    "AWS (S3, CloudFront, CodePipeline, Lambda, DynamoDB, EC2)",
     "Git",
     "Docker",
-    "Firebase",
+  ],
+  databasesTools: [
+    "Firebase (Firestore, Auth)",
     "MongoDB",
     "MySQL",
     "Google Gemini API",
-    "AWS (Lambda, DynamoDB, S3, EC2)",
   ],
 };
 
 export const projects: Project[] = [
   {
+    slug: "portfolio",
+    name: "alexgafita.com – Portfolio Site",
+    href: "https://github.com/Alex-Clau/alexgafita.com",
+    image: "/logoPortfolio.png",
+    description:
+      "Personal portfolio website showcasing software engineering projects and skills.",
+    highlights: [
+      "Required a highly performant, production-level platform to showcase full-stack engineering proficiency",
+      "Developed with Next.js/TypeScript and built an automated CI/CD pipeline (CodePipeline) for deployment.",
+      "Engineered a Cloud-Native Serverless architecture, achieving zero-downtime atomic deployments",
+      "Integrated CloudFront Functions to optimize routing, ensuring zero cold starts and enhancing global latency",
+    ],
+    stack: ["Next.js", "TypeScript", "TailwindCSS", "AWS", "HTML/CSS"],
+    languages: ["TypeScript"],
+    frameworks: ["Next.js", "TailwindCSS"],
+    infrastructure: ["AWS", "HTML/CSS"],
+  },
+  {
     slug: "make-the-print",
-    name: "MakeThePrint – 3D Models Online Store",
+    name: "MakeThePrint – Online Store",
     href: "https://github.com/Alex-Clau/MakeThePrint-Website",
     image: "/logoMakeThePrint.png",
     description:
-      "Modern 3D model marketplace where users can browse, filter, and order printable models, with an admin panel for managing the catalog and processing orders.",
+      "Online marketplace for 3D printable models where users browse, purchase, and order custom prints.",
     highlights: [
-      "Responsive Tailwind UI with favorites, reviews, and role-based admin dashboard.",
-      "Cloudinary integration for asset management and EmailJS-powered order flow.",
-      "Optimized for Core Web Vitals (LCP < 1.1s, INP < 100ms).",
+      "Delivered a secure React SPA for a startup to handle products, sales, reviews and content management.",
+      "Designed robust Firebase Auth and implemented a role-based admin dashboard for access control.",
+      "Optimized the application to achieve superior performance metrics, averaging LCP < 1.1s and INP < 100ms.",
+      "Managed content scaling by integrating cloud storage services with Cloudinary and order processing via EmailJS.",
     ],
     // FIXED: All stack strings match the DEVICON_COMPONENTS keys
-    stack: ["React", "TypeScript", "Firebase", "TailwindCSS", "HTML/CSS"],
-    languages: ["TypeScript", "JavaScript"],
+    stack: ["React", "JavaScript", "Firebase", "TailwindCSS", "HTML/CSS"],
+    languages: ["JavaScript"],
     frameworks: ["React", "TailwindCSS"],
     infrastructure: ["Firebase", "HTML/CSS"],
   },
   {
     slug: "eco-rewards",
-    name: "Eco Rewards – Sustainable Fashion App",
+    name: "Eco Rewards – Mobile App",
     href: "https://github.com/Alex-Clau/Hackathon",
     image: "/logoHackathon.png",
     description:
-      "Award-winning hackathon project with a mobile app that rewards sustainable fashion choices and an admin dashboard used by brands and NGOs.",
+      "Mobile app that gamifies sustainable fashion by rewarding users for donating and recycling clothing.",
     highlights: [
-      "React Native + Expo app with Firebase Auth and gamified rewards.",
-      "Node.js + Express backend with role-based admin, brand management, and QR flows.",
-      "Google Gemini integration for clothing quality assessment and impact dashboards.",
+      "Led a 6-member collaborative team to deliver an award-winning mobile solution for donating and recycling clothing.",
+      "Architected the full-stack system, leveraging Node.js/Express backend and React Native/Expo frontend.",
+      "Successfully integrated the Google Gemini API for real-time AI quality assessment and launched the winning solution.",
+      "Implemented QR code generation and verification for secure offer redemption, demonstrating full-stack security.",
     ],
     stack: [
-      "React Native",
-      "React",
+      "Expo",
       "Firebase",
       "Node.js",
       "Express.js",
@@ -69,7 +91,7 @@ export const projects: Project[] = [
       "Google Gemini API",
     ],
     languages: ["TypeScript", "JavaScript"],
-    frameworks: ["React Native", "Express.js", "TailwindCSS"],
+    frameworks: ["Expo",   "Express.js", "TailwindCSS"],
     infrastructure: ["Firebase", "Google Gemini API"],
   },
 ];

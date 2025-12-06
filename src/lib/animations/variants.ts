@@ -1,15 +1,9 @@
-/**
- * Animation variants
- * Centralized Framer Motion variants for consistent animations across the app
- */
+// Centralized Framer Motion animation variants
 
 import { Variants } from 'framer-motion';
-import { getOptimizedTransition, prefersReducedMotion } from './transitions';
+import { getOptimizedTransition } from './transitions';
 
-/**
- * Fade + scale animation variants
- * Common animation for most UI elements
- */
+// Fade + scale animation variants
 export const fadeScaleVariants: Variants = {
   hidden: { opacity: 0, scale: 0.9 },
   visible: {
@@ -19,10 +13,7 @@ export const fadeScaleVariants: Variants = {
   },
 };
 
-/**
- * Fade + scale + slide up from bottom
- * Used for contact section and elements entering from bottom
- */
+// Fade + scale + slide up from bottom
 export const fadeScaleUpFromBottomVariants: Variants = {
   hidden: { opacity: 0, scale: 0.7, y: 100 },
   visible: {
@@ -33,10 +24,7 @@ export const fadeScaleUpFromBottomVariants: Variants = {
   },
 };
 
-/**
- * Fade + scale down
- * Used for project cards and similar elements
- */
+// Fade + scale down
 export const fadeScaleDownVariants: Variants = {
   hidden: { opacity: 0, scale: 0.8 },
   visible: {
@@ -46,10 +34,7 @@ export const fadeScaleDownVariants: Variants = {
   },
 };
 
-/**
- * Fade + scale from center
- * Used for icons and small elements
- */
+// Fade + scale from center
 export const fadeScaleCenterVariants: Variants = {
   hidden: { opacity: 0, scale: 0 },
   visible: {
@@ -59,10 +44,7 @@ export const fadeScaleCenterVariants: Variants = {
   },
 };
 
-/**
- * Hero section container variants
- * For on-load animations (not scroll-triggered)
- */
+// Hero section container variants
 export const heroContainerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -73,10 +55,7 @@ export const heroContainerVariants: Variants = {
   },
 };
 
-/**
- * Hero section item variants
- * For individual elements within hero section
- */
+// Hero section item variants
 export const heroItemVariants: Variants = {
   hidden: { opacity: 0, y: 20, scale: 0.98 },
   visible: {
@@ -87,14 +66,7 @@ export const heroItemVariants: Variants = {
   },
 };
 
-/**
- * Factory function for creating stagger containers
- * Allows customization of stagger timing
- * 
- * @param staggerDelay - Delay between each child animation
- * @param delayChildren - Initial delay before children start animating
- * @returns Stagger container variants
- */
+// Factory function for creating stagger containers
 export function createStaggerContainer(
   staggerDelay: number = 0.03,
   delayChildren: number = 0.03
@@ -103,17 +75,14 @@ export function createStaggerContainer(
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: prefersReducedMotion() ? 0 : staggerDelay,
-        delayChildren: prefersReducedMotion() ? 0 : delayChildren,
+        staggerChildren: staggerDelay,
+        delayChildren: delayChildren,
       },
     },
   };
 }
 
-/**
- * Pre-configured stagger containers
- * Common stagger configurations for different use cases
- */
+// Pre-configured stagger containers
 export const staggerContainer = createStaggerContainer(0.03, 0.03);
 export const staggerContainerFast = createStaggerContainer(0.02, 0.03);
 

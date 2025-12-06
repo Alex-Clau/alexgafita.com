@@ -1,8 +1,4 @@
-/**
- * SectionHeader component
- * Reusable header component for all sections
- * Provides consistent styling and animation
- */
+// Reusable header component for all sections
 
 'use client';
 
@@ -19,12 +15,16 @@ export function SectionHeader({
   return (
     <motion.div
       {...scrollAnimationProps}
-      className={cn('space-y-3', className)}
+      className={cn('space-y-4', className)}
     >
-      <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-blue-100">
-        {title}
-      </h2>
-      <p className="max-w-2xl text-sm sm:text-base text-stone-400 leading-relaxed">
+      <div className="flex items-center gap-4">
+        <div className="h-px flex-1 bg-gradient-to-r from-transparent via-blue-600/60 to-transparent" />
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-blue-50">
+          {title}
+        </h2>
+        <div className="h-px flex-1 bg-gradient-to-r from-transparent via-blue-600/60 to-transparent" />
+      </div>
+      <p className="max-w-2xl text-sm sm:text-base text-stone-300 leading-relaxed">
         {description}
       </p>
     </motion.div>
