@@ -1,10 +1,9 @@
 import { HeroSection } from "@/components/sections/hero";
-import { BackgroundAnimations } from "@/components/sections/background";
-
+import { BackgroundAnimations } from "@/components/layout/background";
 import dynamic from "next/dynamic";
 
-const SkillsSection = dynamic(() => import("@/components/sections/skills").then(mod => ({ default: mod.SkillsSection })), { ssr: true });
-const ProjectsSection = dynamic(() => import("@/components/sections/projects").then(mod => ({ default: mod.ProjectsSection })), { ssr: true });
+const SkillsSection = dynamic(() => import("@/components/sections/skills/SkillsSection").then(mod => ({ default: mod.SkillsSection })), { ssr: true });
+const ProjectsSection = dynamic(() => import("@/components/sections/projects/ProjectsSection").then(mod => ({ default: mod.ProjectsSection })), { ssr: true });
 const ContactSection = dynamic(() => import("@/components/sections/contact").then(mod => ({ default: mod.ContactSection })), { ssr: true });
 
 export default function Home() {

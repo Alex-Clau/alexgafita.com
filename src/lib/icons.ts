@@ -1,11 +1,29 @@
+/**
+ * Devicon icon components mapping
+ * Maps skill names to their corresponding Devicon React components
+ */
+
 import type React from "react";
 import {
-  AmazonwebservicesPlainWordmark, ReactnativeOriginalWordmark,
-  CplusplusPlain, DockerPlain, ExpressOriginal, FirebasePlain, GitPlain, GooglePlain, Html5Plain,
+  AmazonwebservicesPlainWordmark,
+  ReactnativeOriginalWordmark,
+  CplusplusPlain,
+  DockerPlain,
+  ExpressOriginal,
+  FirebasePlain,
+  GitPlain,
+  GooglePlain,
+  Html5Plain,
   JavaPlain,
-  JavascriptPlain, MongodbPlain, MysqlPlainWordmark, NextjsOriginal, NodejsOriginalWordmark,
+  JavascriptPlain,
+  MongodbPlain,
+  MysqlPlainWordmark,
+  NextjsOriginal,
+  NodejsOriginalWordmark,
   PostgresqlPlain,
-  PythonPlain, ReactOriginal, TailwindcssPlainWordmark,
+  PythonPlain,
+  ReactOriginal,
+  TailwindcssPlainWordmark,
   TypescriptPlain
 } from "devicons-react";
 
@@ -34,3 +52,4 @@ export const DEVICON_COMPONENTS: Record<string, React.ComponentType<{ size?: str
   "Google Gemini API": GooglePlain,
   "AWS (Lambda, DynamoDB, S3, EC2)": AmazonwebservicesPlainWordmark,
 };
+

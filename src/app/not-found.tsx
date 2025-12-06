@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { BackgroundAnimations } from "@/components/sections/background";
+import { BackgroundAnimations } from "@/components/layout/background";
 
 export default function NotFound() {
   return (

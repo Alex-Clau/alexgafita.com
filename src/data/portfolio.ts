@@ -1,4 +1,6 @@
-export const skills = {
+import type { Project, Skills } from '@/types';
+
+export const skills: Skills = {
   languages: [
     "JavaScript",
     "TypeScript",
@@ -24,19 +26,6 @@ export const skills = {
     "Google Gemini API",
     "AWS (Lambda, DynamoDB, S3, EC2)",
   ],
-};
-
-export type Project = {
-  slug: string;
-  name: string;
-  href: string;
-  image: string;
-  description: string;
-  highlights: string[];
-  stack: string[];
-  languages: string[];
-  frameworks: string[];
-  infrastructure: string[];
 };
 
 export const projects: Project[] = [

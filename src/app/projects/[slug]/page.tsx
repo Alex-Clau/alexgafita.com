@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
-import { BackgroundAnimations } from "@/components/sections/background";
+import { BackgroundAnimations } from "@/components/layout/background";
 import { projects } from "@/data/portfolio";
-import { AnimatedProjectContent } from "@/components/projectPage/projectPageContent";
+import { ProjectDetailPage } from "@/components/project-detail/ProjectDetailPage";
 
 type PageProps = {
   params: Promise<{
@@ -55,7 +55,7 @@ export default async function ProjectPage({ params }: PageProps) {
       <BackgroundAnimations />
 
       <div className="relative mx-auto flex min-h-screen max-w-4xl flex-col gap-8 px-4 pb-16 pt-12 sm:px-6 lg:px-8">
-        <AnimatedProjectContent project={project} />
+        <ProjectDetailPage project={project} />
       </div>
     </main>
   );
