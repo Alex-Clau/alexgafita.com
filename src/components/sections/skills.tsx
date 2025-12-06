@@ -1,28 +1,23 @@
 'use client';
 
 import { motion } from 'framer-motion';
-// REMOVED: useInView, useRef
 import { skills } from "@/data/portfolio";
-import { getAbbreviation } from "@/components/stack-badges";
-import { getOptimizedTransition, prefersReducedMotion } from "@/lib/motion-utils";
-import {DEVICON_COMPONENTS} from "@/lib/devicon-components";
+import { getOptimizedTransition, prefersReducedMotion } from "@/lib/motionUtils";
+import {DEVICON_COMPONENTS} from "@/lib/deviconComponents";
 
 export function SkillsSection() {
-  // REMOVED: headerRef, gridRef, headerInView, gridInView
 
   return (
     <section
       id="skills"
       className="space-y-8"
     >
-      {/* 1. SECTION HEADER: Converted to whileInView */}
+      {/* SECTION HEADER */}
       <motion.div
-        // REMOVED: ref={headerRef}
         initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }} // Replaced conditional 'animate'
-        viewport={{ once: true, amount: 0.2 }} // Added stable viewport config
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, amount: 0.2 }}
         transition={getOptimizedTransition({ duration: 0.2 })}
-        // FINAL FIX: Removed the 'animate-on-mount' class that causes issues
         className="space-y-3"
       >
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-amber-100">
@@ -34,25 +29,22 @@ export function SkillsSection() {
         </p>
       </motion.div>
 
-      {/* 2. SKILLS GRID: Converted to whileInView for variants */}
+      {/* SKILLS GRID */}
       <motion.div
-        // REMOVED: ref={gridRef}
         className="grid gap-8 md:grid-cols-3 overflow-visible"
         initial="hidden"
-        whileInView="visible" // Replaced conditional 'animate' logic
-        viewport={{ once: true, amount: 0.2 }} // Added stable viewport config
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
         variants={{
-          hidden: {}, // This is required if children have a 'hidden' state
+          hidden: {},
           visible: {
             transition: {
-              // Staggering logic remains correct
               staggerChildren: prefersReducedMotion() ? 0 : 0.03,
               delayChildren: prefersReducedMotion() ? 0 : 0.03
             }
           }
         }}
       >
-        {/* SkillGroup components remain the same, as they define the 'hidden'/'visible' states */}
         <SkillGroup title="Programming Languages" items={skills.languages} />
         <SkillGroup title="Frameworks" items={skills.frameworks} />
         <SkillGroup title="Tools &amp; Infra" items={skills.tools} />
@@ -61,8 +53,6 @@ export function SkillsSection() {
   );
 }
 
-// NOTE: SkillGroup and SkillIcon components are already using variants correctly
-// and rely on the parent's staggering, so no changes are needed there.
 type SkillGroupProps = {
   title: string;
   items: string[];
@@ -114,7 +104,6 @@ function SkillGroup({ title, items }: SkillGroupProps) {
   );
 }
 
-// ... SkillIcon component (omitted for brevity, no changes needed)
 type SkillIconProps = {
   label: string;
 };
@@ -122,39 +111,6 @@ type SkillIconProps = {
 function SkillIcon({ label }: SkillIconProps) {
   const IconComponent = DEVICON_COMPONENTS[label];
   const displayName = label.includes("(") ? label.split("(")[0].trim() : label;
-
-  if (!IconComponent) {
-    console.warn(`No Devicon icon found for: ${label}`);
-    const abbreviation = getAbbreviation(label);
-    return (
-      <div className="relative group/icon">
-        <motion.div
-          variants={{
-            hidden: { opacity: 0, scale: 0 },
-            visible: {
-              opacity: 1,
-              scale: 1,
-              transition: getOptimizedTransition({ duration: 0.2 })
-            }
-          }}
-          whileHover={{ scale: 1.15, y: -2, transition: { duration: 0.2 } }}
-          className="relative flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-xl border border-amber-900/60 bg-gradient-to-br from-amber-950/30 to-amber-900/20 backdrop-blur-sm transition-all duration-200 hover:border-amber-700/80 hover:bg-amber-950/50 hover:shadow-xl hover:shadow-amber-900/50 hover:shadow-amber-500/30"
-          title={label}
-          aria-label={label}
-        >
-          <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-amber-600/0 to-amber-800/0 group-hover/icon:from-amber-600/20 group-hover/icon:to-amber-800/10 transition-all duration-200" />
-          <span className="relative text-lg sm:text-xl font-bold text-amber-300/90">
-            {abbreviation}
-          </span>
-        </motion.div>
-        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 opacity-0 group-hover/icon:opacity-100 transition-opacity pointer-events-none z-50">
-          <div className="whitespace-nowrap rounded bg-amber-950/95 px-2 py-1 text-xs text-amber-200 border border-amber-800/60 backdrop-blur-sm shadow-lg">
-            {displayName}
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="relative group/icon">

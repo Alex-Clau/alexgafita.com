@@ -1,30 +1,25 @@
 'use client';
 
 import { motion } from 'framer-motion';
-// REMOVED: useInView, useRef
-import { getOptimizedTransition, prefersReducedMotion } from "@/lib/motion-utils";
+import { getOptimizedTransition, prefersReducedMotion } from "@/lib/motionUtils";
 import Image from "next/image";
 import Link from "next/link";
 import {
   Card,
-  CardContent,
-  CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import { projects } from "@/data/portfolio";
 
 export function ProjectsSection() {
-  // REMOVED: headerRef, gridRef, headerInView, gridInView
 
   return (
     <section id="projects" className="space-y-8">
 
-      {/* 1. SECTION HEADER: Converted to whileInView */}
+      {/* SECTION HEADER */}
       <motion.div
-        // REMOVED: ref={headerRef}
         initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }} // Replaced conditional 'animate'
-        viewport={{ once: true, amount: 0.2 }} // Added stable viewport config
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, amount: 0.2 }}
         transition={getOptimizedTransition({ duration: 0.2 })}
         className="space-y-3"
       >
@@ -36,24 +31,22 @@ export function ProjectsSection() {
         </p>
       </motion.div>
 
-      {/* 2. PROJECTS GRID: Converted to whileInView for variants */}
+      {/* PROJECTS GRID */}
       <motion.div
-        // REMOVED: ref={gridRef}
         className="grid gap-6 md:grid-cols-2"
         variants={{
           hidden: { opacity: 0 },
           visible: {
             opacity: 1,
             transition: {
-              // Stagger logic remains the same
               staggerChildren: prefersReducedMotion() ? 0 : 0.03,
               delayChildren: prefersReducedMotion() ? 0 : 0.03
             }
           }
         }}
         initial="hidden"
-        whileInView="visible" // Replaced conditional 'animate'
-        viewport={{ once: true, amount: 0.2 }} // Added stable viewport config
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
       >
         {projects.map((project) => (
           <ProjectCard key={project.name} project={project} />
@@ -68,7 +61,6 @@ type ProjectCardProps = {
 };
 
 function ProjectCard({ project }: ProjectCardProps) {
-  // ProjectCard component is already using variants correctly and requires no change.
   return (
     <motion.div
       variants={{

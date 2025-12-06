@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 import { BackgroundAnimations } from "@/components/sections/background";
 import { projects } from "@/data/portfolio";
-import { AnimatedProjectContent } from "@/components/project-page-content";
+import { AnimatedProjectContent } from "@/components/projectPage/projectPageContent";
 
 type PageProps = {
   params: Promise<{

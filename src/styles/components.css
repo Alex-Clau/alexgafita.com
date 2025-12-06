@@ -1,0 +1,8 @@
+/* Fix gradient button rendering issues - prevent flicker and sizing problems */
+[data-slot="button"][class*="bg-gradient"] {
+    will-change: transform, background-image; /* Optimize GPU rendering */
+    backface-visibility: hidden; /* Prevent flicker on transforms */
+    transition: background-image 0.2s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth gradient transitions */
+    background-origin: padding-box; /* Fix gradient clipping */
+    background-clip: padding-box; /* Fix gradient clipping */
+}

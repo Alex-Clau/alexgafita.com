@@ -6,14 +6,12 @@ import {
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 import Image from "next/image";
 
 import { motion } from "framer-motion";
-import { getOptimizedTransition } from "@/lib/motion-utils";
+import { getOptimizedTransition } from "@/lib/motionUtils";
 
-// Define a parent variant for staggering
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -24,25 +22,21 @@ const containerVariants = {
   },
 };
 
-// Define a common variant for children elements
 const itemVariants = {
-  hidden: { opacity: 0, y: 20, scale: 0.98, rotate: 0 }, // Removed initial rotation from base item
+  hidden: { opacity: 0, y: 20, scale: 0.98, rotate: 0 },
   visible: { opacity: 1, y: 0, scale: 1, rotate: 0 },
 };
 
 
 export function HeroSection() {
-  // 1. Centralize the main animation logic and remove redundant 'ease'
-  const mainTransition = getOptimizedTransition({ duration: 0.6 });
 
   return (
     <section className="relative flex min-h-[85vh] items-center justify-center px-4 py-12 sm:py-16 md:py-20">
       <motion.div
-        // Use the common variants for structured animation
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        transition={mainTransition} // Use the centralized transition
+        transition={getOptimizedTransition({ duration: 0.6 })}
         className="w-full max-w-3xl relative z-10"
       >
         <Card className="
@@ -65,7 +59,6 @@ export function HeroSection() {
               {/* Profile Image - Use itemVariants for standardized stagger */}
               <motion.div
                 variants={itemVariants}
-                // CUSTOMIZE: Add rotate motion here, instead of in the base variant
                 custom={{ initialRotate: -5 }}
                 animate={{ rotate: 0, scale: 1 }}
                 transition={getOptimizedTransition({ delay: 0.1, duration: 0.4 })}
@@ -76,7 +69,6 @@ export function HeroSection() {
                   <Image
                     src="/profil.jpeg"
                     alt="Alex Gafița - Software Engineer and Computer Science Student"
-                    // 2. Improvement: Use fill and set aspect ratio on parent for better responsiveness
                     fill
                     priority
                     fetchPriority="high"
@@ -88,7 +80,6 @@ export function HeroSection() {
 
               {/* Text Content + Skills */}
               <div className="flex-1 text-center md:text-left">
-                {/* Name and Title - Use itemVariants */}
                 <motion.div variants={itemVariants}>
                   <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-stone-50 mb-2">
                     Gafița Claudiu-Alexandru

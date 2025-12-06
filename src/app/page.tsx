@@ -9,7 +9,7 @@ const ContactSection = dynamic(() => import("@/components/sections/contact").the
 
 export default function Home() {
   return (
-    <main id="main-content" className="relative min-h-screen overflow-x-hidden text-foreground">
+    <main className="relative min-h-screen overflow-x-hidden text-foreground">
       <BackgroundAnimations />
       <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col gap-20 px-4 pb-24 sm:px-6 sm:gap-24 lg:px-8 lg:gap-28" style={{
         paddingLeft: `calc(1rem + env(safe-area-inset-left))`,

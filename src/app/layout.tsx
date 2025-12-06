@@ -70,19 +70,14 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
-export default function RootLayout({
-                                     children,
-                                   }: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({children}: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="en">
     <body
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
     <a
-      href="#main-content"
-      className="sr-only focus:not-sr-only focus:fixed focus:z-50 focus:px-4 focus:py-2 focus:bg-amber-600 focus:text-white focus:rounded-md focus:shadow-lg"
+      className="focus:fixed focus:z-50 focus:px-4 focus:py-2 focus:bg-amber-600 focus:text-white focus:rounded-md focus:shadow-lg"
       style={{
         top: `calc(1rem + env(safe-area-inset-top))`,
         left: `calc(1rem + env(safe-area-inset-left))`,

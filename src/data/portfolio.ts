@@ -5,14 +5,14 @@ export const skills = {
     "Python",
     "Java",
     "C++",
-    "SQL", // Maps to PostgresqlPlain in your DEVICON map
+    "SQL",
     "HTML/CSS",
   ],
   frameworks: [
     "React",
     "Next.js",
     "Node.js",
-    "Express.js", // FIXED: Changed from "Express"
+    "Express.js",
     "TailwindCSS"
   ],
   tools: [
@@ -33,13 +33,9 @@ export type Project = {
   image: string;
   description: string;
   highlights: string[];
-  /** High-level tech stack summary shown as a line of text */
   stack: string[];
-  /** Primary languages used in the project */
   languages: string[];
-  /** Frameworks / libraries on top of the languages */
   frameworks: string[];
-  /** Infra / services used to run the project */
   infrastructure: string[];
 };
 
@@ -75,13 +71,13 @@ export const projects: Project[] = [
       "Google Gemini integration for clothing quality assessment and impact dashboards.",
     ],
     stack: [
-      "React Native", // FIXED: Will now map to ReactnativeOriginalWordmark
+      "React Native",
       "React",
       "Firebase",
       "Node.js",
-      "Express.js", // FIXED: Changed from "Express"
+      "Express.js",
       "TailwindCSS",
-      "Google Gemini API", // FIXED: Changed from "Google Gemini"
+      "Google Gemini API",
     ],
     languages: ["TypeScript", "JavaScript"],
     frameworks: ["React Native", "Express.js", "TailwindCSS"],

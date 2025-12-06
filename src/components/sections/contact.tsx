@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
-import {getOptimizedTransition} from "@/lib/motion-utils";
+import {getOptimizedTransition} from "@/lib/motionUtils";
 
 export function ContactSection() {
 

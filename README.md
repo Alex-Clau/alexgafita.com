@@ -42,7 +42,7 @@
 | 🔄 **CodePipeline** | Automated CI/CD with GitHub webhooks |
 | 🔨 **CodeBuild** | Secure build environment (IAM least-privilege) |
 
-### 🎯 Key Highlights
+### 🎯 Key CardHighlights
 
 - ⚡ **Zero Cold Starts** - CloudFront Functions eliminate latency
 - 🔒 **Secure** - Origin Access Control (OAC) for S3 protection
