@@ -14,7 +14,7 @@ export function getInfrastructureConfig(isMobile: boolean): ISourceOptions {
   return {
     particles: {
       number: { value: isMobile ? INFRASTRUCTURE_PARTICLES_MOBILE : INFRASTRUCTURE_PARTICLES_DESKTOP, density: { enable: true, value_area: 800 } },
-      color: { value: ['#3b82f6', '#6366f1', '#8b5cf6', '#60a5fa'] },
+      color: { value: ['#71717a', '#a1a1aa', '#d4d4d8'] }, // Neutral grays
       shape: { type: 'circle' },
       opacity: {
         value: { min: 0.5, max: 0.9 },
@@ -35,7 +35,7 @@ export function getInfrastructureConfig(isMobile: boolean): ISourceOptions {
       links: {
         enable: true,
         distance: 220,
-        color: '#60a5fa',
+        color: '#71717a', // Neutral gray
         opacity: 0.2,
         width: 1.2,
         triangles: { enable: false }
@@ -59,7 +59,7 @@ export function getDataPacketsConfig(isMobile: boolean): ISourceOptions {
   return {
     particles: {
       number: { value: isMobile ? DATA_PACKETS_MOBILE : DATA_PACKETS_DESKTOP, density: { enable: true, value_area: 800 } },
-      color: { value: ['#818cf8', '#a78bfa', '#c084fc'] },
+      color: { value: ['#71717a', '#a1a1aa'] }, // Neutral grays
       shape: { type: 'circle' },
       opacity: {
         value: { min: 0.4, max: 0.7 },

@@ -3,9 +3,9 @@
 import { Variants } from 'framer-motion';
 import { getOptimizedTransition } from './transitions';
 
-// Fade + scale animation variants
+// Fade + scale animation variants - subtle for minimal design
 export const fadeScaleVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.9 },
+  hidden: { opacity: 0, scale: 0.98 },
   visible: {
     opacity: 1,
     scale: 1,
@@ -24,13 +24,13 @@ export const fadeScaleUpFromBottomVariants: Variants = {
   },
 };
 
-// Fade + scale down
+// Fade + scale down - subtle for minimal design
 export const fadeScaleDownVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.8 },
+  hidden: { opacity: 0, scale: 0.97 },
   visible: {
     opacity: 1,
     scale: 1,
-    transition: getOptimizedTransition({ duration: 0.3 }),
+    transition: getOptimizedTransition({ duration: 0.25 }),
   },
 };
 
@@ -55,14 +55,13 @@ export const heroContainerVariants: Variants = {
   },
 };
 
-// Hero section item variants
+// Hero section item variants - subtle for minimal design
 export const heroItemVariants: Variants = {
-  hidden: { opacity: 0, y: 20, scale: 0.98 },
+  hidden: { opacity: 0, y: 10 },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
-    transition: getOptimizedTransition({ duration: 0.4 }),
+    transition: getOptimizedTransition({ duration: 0.3 }),
   },
 };
 

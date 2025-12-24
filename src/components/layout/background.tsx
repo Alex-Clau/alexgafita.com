@@ -18,7 +18,7 @@ function InfrastructureGrid() {
             <circle cx="40" cy="40" r="1.5" fill="currentColor" opacity="0.2" />
           </pattern>
         </defs>
-        <rect width="100%" height="100%" fill="url(#infrastructure-grid)" className="text-blue-400" />
+        <rect width="100%" height="100%" fill="url(#infrastructure-grid)" className="text-stone-600" />
       </svg>
     </div>
   );
@@ -53,10 +53,7 @@ export function BackgroundAnimations() {
     <>
       <div className="pointer-events-none fixed inset-0 z-0" aria-hidden>
         {/* Deep space base - represents scalable cloud infrastructure */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-slate-950 via-indigo-950/30 to-neutral-900" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-blue-950/25 via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-indigo-950/20 via-transparent to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-[50vh] bg-gradient-to-t from-blue-900/12 via-indigo-950/6 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-slate-950 to-neutral-900" />
 
         {/* Infrastructure grid - cloud infrastructure layout */}
         <InfrastructureGrid />

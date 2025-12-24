@@ -17,9 +17,9 @@ export const defaultViewport = {
   amount: 0.2,
 } as const;
 
-// Props for scroll-triggered animations (fade + scale)
+// Props for scroll-triggered animations (fade + scale) - subtle for minimal design
 export const scrollAnimationProps = {
-  initial: {opacity: 0, scale: 0.9},
+  initial: {opacity: 0, scale: 0.98},
   whileInView: {opacity: 1, scale: 1},
   viewport: defaultViewport,
   transition: getOptimizedTransition({duration: 0.2}),

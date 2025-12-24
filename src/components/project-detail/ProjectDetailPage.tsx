@@ -25,15 +25,19 @@ export function ProjectDetailPage({ project }: ProjectDetailPageProps) {
   return (
     <>
       <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={getOptimizedTransition({ duration: 0.2 })}
+        className="mb-2 sm:mb-4"
       >
-        <Button asChild variant="ghost" className="-ml-2 w-fit text-xs text-muted-foreground">
-          <Link href="/" aria-label="Back to home">
-            ← Back
-          </Link>
-        </Button>
+        <Link 
+          href="/" 
+          aria-label="Back to home"
+          className="inline-flex items-center gap-1.5 text-xs sm:text-sm text-stone-500 hover:text-stone-300 transition-colors uppercase tracking-wider"
+        >
+          <span className="text-stone-600">←</span>
+          <span>Back</span>
+        </Link>
       </motion.div>
 
       <motion.div
@@ -41,12 +45,11 @@ export function ProjectDetailPage({ project }: ProjectDetailPageProps) {
         animate={{ opacity: 1, scale: 1 }}
         transition={getOptimizedTransition({ duration: 0.2, delay: 0.05 })}
       >
-        <Card className="border border-blue-900/40 bg-gradient-to-br from-black/50 via-indigo-950/10 to-black/50 backdrop-blur-sm shadow-[0_8px_32px_rgba(0,0,0,0.4),0_0_80px_rgba(59,130,246,0.1)]">
-          <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/10 via-transparent to-stone-950/20 pointer-events-none rounded-lg" />
+        <Card className="border border-zinc-800 bg-zinc-950 rounded-none shadow-none gap-0">  
 
           <ProjectHeader project={project} />
 
-          <CardContent className="relative space-y-8 p-8 sm:p-10 pt-0 text-sm text-stone-300">
+          <CardContent className="relative space-y-8 p-6 sm:p-8 md:p-10 pt-0 text-sm text-stone-300">
             {/* Description Section - Inlined */}
             <motion.section
               ref={descriptionRef}
@@ -55,21 +58,21 @@ export function ProjectDetailPage({ project }: ProjectDetailPageProps) {
               transition={getOptimizedTransition({ duration: 0.2 })}
               className="space-y-3"
             >
-              <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-300/95">
+              <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-stone-400">
                 Overview
               </h2>
               <p className="text-base leading-relaxed text-stone-200">{project.description}</p>
             </motion.section>
 
-            <div className="h-px bg-gradient-to-r from-transparent via-blue-900/40 to-transparent" />
+            <div className="h-px bg-stone-800" />
 
             <TechStackCard project={project} />
 
-            <div className="h-px bg-gradient-to-r from-transparent via-blue-900/40 to-transparent" />
+            <div className="h-px bg-stone-800" />
 
             <HighlightsCard project={project} />
 
-            <div className="h-px bg-gradient-to-r from-transparent via-blue-900/40 to-transparent" />
+            <div className="h-px bg-stone-800" />
 
             <QuickStackCard project={project} />
           </CardContent>

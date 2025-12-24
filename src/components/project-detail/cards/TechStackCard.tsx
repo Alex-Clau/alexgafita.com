@@ -25,7 +25,7 @@ export function TechStackCard({ project }: TechStackCardProps) {
       transition={getOptimizedTransition({ duration: 0.2 })}
       className="space-y-6"
     >
-      <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-300/95">
+      <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-stone-400">
         Tech Stack
       </h3>
       <motion.div
@@ -38,7 +38,7 @@ export function TechStackCard({ project }: TechStackCardProps) {
           variants={fadeScaleVariants}
           className="space-y-3"
         >
-          <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-blue-400/80">
+          <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-stone-500">
             Languages
           </h4>
           <StackBadges items={project.languages} />
@@ -47,7 +47,7 @@ export function TechStackCard({ project }: TechStackCardProps) {
           variants={fadeScaleVariants}
           className="space-y-3"
         >
-          <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-blue-400/80">
+          <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-stone-500">
             Frameworks
           </h4>
           <StackBadges items={project.frameworks} />
@@ -56,7 +56,7 @@ export function TechStackCard({ project }: TechStackCardProps) {
           variants={fadeScaleVariants}
           className="space-y-3"
         >
-          <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-blue-400/80">
+          <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-stone-500">
             Infrastructure
           </h4>
           <StackBadges items={project.infrastructure} />

@@ -19,12 +19,12 @@ export const skills: Skills = {
     "TailwindCSS",
   ],
   cloudDevops: [
-    "AWS (S3, CloudFront, CodePipeline, Lambda, DynamoDB, EC2)",
+    "AWS",
     "Git",
     "Docker",
   ],
   databasesTools: [
-    "Firebase (Firestore, Auth)",
+    "Firebase",
     "MongoDB",
     "MySQL",
     "Google Gemini API",
@@ -34,7 +34,7 @@ export const skills: Skills = {
 export const projects: Project[] = [
   {
     slug: "portfolio",
-    name: "alexgafita.com – Portfolio Site",
+    name: "Portfolio Site",
     href: "https://github.com/Alex-Clau/alexgafita.com",
     image: "/logoPortfolio.png",
     description:
@@ -45,10 +45,10 @@ export const projects: Project[] = [
       "Engineered a Cloud-Native Serverless architecture, achieving zero-downtime atomic deployments",
       "Integrated CloudFront Functions to optimize routing, ensuring zero cold starts and enhancing global latency",
     ],
-    stack: ["Next.js", "TypeScript", "TailwindCSS", "AWS", "HTML/CSS"],
+    stack: ["Next.js", "TypeScript", "TailwindCSS", "AWS", "Git", "HTML/CSS"],
     languages: ["TypeScript"],
     frameworks: ["Next.js", "TailwindCSS"],
-    infrastructure: ["AWS", "HTML/CSS"],
+    infrastructure: ["AWS", "Git", "HTML/CSS"],
   },
   {
     slug: "make-the-print",
@@ -64,10 +64,10 @@ export const projects: Project[] = [
       "Managed content scaling by integrating cloud storage services with Cloudinary and order processing via EmailJS.",
     ],
     // FIXED: All stack strings match the DEVICON_COMPONENTS keys
-    stack: ["React", "JavaScript", "Firebase", "TailwindCSS", "HTML/CSS"],
+    stack: ["React", "JavaScript", "Firebase", "TailwindCSS", "Git", "HTML/CSS"],
     languages: ["JavaScript"],
     frameworks: ["React", "TailwindCSS"],
-    infrastructure: ["Firebase", "HTML/CSS"],
+    infrastructure: ["Firebase", "Git", "HTML/CSS"],
   },
   {
     slug: "eco-rewards",
@@ -88,11 +88,12 @@ export const projects: Project[] = [
       "Node.js",
       "Express.js",
       "TailwindCSS",
+      "Git",
       "Google Gemini API",
     ],
     languages: ["TypeScript", "JavaScript"],
     frameworks: ["Expo",   "Express.js", "TailwindCSS"],
-    infrastructure: ["Firebase", "Google Gemini API"],
+    infrastructure: ["Firebase", "Git", "Google Gemini API"],
   },
 ];
 

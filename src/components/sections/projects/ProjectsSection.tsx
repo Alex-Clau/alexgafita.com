@@ -11,14 +11,14 @@ import { projects } from '@/data/portfolio';
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="space-y-8">
+    <section id="projects" className="w-full space-y-8 sm:space-y-10 md:space-y-12 relative z-10">
       <SectionHeader
         title="Main Projects"
-        description="Click a project card to see the full case study, stack, and links."
+        description="Click a project card to see details, tech stack, and links."
       />
 
       <motion.div
-        className="grid gap-6 md:grid-cols-3"
+        className="grid gap-6 sm:gap-8 md:grid-cols-3"
         variants={staggerContainer}
         {...scrollVariantsProps}
       >

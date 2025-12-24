@@ -10,11 +10,11 @@ export default function Home() {
   return (
     <main id="main-content" className="relative min-h-screen overflow-x-hidden text-foreground">
       <BackgroundAnimations />
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col gap-24 px-4 pb-24 sm:px-6 lg:px-8" style={{
-        paddingLeft: `calc(1rem + env(safe-area-inset-left))`,
-        paddingRight: `calc(1rem + env(safe-area-inset-right))`,
+      <HeroSection />
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col gap-20 sm:gap-28 md:gap-32 px-6 pb-20 sm:pb-28 md:pb-32 sm:px-6 lg:px-8" style={{
+        paddingLeft: `calc(2rem + env(safe-area-inset-left))`,
+        paddingRight: `calc(2rem + env(safe-area-inset-right))`,
       }}>
-        <HeroSection />
         <SkillsSection />
         <ProjectsSection />
         <ContactSection />

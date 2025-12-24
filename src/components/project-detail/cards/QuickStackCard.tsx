@@ -31,7 +31,7 @@ export function QuickStackCard({ project }: QuickStackCardProps) {
         transition={getOptimizedTransition({ duration: 0.2, delay: 0.05 })}
         className="space-y-2"
       >
-        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-blue-400/80">
+        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-stone-500">
           Quick Stack Summary
         </p>
         <motion.div
@@ -51,7 +51,7 @@ export function QuickStackCard({ project }: QuickStackCardProps) {
                   transition: getOptimizedTransition({ duration: 0.15 })
                 }
               }}
-              className="inline-flex items-center rounded-full border border-blue-800/50 bg-indigo-950/40 px-3 py-1 text-xs text-blue-200/90 backdrop-blur-sm"
+              className="inline-flex items-center border border-zinc-800 bg-zinc-900 px-3 py-1 text-xs text-stone-400"
             >
               {tech}
             </motion.span>
@@ -66,7 +66,7 @@ export function QuickStackCard({ project }: QuickStackCardProps) {
         <Button
           asChild
           size="lg"
-          className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-500 hover:to-indigo-500 font-semibold shadow-lg shadow-blue-900/50 hover:scale-105 hover:shadow-xl hover:shadow-blue-900/60"
+          className="bg-white text-black hover:bg-stone-200 font-medium border-0"
         >
           <a href={project.href} target="_blank" rel="noreferrer">
             View repository →

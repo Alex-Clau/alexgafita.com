@@ -6,7 +6,7 @@ import {
   ReactnativeOriginalWordmark,
   CplusplusPlain,
   DockerPlain,
-  ExpressOriginal,
+  ExpressOriginalWordmark,
   FirebasePlain,
   GitPlain,
   GooglePlain,
@@ -21,7 +21,7 @@ import {
   PythonPlain,
   ReactOriginal,
   TailwindcssPlainWordmark,
-  TypescriptPlain, ExpoOriginal
+  TypescriptPlain, ExpoOriginal,
 } from "devicons-react";
 
 export const DEVICON_COMPONENTS: Record<string, React.ComponentType<{ size?: string | number; className?: string }>> = {
@@ -38,18 +38,16 @@ export const DEVICON_COMPONENTS: Record<string, React.ComponentType<{ size?: str
   React: ReactOriginal,
   "Next.js": NextjsOriginal,
   "Node.js": NodejsOriginalWordmark,
-  "Express.js": ExpressOriginal,
+  "Express.js": ExpressOriginalWordmark,
   Expo: ExpoOriginal,
   TailwindCSS: TailwindcssPlainWordmark,
   // Tools & Infrastructure
   Git: GitPlain,
   Docker: DockerPlain,
   Firebase: FirebasePlain,
-  "Firebase (Firestore, Auth)": FirebasePlain,
   MongoDB: MongodbPlain,
   MySQL: MysqlPlainWordmark,
   "Google Gemini API": GooglePlain,
-  "AWS (Lambda, DynamoDB, S3, EC2)": AmazonwebservicesPlainWordmark,
-  "AWS (S3, CloudFront, CodePipeline, Lambda, DynamoDB, EC2)": AmazonwebservicesPlainWordmark,
+  AWS: AmazonwebservicesPlainWordmark,
 };
 

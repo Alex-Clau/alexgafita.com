@@ -23,19 +23,17 @@ export function SkillIcon({ label }: SkillIconProps) {
     <div className="relative group/icon">
       <motion.div
         variants={fadeScaleCenterVariants}
-        whileHover={{ scale: 1.15, y: -2, transition: { duration: 0.2 } }}
-        className="relative flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-xl border border-blue-900/60 bg-gradient-to-br from-indigo-950/30 to-blue-900/20 backdrop-blur-sm hover:border-blue-700/80 hover:bg-indigo-950/50 hover:shadow-xl hover:shadow-blue-900/50 hover:shadow-blue-500/30"
+        className="relative flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center border border-zinc-800 bg-zinc-950 hover:border-zinc-700 hover:bg-zinc-900 transition-colors"
         title={label}
         aria-label={label}
       >
-        <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-600/0 to-indigo-800/0 group-hover/icon:from-blue-600/20 group-hover/icon:to-indigo-800/10" />
         <IconComponent
-          className="relative z-10"
-          size="2.75rem"
+          size="2rem"
+          className={`relative z-10 w-[2.25rem] h-[2.25rem] sm:w-[2.5rem] sm:h-[2.5rem] ${label === 'Express.js' || label === 'Expo' ? 'brightness-0 invert' : ''}`}
         />
       </motion.div>
       <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 opacity-0 group-hover/icon:opacity-100 transition-opacity pointer-events-none z-50">
-        <div className="whitespace-nowrap rounded bg-indigo-950/95 px-2 py-1 text-xs text-blue-200 border border-blue-800/60 backdrop-blur-sm shadow-lg">
+        <div className="whitespace-nowrap bg-zinc-950 px-2 py-1 text-xs text-stone-300 border border-zinc-800">
           {displayName}
         </div>
       </div>

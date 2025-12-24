@@ -15,18 +15,20 @@ export function SectionHeader({
   return (
     <motion.div
       {...scrollAnimationProps}
-      className={cn('space-y-4', className)}
+      className={cn('space-y-3 sm:space-y-4', className)}
     >
-      <div className="flex items-center gap-4">
-        <div className="h-px flex-1 bg-gradient-to-r from-transparent via-blue-600/60 to-transparent" />
-        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-blue-50">
+      <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
+        <div className="h-px flex-1 bg-stone-800" />
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white">
           {title}
         </h2>
-        <div className="h-px flex-1 bg-gradient-to-r from-transparent via-blue-600/60 to-transparent" />
+        <div className="h-px flex-1 bg-stone-800" />
       </div>
-      <p className="max-w-2xl text-sm sm:text-base text-stone-300 leading-relaxed">
-        {description}
-      </p>
+      {description && (
+        <p className="max-w-6xl text-sm sm:text-base md:text-lg text-stone-400 leading-relaxed">
+          {description}
+        </p>
+      )}
     </motion.div>
   );
 }

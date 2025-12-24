@@ -24,7 +24,7 @@ export function HighlightsCard({ project }: HighlightsCardProps) {
       transition={getOptimizedTransition({ duration: 0.2 })}
       className="space-y-4"
     >
-      <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-300/95">
+      <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-stone-400">
         Highlights
       </h3>
       <motion.ul
@@ -46,7 +46,7 @@ export function HighlightsCard({ project }: HighlightsCardProps) {
             }}
             className="flex gap-3 group items-baseline"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-blue-400 group-hover:bg-blue-300 transition-colors flex-shrink-0 mt-[0.35em]" />
+            <span className="h-1.5 w-1.5 rounded-full bg-stone-500 group-hover:bg-stone-400 transition-colors flex-shrink-0 mt-[0.35em]" />
             <span className="text-base leading-relaxed text-stone-200 flex-1">{item}</span>
           </motion.li>
         ))}

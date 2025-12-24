@@ -17,36 +17,34 @@ export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <motion.div variants={fadeScaleDownVariants}>
       <Link href={`/projects/${project.slug}`} className="block group">
-        <Card className="overflow-hidden border border-blue-900/40 bg-black/40 backdrop-blur-sm rounded-xl hover:-translate-y-2 hover:border-blue-600/60 hover:shadow-[0_8px_32px_rgba(0,0,0,0.4),0_0_80px_rgba(59,130,246,0.3)] h-full flex flex-col p-0">
+        <Card className="overflow-hidden border border-zinc-800 bg-zinc-950 h-full flex flex-col p-0 gap-0 rounded-none hover:border-zinc-700 transition-colors shadow-none">
           {/* Image Section */}
-          <div className="relative aspect-2/1 w-full overflow-hidden bg-gradient-to-br from-indigo-950/20 to-blue-950/20 rounded-t-xl">
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/10 via-transparent to-transparent pointer-events-none" />
+          <div className="relative aspect-2/1 w-full overflow-hidden bg-zinc-950">
             <Image
               src={project.image}
               alt={`${project.name} - Project preview`}
               fill
               loading="lazy"
               decoding="async"
-              className="object-contain p-4 transition-transform duration-500 group-hover:scale-105 relative z-10"
+              className="object-contain p-3 sm:p-4"
               sizes="(min-width: 768px) 50vw, 100vw"
             />
           </div>
           
           {/* Content Section */}
-          <div className="p-5 sm:p-6 flex flex-col flex-1">
-            <CardTitle className="text-lg sm:text-xl font-bold text-blue-50 mb-2 group-hover:text-blue-100 transition-colors">
+          <div className="p-6 md:p-8 flex flex-col flex-1 border-t border-zinc-800">
+            <CardTitle className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">
               {project.name}
             </CardTitle>
-            <p className="text-sm text-stone-400 leading-relaxed line-clamp-2 mb-4 flex-1">
+            <p className="text-sm sm:text-base text-stone-400 leading-relaxed line-clamp-2 mb-5 sm:mb-6 flex-1">
               {project.description}
             </p>
-            <div className="flex items-center justify-between pt-2 border-t border-stone-800/40">
-              <span className="text-xs text-blue-400/70 font-medium">View details →</span>
-              <div className="flex gap-1.5">
+            <div className="hidden lg:flex items-center justify-end pt-4 border-t border-zinc-800 mt-auto">
+              <div className="flex gap-1.5 sm:gap-2">
                 {project.stack.slice(0, 3).map((tech) => (
                   <span
                     key={tech}
-                    className="text-xs px-2 py-0.5 rounded-full border border-blue-700/50 bg-indigo-950/50 text-blue-200 font-medium"
+                    className="text-xs px-2.5 py-1 border border-zinc-800 bg-zinc-900 text-stone-400 font-medium hover:border-zinc-700 hover:bg-zinc-800 transition-colors"
                   >
                     {tech}
                   </span>

@@ -1,110 +1,68 @@
-# 💼 Portfolio - Alex Gafița
+# Portfolio Website
 
-> A modern portfolio website showcasing software engineering projects and skills.  
-> **Deployed on AWS** as a fully serverless, cloud-native application.
+A production-ready portfolio website showcasing software engineering projects and technical skills. Built with Next.js and deployed as a fully serverless, cloud-native application on AWS.
 
----
-
-## ✨ Features
-
-- 🎨 **Modern Design** - Responsive dark theme with smooth animations
-- 📱 **Mobile Optimized** - iPhone safe area support (notch & home indicator)
-- ⚡ **Fast Navigation** - Loading screen on route changes
-- 🔍 **SEO Ready** - Open Graph and Twitter Cards optimized
-
----
-
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Frontend
-![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat&logo=next.js)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat&logo=typescript)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-38bdf8?style=flat&logo=tailwind-css)
-![Framer Motion](https://img.shields.io/badge/Framer%20Motion-12.23-0055ff?style=flat&logo=framer)
+- **Next.js 16** - React framework with App Router
+- **TypeScript** - Type-safe development
+- **Tailwind CSS** - Utility-first styling
+- **Framer Motion** - Declarative animations
 
-### Infrastructure
-![AWS](https://img.shields.io/badge/AWS-Serverless-FF9900?style=flat&logo=amazon-aws)
-![S3](https://img.shields.io/badge/S3-Storage-569A31?style=flat&logo=amazon-s3)
-![CloudFront](https://img.shields.io/badge/CloudFront-CDN-232F3E?style=flat&logo=amazon-aws)
-![CodePipeline](https://img.shields.io/badge/CodePipeline-CI%2FCD-FF9900?style=flat&logo=amazon-aws)
+### Infrastructure & DevOps
+- **AWS S3** - Static site hosting
+- **CloudFront** - Global CDN with edge caching
+- **Route 53** - DNS management
+- **CodePipeline** - Automated CI/CD pipeline
+- **CodeBuild** - Secure build environment
 
----
+## Architecture
 
-## 🏗️ AWS Architecture
-
-**Serverless deployment** demonstrating enterprise-grade infrastructure:
+The application is deployed as a serverless, cloud-native solution on AWS:
 
 | Service | Purpose |
 |---------|---------|
-| 🪣 **S3** | Static site hosting |
-| 🌐 **CloudFront** | Global CDN with edge caching (<10ms latency) |
-| 🔗 **Route 53** | DNS management |
-| 🔄 **CodePipeline** | Automated CI/CD with GitHub webhooks |
-| 🔨 **CodeBuild** | Secure build environment (IAM least-privilege) |
+| **S3** | Static site hosting |
+| **CloudFront** | Global CDN with edge caching (<10ms latency) |
+| **Route 53** | DNS management |
+| **CodePipeline** | Automated CI/CD with GitHub webhooks |
+| **CodeBuild** | Secure build environment with IAM least-privilege |
 
-### 🎯 Key CardHighlights
+### Key Features
 
-- ⚡ **Zero Cold Starts** - CloudFront Functions eliminate latency
-- 🔒 **Secure** - Origin Access Control (OAC) for S3 protection
-- 🚀 **Atomic Deployments** - Zero-downtime updates
-- 💰 **Cost Optimized** - Pay-per-use serverless model
-- 🤖 **Fully Automated** - No server management required
+- **Zero Cold Starts** - CloudFront Functions eliminate Lambda cold start latency
+- **Security** - Origin Access Control (OAC) for S3 protection
+- **Atomic Deployments** - Zero-downtime updates
+- **Cost Optimized** - Pay-per-use serverless model
+- **Fully Automated** - No server management required
 
-📖 See [ARCHITECTURE.md](./ARCHITECTURE.md) for detailed architecture.
+For detailed architecture documentation, see [ARCHITECTURE.md](./ARCHITECTURE.md).
 
----
+## Deployment
 
-## 🚀 Quick Start
+Deployment is automated via AWS CodePipeline. Every push to the `main` branch triggers:
 
-```bash
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-```
-
-🌐 Open [http://localhost:3000](http://localhost:3000)
-
-### 📜 Available Scripts
-
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm run lint` | Run ESLint |
-
----
-
-## 🚢 Deployment
-
-Automated via **AWS CodePipeline** on every push to `main`:
-
-```
-┌──────────────────┐     ┌──────────────┐     ┌───────────┐     ┌─────────────────┐
-│ GitHub Main Push │ --> │ CodePipeline │ --> │ CodeBuild │ --> │ S3 + CloudFront │
-└──────────────────┘     └──────────────┘     └───────────┘     └─────────────────┘
-```
-
-1. 🔔 GitHub webhook triggers CodePipeline
-2. 🔨 CodeBuild executes `buildspec.yml`:
+1. **GitHub Webhook** - Triggers CodePipeline
+2. **CodeBuild** - Executes `buildspec.yml`:
    - Builds Next.js static site
    - Syncs to S3 bucket
    - Invalidates CloudFront cache
-3. ✅ Zero-downtime atomic deployment
+3. **Atomic Deployment** - Zero-downtime update
 
----
+```
+GitHub Push → CodePipeline → CodeBuild → S3 + CloudFront
+```
 
-## 👨‍💻 Author
 
-**Alex Gafița**  
-🌐 [alexgafita.com](https://alexgafita.com)  
-💼 Software Engineer & Computer Science Student
+## License
 
----
+This project is private and proprietary.
 
-<div align="center">
 
-**Built with ❤️ using Next.js, TypeScript, and AWS Serverless Architecture**
+**Gafița Claudiu-Alexandru**  
+Software Developer & Cloud Engineer | Computer Science Student
 
-</div>
+- Website: [alexgafita.com](https://alexgafita.com)
+- GitHub: [@Alex-Clau](https://github.com/Alex-Clau)
+- LinkedIn: [alex-gafita](https://www.linkedin.com/in/alex-gafita)
