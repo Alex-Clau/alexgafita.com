@@ -3,7 +3,6 @@
 'use client';
 
 import { motion, useInView } from 'framer-motion';
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { getOptimizedTransition } from "@/lib/animations/transitions";
 import type { Project } from "@/types";
@@ -11,7 +10,6 @@ import Link from "next/link";
 import { useRef } from "react";
 import { ProjectHeader } from "./ProjectHeader";
 import { HighlightsCard } from "./cards/HighlightsCard";
-import { TechStackCard } from "./cards/TechStackCard";
 import { QuickStackCard } from "./cards/QuickStackCard";
 
 interface ProjectDetailPageProps {
@@ -66,15 +64,12 @@ export function ProjectDetailPage({ project }: ProjectDetailPageProps) {
 
             <div className="h-px bg-stone-800" />
 
-            <TechStackCard project={project} />
+            <QuickStackCard project={project} />
 
             <div className="h-px bg-stone-800" />
 
             <HighlightsCard project={project} />
 
-            <div className="h-px bg-stone-800" />
-
-            <QuickStackCard project={project} />
           </CardContent>
         </Card>
       </motion.div>

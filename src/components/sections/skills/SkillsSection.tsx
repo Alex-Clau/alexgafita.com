@@ -22,8 +22,8 @@ export function SkillsSection() {
         variants={staggerContainer}
         {...scrollVariantsProps}
       >
-        <SkillGroup title="Programming Languages" items={skills.languages} />
-        <SkillGroup title="Frameworks" items={skills.frameworks} />
+        <SkillGroup title="Programming Languages" items={skills.programmingLanguages} />
+        <SkillGroup title="Frameworks & Libraries" items={skills.frameworksLibraries} />
         <SkillGroup title="Cloud & DevOps" items={skills.cloudDevops} />
         <SkillGroup title="Databases & Tools" items={skills.databasesTools} />
       </motion.div>

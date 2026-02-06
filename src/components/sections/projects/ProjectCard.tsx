@@ -39,7 +39,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <p className="text-sm sm:text-base text-stone-400 leading-relaxed line-clamp-2 mb-5 sm:mb-6 flex-1">
               {project.description}
             </p>
-            <div className="hidden lg:flex items-center justify-end pt-4 border-t border-zinc-800 mt-auto">
+            <div className="hidden lg:flex items-center justify-start pt-4 border-t border-zinc-800 mt-auto">
               <div className="flex gap-1.5 sm:gap-2">
                 {project.stack.slice(0, 3).map((tech) => (
                   <span

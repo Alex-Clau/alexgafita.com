@@ -1,6 +1,6 @@
 // Centralized type definitions for the portfolio
 
-import { ReactNode } from 'react';
+import {JSX, ReactNode} from 'react';
 
 // Portfolio types
 export type Project = {
@@ -11,14 +11,11 @@ export type Project = {
   readonly description: string;
   readonly highlights: readonly string[];
   readonly stack: readonly string[];
-  readonly languages: readonly string[];
-  readonly frameworks: readonly string[];
-  readonly infrastructure: readonly string[];
 };
 
 export type Skills = {
-  readonly languages: readonly string[];
-  readonly frameworks: readonly string[];
+  readonly programmingLanguages: readonly string[];
+  readonly frameworksLibraries: readonly string[];
   readonly cloudDevops: readonly string[];
   readonly databasesTools: readonly string[];
 };
@@ -28,7 +25,7 @@ export type CardVariant = 'hero' | 'project' | 'contact' | 'skill';
 export type ButtonVariant = 'primary' | 'outline';
 
 export interface SectionHeaderProps {
-  readonly title: string;
+  readonly title: string | JSX.Element;
   readonly description: string;
   readonly className?: string;
 }

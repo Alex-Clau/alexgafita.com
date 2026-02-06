@@ -23,7 +23,7 @@ export function QuickStackCard({ project }: QuickStackCardProps) {
       initial={{ opacity: 0, scale: 0.95 }}
       animate={linksInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
       transition={getOptimizedTransition({ duration: 0.2 })}
-      className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-2"
+      className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2"
     >
       <motion.div
         initial={{ opacity: 0 }}

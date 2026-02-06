@@ -1,99 +1,87 @@
-import type { Project, Skills } from '@/types';
+import type {Project, Skills} from '@/types';
 
 export const skills: Skills = {
-  languages: [
+  programmingLanguages: [
     "JavaScript",
     "TypeScript",
-    "Python",
     "Java",
+    "Python",
     "C++",
     "SQL",
     "HTML/CSS",
   ],
-  frameworks: [
-    "Next.js",
+  frameworksLibraries: [
     "React",
+    "Next.js",
     "Node.js",
     "Express.js",
     "React Native",
+    "Expo",
     "TailwindCSS",
   ],
   cloudDevops: [
-    "AWS",
     "Git",
     "Docker",
+    "AWS",
+    "CI/CD"
   ],
   databasesTools: [
-    "Firebase",
-    "MongoDB",
+    "PostgreSQL",
     "MySQL",
+    "MongoDB",
+    "Firebase",
+    "Supabase",
     "Google Gemini API",
+    "Stripe API",
   ],
 };
 
 export const projects: Project[] = [
   {
-    slug: "portfolio",
-    name: "Portfolio Site",
-    href: "https://github.com/Alex-Clau/alexgafita.com",
-    image: "/logoPortfolio.png",
-    description:
-      "Personal portfolio website showcasing software engineering projects and skills.",
+    slug: "farmer-parcel-assistant",
+    name: "Farmer Parcel Assistant",
+    href: "https://github.com/Alex-Clau/FarmerParcelAssistant-CO2ANGELS",
+    image: "/projectIcons/farmerAssistant.png",
+    description: "Chat-based assistant that helps farmers get information about their parcels.",
     highlights: [
-      "Required a highly performant, production-level platform to showcase full-stack engineering proficiency",
-      "Developed with Next.js/TypeScript and built an automated CI/CD pipeline (CodePipeline) for deployment.",
-      "Engineered a Cloud-Native Serverless architecture, achieving zero-downtime atomic deployments",
-      "Integrated CloudFront Functions to optimize routing, ensuring zero cold starts and enhancing global latency",
+      "Designed a conversational backend system enabling complex parcel tracking for farmers at an AgriTech startup.",
+      "Containerized the application via Docker Compose to deploy the application on an AWS EC2 server.",
+      "Built a Node.js API with REST API design, strict message validation, unit tests and automated phone linking, using regex for intent classification and optional LLM context for complex request interpretation.",
+      "Integrated a minimal frontend interface to visualize message flow and demonstrate the backend's core capabilities."
     ],
-    stack: ["Next.js", "TypeScript", "TailwindCSS", "AWS", "Git", "HTML/CSS"],
-    languages: ["TypeScript"],
-    frameworks: ["Next.js", "TailwindCSS"],
-    infrastructure: ["AWS", "Git", "HTML/CSS"],
+    stack: ["JavaScript", "Node.js", "Docker", "React", "Express.js", "PostgreSQL", "Git", "TailwindCSS"],
   },
   {
     slug: "make-the-print",
-    name: "MakeThePrint – Online Store",
+    name: "MakeThePrint",
     href: "https://github.com/Alex-Clau/MakeThePrint-Website",
-    image: "/logoMakeThePrint.png",
+    image: "/projectIcons/makeThePrint.png",
     description:
-      "Online marketplace for 3D printable models where users browse, purchase, and order custom prints.",
+      "E-commerce store for 3D printable custom products.",
     highlights: [
-      "Delivered a secure React SPA for a startup to handle products, sales, reviews and content management.",
-      "Designed robust Firebase Auth and implemented a role-based admin dashboard for access control.",
-      "Optimized the application to achieve superior performance metrics, averaging LCP < 1.1s and INP < 100ms.",
-      "Managed content scaling by integrating cloud storage services with Cloudinary and order processing via EmailJS.",
+      "Built a full-stack e-commerce platform with product management, checkout, and real-time order updates.",
+      "Developed the application using Next.js to ensure high-performance SSR and optimized SEO for maximum visibility.",
+      "Engineered a PostgreSQL backend with Row Level Security, strict TypeScript validation and automated order processing, using Stripe Webhooks for safe transactions and algorithms for product pricing logic.",
+      "Designed a professional, intuitive UI via Tailwind and Framer Motion to ensure a user-friendly shopping experience.",
     ],
-    // FIXED: All stack strings match the DEVICON_COMPONENTS keys
-    stack: ["React", "JavaScript", "Firebase", "TailwindCSS", "Git", "HTML/CSS"],
-    languages: ["JavaScript"],
-    frameworks: ["React", "TailwindCSS"],
-    infrastructure: ["Firebase", "Git", "HTML/CSS"],
+    stack: ["TypeScript", "Next.js", "Stripe", "TailwindCSS", "Supabase", "Git"],
   },
   {
     slug: "eco-rewards",
-    name: "Eco Rewards – Mobile App",
+    name: "Eco Rewards",
     href: "https://github.com/Alex-Clau/Hackathon",
-    image: "/logoHackathon.png",
+    image: "/projectIcons/hackathonApp.png",
     description:
-      "Mobile app that gamifies sustainable fashion by rewarding users for donating and recycling clothing.",
+      "Mobile app that gamifies fashion by rewarding users for recycling clothing.",
     highlights: [
-      "Led a 6-member collaborative team to deliver an award-winning mobile solution for donating and recycling clothing.",
-      "Architected the full-stack system, leveraging Node.js/Express backend and React Native/Expo frontend.",
-      "Successfully integrated the Google Gemini API for real-time AI quality assessment and launched the winning solution.",
+      "Led a 6-member hackathon team to deliver the first place mobile solution for donating and recycling clothing.",
+      "Designed the full-stack system, using Node.js/Express as backend, React Native/Expo as frontend and Firebase.",
+      "Integrated Google Gemini API to perform AI-based quality assessment of donated clothing items.",
       "Implemented QR code generation and verification for secure offer redemption, demonstrating full-stack security.",
     ],
     stack: [
-      "Expo",
-      "Firebase",
-      "Node.js",
-      "Express.js",
-      "TailwindCSS",
-      "Git",
-      "Google Gemini API",
+      "JavaScript", "Node.js", "Expo", "Express.js", "NativeWindCSS", "Firebase", "Git", "Google Gemini API",
     ],
-    languages: ["TypeScript", "JavaScript"],
-    frameworks: ["Expo",   "Express.js", "TailwindCSS"],
-    infrastructure: ["Firebase", "Git", "Google Gemini API"],
   },
 ];
 
