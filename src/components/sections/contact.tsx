@@ -44,7 +44,7 @@ export function ContactSection() {
     >
       <SectionHeader
         title={<div className="flex flex-wrap items-center gap-3 sm:gap-4">
-          {links.map(({href, label, icon: Icon, primary}) => (
+          {links.map(({href, label, icon: Icon}) => (
             <Button
               key={label}
               asChild
