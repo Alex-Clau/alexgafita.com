@@ -54,7 +54,7 @@ export default async function ProjectPage({ params }: PageProps) {
     <main className="relative min-h-screen overflow-x-hidden text-foreground">
       <BackgroundAnimations />
 
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-4xl flex-col gap-8 px-6 pb-16 pt-12 sm:px-6 lg:px-8" style={{
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-4xl flex-col gap-6 px-6 pb-16 pt-8 sm:px-6 lg:px-8" style={{
         paddingLeft: `calc(2rem + env(safe-area-inset-left))`,
         paddingRight: `calc(2rem + env(safe-area-inset-right))`,
       }}>

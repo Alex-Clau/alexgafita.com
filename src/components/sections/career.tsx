@@ -38,7 +38,7 @@ const journeyItems: Array<{
 
 ];
 
-export function CareerJourneySection() {
+export function CarrerJourney() {
   return (
     <section
       id="journey"
@@ -77,15 +77,15 @@ export function CareerJourneySection() {
                   <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white">
                     {item.role}
                   </h3>
-                  <p className="mt-0.5 text-sm sm:text-base text-stone-200">
+                  <p className="mt-0.5 text-sm sm:text-base text-stone-200/85">
                     {item.company}
                   </p>
-                  <p className="mt-1 text-[11px] sm:text-xs text-stone-500 uppercase tracking-wide">
+                  <p className="mt-1 text-[11px] sm:text-xs text-stone-400/90 uppercase tracking-wide">
                     {item.period} · {item.location}
                   </p>
                 </div>
                 <div className="max-w-2xl space-y-2 ">
-                  <p className="text-sm sm:text-base text-stone-300 leading-relaxed">
+                  <p className="text-sm sm:text-base text-stone-200/85 leading-relaxed">
                     {item.description}
                   </p>
                   {item.skills.length > 0 && (
@@ -93,7 +93,7 @@ export function CareerJourneySection() {
                       {item.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="inline-flex items-center rounded-full border border-stone-700 bg-stone-900/70 px-2 py-0.5 text-xs text-stone-300"
+                          className="inline-flex items-center rounded-full border border-stone-700 bg-stone-900/70 px-2 py-0.5 text-xs text-stone-200/85"
                         >
                           {skill}
                         </span>

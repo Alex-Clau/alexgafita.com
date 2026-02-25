@@ -49,7 +49,7 @@ export const projects: Project[] = [
       "Built a Node.js API with REST API design, strict message validation, unit tests and automated phone linking, using regex for intent classification and optional LLM context for complex request interpretation.",
       "Integrated a minimal frontend interface to visualize message flow and demonstrate the backend's core capabilities."
     ],
-    stack: ["JavaScript", "Node.js", "Docker", "React", "Express.js", "PostgreSQL", "Git", "TailwindCSS"],
+    stack: ["JavaScript", "Node.js", "Docker", "React", "Express.js", "PostgreSQL", "TailwindCSS"],
   },
   {
     slug: "make-the-print",
@@ -64,7 +64,7 @@ export const projects: Project[] = [
       "Engineered a PostgreSQL backend with Row Level Security, strict TypeScript validation and automated order processing, using Stripe Webhooks for safe transactions and algorithms for product pricing logic.",
       "Designed a professional, intuitive UI via Tailwind and Framer Motion to ensure a user-friendly shopping experience.",
     ],
-    stack: ["TypeScript", "Next.js", "Stripe", "TailwindCSS", "Supabase", "Git"],
+    stack: ["TypeScript", "Next.js", "Stripe", "TailwindCSS", "Supabase"],
   },
   {
     slug: "eco-rewards",
@@ -80,7 +80,7 @@ export const projects: Project[] = [
       "Implemented QR code generation and verification for secure offer redemption, demonstrating full-stack security.",
     ],
     stack: [
-      "JavaScript", "Node.js", "Expo", "Express.js", "NativeWindCSS", "Firebase", "Git", "Google Gemini API",
+      "JavaScript", "Node.js", "Expo", "Express.js", "NativeWindCSS", "Firebase", "Google Gemini API",
     ],
   },
 ];

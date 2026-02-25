@@ -30,7 +30,7 @@ export function StackBadges({ items, className = "" }: StackBadgesProps) {
                 className={`w-[2.25rem] h-[2.25rem] sm:w-[2.5rem] sm:h-[2.5rem] ${item === 'Express.js' || item === 'Expo' ? 'brightness-0 invert' : ''}`}
               />
               <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
-                <div className="whitespace-nowrap bg-zinc-950 px-2 py-1 text-xs text-stone-300 border border-zinc-800">
+                <div className="whitespace-nowrap bg-zinc-950 px-2 py-1 text-xs text-stone-200/85 border border-zinc-800">
                   {displayName}
                 </div>
               </div>

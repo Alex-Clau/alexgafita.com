@@ -33,7 +33,7 @@ export function SkillIcon({ label }: SkillIconProps) {
         />
       </motion.div>
       <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 opacity-0 group-hover/icon:opacity-100 transition-opacity pointer-events-none z-50">
-        <div className="whitespace-nowrap bg-zinc-950 px-2 py-1 text-xs text-stone-300 border border-zinc-800">
+        <div className="whitespace-nowrap bg-zinc-950 px-2 py-1 text-xs text-stone-200/85 border border-zinc-800">
           {displayName}
         </div>
       </div>

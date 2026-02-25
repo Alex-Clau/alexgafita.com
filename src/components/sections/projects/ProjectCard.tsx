@@ -36,7 +36,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <CardTitle className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">
               {project.name}
             </CardTitle>
-            <p className="text-sm sm:text-base text-stone-400 leading-relaxed line-clamp-2 mb-5 sm:mb-6 flex-1">
+            <p className="text-sm sm:text-base text-stone-300/90 leading-relaxed line-clamp-2 mb-5 sm:mb-6 flex-1">
               {project.description}
             </p>
             <div className="hidden lg:flex items-center justify-start pt-4 border-t border-zinc-800 mt-auto">
@@ -44,7 +44,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 {project.stack.slice(0, 3).map((tech) => (
                   <span
                     key={tech}
-                    className="text-xs px-2.5 py-1 border border-zinc-800 bg-zinc-900 text-stone-400 font-medium hover:border-zinc-700 hover:bg-zinc-800 transition-colors"
+                    className="text-xs px-2.5 py-1 border border-zinc-800 bg-zinc-900 text-stone-300/90 font-medium hover:border-zinc-700 hover:bg-zinc-800 transition-colors"
                   >
                     {tech}
                   </span>

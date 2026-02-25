@@ -1,13 +1,11 @@
-// Header section for project detail page with logo and title
+// Hero section for project detail: image (no box) + title + CTA
 
 'use client';
 
 import { motion } from "framer-motion";
 import { getOptimizedTransition } from "@/lib/animations/transitions";
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { CardHeader, CardTitle } from "@/components/ui/card";
 import type { Project } from "@/types";
 
 interface ProjectHeaderProps {
@@ -16,41 +14,47 @@ interface ProjectHeaderProps {
 
 export function ProjectHeader({ project }: ProjectHeaderProps) {
   return (
-    <CardHeader className="flex flex-col sm:flex-row items-start sm:items-center gap-6 p-6 sm:p-8 md:p-10">
+    <header className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-8 mb-6 sm:mb-8">
       <motion.div
-        initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-        animate={{ opacity: 1, scale: 1, rotate: 0 }}
-        transition={getOptimizedTransition({ duration: 0.25, delay: 0.1 })}
-        className="relative h-20 w-20 sm:h-24 sm:w-24 overflow-hidden border border-zinc-800 bg-zinc-950 flex-shrink-0"
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={getOptimizedTransition({ duration: 0.25, delay: 0.05 })}
+        className="relative h-24 w-24 sm:h-32 sm:w-32 flex-shrink-0 overflow-hidden rounded-2xl"
       >
         <Image
           src={project.image}
-          alt={`${project.name} logo`}
+          alt={`${project.name}`}
           fill
-          loading="lazy"
+          loading="eager"
           decoding="async"
-          sizes="(min-width: 640px) 96px, 80px"
-          className="object-contain p-2"
+          sizes="(min-width: 640px) 128px, 96px"
+          className="object-contain"
         />
       </motion.div>
-      
+
       <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={getOptimizedTransition({ duration: 0.2, delay: 0.15 })}
-        className="flex-1"
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={getOptimizedTransition({ duration: 0.2, delay: 0.1 })}
+        className="flex-1 min-w-0 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
       >
-        <CardTitle className="text-2xl sm:text-3xl font-bold text-white mb-2">
-          {project.name}
-        </CardTitle>
-        <motion.div
-          initial={{ width: 0, opacity: 0 }}
-          animate={{ width: 64, opacity: 1 }}
-          transition={getOptimizedTransition({ duration: 0.25, delay: 0.2 })}
-          className="h-px bg-stone-800"
-        />
+        <div>
+          <h1 className="text-2xl sm:text-3xl font-bold text-white mb-1">
+            {project.name}
+          </h1>
+          <div className="h-px w-12 bg-stone-600" />
+        </div>
+        <Button
+          asChild
+          size="lg"
+          className="min-h-[44px] w-full sm:w-auto bg-white text-black hover:bg-stone-200 font-medium border-0 shrink-0"
+        >
+          <a href={project.href} target="_blank" rel="noreferrer" aria-label="View repository">
+            View repository →
+          </a>
+        </Button>
       </motion.div>
-    </CardHeader>
+    </header>
   );
 }
 

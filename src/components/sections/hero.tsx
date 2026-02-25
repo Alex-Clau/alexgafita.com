@@ -44,7 +44,7 @@ export function HeroSection() {
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white">
                 Gafița Claudiu-Alexandru
               </h1>
-              <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 sm:gap-3 text-base sm:text-lg md:text-xl text-stone-400">
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 sm:gap-3 text-base sm:text-lg md:text-xl text-stone-300/90">
                   <span>Software Developer</span>
                   <span className="text-stone-600">·</span>
                   <span>Cloud Engineer</span>
@@ -54,7 +54,7 @@ export function HeroSection() {
             </motion.div>
 
             <motion.div variants={heroItemVariants} className="pt-2 sm:pt-4">
-              <p className="text-stone-400 text-sm sm:text-base md:text-lg leading-relaxed">
+              <p className="text-stone-300/90 text-sm sm:text-base md:text-lg leading-relaxed">
                 Building scalable backend systems, cloud infrastructure, and APIs. 
               </p>
             </motion.div>
@@ -76,7 +76,7 @@ export function HeroSection() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="border border-stone-700 text-stone-300 hover:bg-stone-900 hover:text-white hover:border-stone-600 font-medium px-6 py-5 sm:px-8 sm:py-6 text-sm sm:text-base"
+                className="border border-stone-700 text-stone-200/85 hover:bg-stone-900 hover:text-white hover:border-stone-600 font-medium px-6 py-5 sm:px-8 sm:py-6 text-sm sm:text-base"
                 aria-label="Navigate to contact section"
               >
                 <a href="#contact">Get in Touch</a>

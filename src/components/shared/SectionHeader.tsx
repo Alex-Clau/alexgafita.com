@@ -25,7 +25,7 @@ export function SectionHeader({
         <div className="h-px flex-1 bg-stone-800" />
       </div>
       {description && (
-        <p className="flex flex-col items-center text-sm sm:text-base md:text-lg text-stone-400 leading-relaxed">
+        <p className="flex flex-col items-center text-sm sm:text-base md:text-lg text-stone-300/90 leading-relaxed">
           {description}
         </p>
       )}

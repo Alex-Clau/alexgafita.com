@@ -49,7 +49,7 @@ export function ContactSection() {
               key={label}
               asChild
               size="icon"
-              className={'size-12 sm:size-14 rounded-md border border-zinc-800 text-stone-400 hover:bg-zinc-900 hover:text-white hover:border-zinc-700 [&_svg]:size-5 transition-colors'}
+              className={'size-12 sm:size-14 rounded-md border border-zinc-800 text-stone-300/90 hover:bg-zinc-900 hover:text-white hover:border-zinc-700 [&_svg]:size-5 transition-colors'}
             >
               <a
                 href={href}

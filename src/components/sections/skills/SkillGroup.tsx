@@ -19,7 +19,7 @@ export function SkillGroup({ title, items }: SkillGroupProps) {
     >
       <div className="space-y-5 sm:space-y-6 border border-zinc-800 bg-zinc-950 p-4 sm:p-6 md:p-7 hover:border-zinc-700 transition-colors">
         <div className="relative">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-stone-400 mb-1.5 sm:mb-2">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-stone-300/90 mb-1.5 sm:mb-2">
             {title}
           </p>
           <div className="h-px w-12 sm:w-16 bg-stone-800" />
