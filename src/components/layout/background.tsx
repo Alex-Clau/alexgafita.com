@@ -3,11 +3,13 @@
 import { MeshGradient } from "@paper-design/shaders-react";
 import { useEffect, useState } from "react";
 
-// Quiet Nord wash: polar night + one muted frost accent
+// Original Nord atmosphere palette on Paper MeshGradient
 const NORD_MESH_COLORS = [
-  "#2e3440", // nord0
+  "#2e3440", // nord0 — polar night
   "#3b4252", // nord1
-  "#5e81ac", // nord10
+  "#88c0d0", // nord8 — frost cyan
+  "#5e81ac", // nord10 — frost blue
+  "#8fbcbb", // nord7 — frost teal
 ];
 
 export function BackgroundAnimations() {
@@ -37,15 +39,15 @@ export function BackgroundAnimations() {
           inset: 0,
           width: "100%",
           height: "100%",
-          opacity: 0.32,
+          opacity: 0.28,
         }}
       />
-      {/* Soft frost veil so the mesh stays lowkey */}
+      {/* Soft frost veil matching the original CSS glow */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(90% 60% at 50% -10%, rgba(136, 192, 208, 0.08), transparent 55%)",
+            "radial-gradient(90% 60% at 50% -10%, rgba(136, 192, 208, 0.1), transparent 55%)",
         }}
       />
     </div>
