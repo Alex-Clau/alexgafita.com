@@ -1,4 +1,5 @@
-/* Nord theme - Polar Night backgrounds, Snow Storm text, Frost accent */
+/* Nord theme - Polar Night backgrounds, Snow Storm text, Frost accent.
+   Hex values live only here. UI and atmosphere consume semantic tokens. */
 
 @theme {
   --color-background: var(--background);
@@ -21,6 +22,8 @@
   --color-ring: var(--ring);
   --color-surface: var(--surface);
   --color-heading: var(--heading);
+
+  /* Full Nord scale for rare direct use (prefer semantic tokens in UI) */
   --color-nord0: var(--nord0);
   --color-nord1: var(--nord1);
   --color-nord2: var(--nord2);
@@ -28,8 +31,16 @@
   --color-nord4: var(--nord4);
   --color-nord5: var(--nord5);
   --color-nord6: var(--nord6);
+  --color-nord7: var(--nord7);
   --color-nord8: var(--nord8);
   --color-nord9: var(--nord9);
+  --color-nord10: var(--nord10);
+  --color-nord11: var(--nord11);
+  --color-nord12: var(--nord12);
+  --color-nord13: var(--nord13);
+  --color-nord14: var(--nord14);
+  --color-nord15: var(--nord15);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --radius-sm: calc(var(--radius) - 4px);
@@ -65,6 +76,7 @@
   --nord14: #a3be8c;
   --nord15: #b48ead;
 
+  /* Semantic UI tokens */
   --background: var(--nord0);
   --foreground: var(--nord4);
   --heading: var(--nord6);
@@ -85,6 +97,19 @@
   --input: var(--nord2);
   --ring: var(--nord8);
   --surface: var(--nord1);
+
+  /* Atmosphere — mesh stops + frost wash (alpha via color-mix, no hard rgba) */
+  --atmosphere-mesh-1: var(--nord0);
+  --atmosphere-mesh-2: var(--nord1);
+  --atmosphere-mesh-3: var(--nord8);
+  --atmosphere-mesh-4: var(--nord10);
+  --atmosphere-mesh-5: var(--nord7);
+  --atmosphere-mesh-opacity: 0.5;
+
+  --atmosphere-glow-top: color-mix(in srgb, var(--nord8) 14%, transparent);
+  --atmosphere-glow-a: color-mix(in srgb, var(--nord8) 12%, transparent);
+  --atmosphere-glow-b: color-mix(in srgb, var(--nord10) 10%, transparent);
+  --atmosphere-glow-c: color-mix(in srgb, var(--nord7) 8%, transparent);
 
   overflow-x: hidden;
 }

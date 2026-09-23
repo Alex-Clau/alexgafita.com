@@ -1,9 +1,52 @@
 /* Fix gradient button rendering issues - prevent flicker and sizing problems */
 
 [data-slot="button"][class*="bg-gradient"] {
-    will-change: transform, background-image; /* Optimize GPU rendering */
-    backface-visibility: hidden; /* Prevent flicker on transforms */
-    transition: background-image 0.2s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth gradient transitions */
-    background-origin: padding-box; /* Fix gradient clipping */
-    background-clip: padding-box; /* Fix gradient clipping */
+  will-change: transform, background-image; /* Optimize GPU rendering */
+  backface-visibility: hidden; /* Prevent flicker on transforms */
+  transition: background-image 0.2s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth gradient transitions */
+  background-origin: padding-box; /* Fix gradient clipping */
+  background-clip: padding-box; /* Fix gradient clipping */
+}
+
+/* Site atmosphere — colors come from semantic tokens in colors.css */
+.site-atmosphere {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.site-atmosphere__base,
+.site-atmosphere__mesh,
+.site-atmosphere__glow {
+  position: absolute;
+  inset: 0;
+}
+
+.site-atmosphere__base {
+  background: linear-gradient(
+    180deg,
+    var(--background) 0%,
+    var(--surface) 48%,
+    var(--background) 100%
+  );
+}
+
+.site-atmosphere__mesh {
+  opacity: var(--atmosphere-mesh-opacity);
+}
+
+.site-atmosphere__mesh > canvas,
+.site-atmosphere__mesh > * {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.site-atmosphere__glow {
+  background:
+    radial-gradient(120% 80% at 50% -10%, var(--atmosphere-glow-top), transparent 55%),
+    radial-gradient(42% 34% at 18% 22%, var(--atmosphere-glow-a), transparent 70%),
+    radial-gradient(36% 30% at 82% 18%, var(--atmosphere-glow-b), transparent 72%),
+    radial-gradient(48% 38% at 68% 78%, var(--atmosphere-glow-c), transparent 75%);
 }

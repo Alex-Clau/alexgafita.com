@@ -78,7 +78,7 @@ export function CareerJourney() {
             className="relative z-10"
             variants={fadeScaleDownVariants}
           >
-            <div className="absolute -left-1 sm:-left-1.5 top-2 sm:top-2.5 h-3 w-3 rounded-full border border-primary bg-primary shadow-[0_0_0_3px_rgba(46,52,64,0.95)]"/>
+            <div className="absolute -left-1 sm:-left-1.5 top-2 sm:top-2.5 h-3 w-3 rounded-full border border-primary bg-primary shadow-[0_0_0_3px_var(--background)]"/>
             <div className="ml-4 sm:ml-5 md:ml-6">
               <div className="grid gap-3 sm:gap-4 md:gap-8 lg:gap-10 grid-cols-1 md:grid-cols-[280px_1fr] lg:grid-cols-[320px_1fr] items-start">
                 <div>
