@@ -18,7 +18,7 @@ export function SkillsSection() {
       />
 
       <motion.div
-        className="grid gap-6 sm:gap-8 md:grid-cols-2 xl:grid-cols-3 overflow-visible"
+        className="mx-auto max-w-4xl space-y-8 sm:space-y-10"
         variants={staggerContainer}
         {...scrollVariantsProps}
       >

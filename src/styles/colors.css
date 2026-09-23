@@ -21,6 +21,15 @@
   --color-ring: var(--ring);
   --color-surface: var(--surface);
   --color-heading: var(--heading);
+  --color-nord0: var(--nord0);
+  --color-nord1: var(--nord1);
+  --color-nord2: var(--nord2);
+  --color-nord3: var(--nord3);
+  --color-nord4: var(--nord4);
+  --color-nord5: var(--nord5);
+  --color-nord6: var(--nord6);
+  --color-nord8: var(--nord8);
+  --color-nord9: var(--nord9);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --radius-sm: calc(var(--radius) - 4px);
