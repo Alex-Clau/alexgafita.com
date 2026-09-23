@@ -8,10 +8,9 @@
     background-clip: padding-box; /* Fix gradient clipping */
 }
 
-/* Ambient mesh + architectural grid background */
+/* Ambient mesh background */
 .site-atmosphere__base,
-.site-atmosphere__mesh,
-.site-atmosphere__grid {
+.site-atmosphere__mesh {
   position: absolute;
   inset: 0;
 }
@@ -33,15 +32,6 @@
   animation: site-atmosphere-drift 28s ease-in-out infinite alternate;
   will-change: transform;
   transform: translate3d(0, 0, 0);
-}
-
-.site-atmosphere__grid {
-  background-image:
-    linear-gradient(rgba(76, 86, 106, 0.18) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(76, 86, 106, 0.18) 1px, transparent 1px);
-  background-size: 72px 72px;
-  mask-image: radial-gradient(ellipse 75% 65% at 50% 35%, black 20%, transparent 78%);
-  opacity: 0.35;
 }
 
 @keyframes site-atmosphere-drift {
