@@ -1,29 +1,40 @@
-// Skill group styled like Experience entries
+// Skill group as a numbered inventory row inside the stack panel
 
 'use client';
 
 import { motion } from 'framer-motion';
-import { fadeScaleDownVariants } from '@/lib/animations/variants';
+import { fadeScaleVariants } from '@/lib/animations/variants';
 
 interface SkillGroupProps {
+  readonly index: number;
   readonly title: string;
   readonly items: readonly string[];
 }
 
-export function SkillGroup({ title, items }: SkillGroupProps) {
+export function SkillGroup({ index, title, items }: SkillGroupProps) {
+  const label = String(index + 1).padStart(2, '0');
+
   return (
     <motion.article
-      variants={fadeScaleDownVariants}
-      className="grid gap-3 sm:gap-4 md:gap-8 lg:gap-10 grid-cols-1 md:grid-cols-[280px_1fr] lg:grid-cols-[320px_1fr] items-start border-t border-border pt-6 sm:pt-8 first:border-t-0 first:pt-0"
+      variants={fadeScaleVariants}
+      className="group grid gap-4 sm:gap-6 sm:grid-cols-[3.5rem_1fr] lg:grid-cols-[4rem_minmax(12rem,16rem)_1fr] items-start py-6 sm:py-7 first:pt-0 last:pb-0"
     >
-      <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-heading">
+      <span
+        className="font-mono text-sm sm:text-base tracking-widest text-primary/80 group-hover:text-primary transition-colors"
+        aria-hidden="true"
+      >
+        {label}
+      </span>
+
+      <h3 className="text-base sm:text-lg font-semibold text-heading sm:pt-0.5">
         {title}
       </h3>
-      <ul className="flex flex-wrap gap-1.5 max-w-2xl">
+
+      <ul className="flex flex-wrap gap-2 sm:col-span-2 lg:col-span-1 sm:pt-0.5">
         {items.map((item) => (
           <li
             key={item}
-            className="inline-flex items-center border border-border bg-surface/70 px-2 py-0.5 text-xs text-foreground"
+            className="inline-flex items-center border border-primary/25 bg-background/40 px-3 py-1.5 text-sm text-foreground group-hover:border-primary/45 transition-colors"
           >
             {item}
           </li>
