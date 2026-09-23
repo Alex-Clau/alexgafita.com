@@ -25,7 +25,7 @@ export function HighlightsCard({ project }: HighlightsCardProps) {
       className="space-y-4"
     >
       <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-stone-300/90">
-        Highlights
+        What I built
       </h3>
       <motion.ul
         className="space-y-3"

@@ -16,13 +16,13 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
     title: "Gafița Alex - Full-Stack Developer",
-    description: "Full-stack developer at Moonlysoft, leaning into backend work and AI automation. TypeScript, React, and Spring Boot.",
-    keywords: ["Full-Stack Developer", "React", "TypeScript", "Spring Boot", "Java", "Next.js", "Portfolio"],
+    description: "Full-stack developer at Moonlysoft. Promoted from intern; owns features, backend architecture, client collaboration, and AI automation.",
+    keywords: ["Full-Stack Developer", "Spring Boot", "TypeScript", "React", "Java", "Architecture", "AI Orchestration", "Portfolio"],
     authors: [{name: "Gafița Alex", url: "https://alexgafita.com"}],
     creator: "Gafița Alex",
     openGraph: {
       title: "Gafița Alex - Full-Stack Developer",
-      description: "Full-stack developer at Moonlysoft, leaning into backend work and AI automation.",
+      description: "Promoted from intern to full-stack at Moonlysoft. Backend architecture, client collaboration, and AI automation.",
       type: "website",
       url: "https://alexgafita.com",
       siteName: "Gafița Alex Portfolio",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     twitter: {
       card: "summary_large_image",
       title: "Gafița Alex - Full-Stack Developer",
-      description: "Full-stack developer at Moonlysoft, leaning into backend work and AI automation.",
+      description: "Promoted from intern to full-stack at Moonlysoft. Backend architecture, client collaboration, and AI automation.",
     },
     robots: {
       index: true,

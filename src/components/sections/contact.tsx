@@ -1,4 +1,4 @@
-// Contact section with a direct email and profile links
+// Contact section with profile links and a short personal footnote
 
 'use client';
 
@@ -44,19 +44,7 @@ export function ContactSection() {
     >
       <SectionHeader
         title="Get in touch"
-        description={
-          <span className="flex flex-col items-center gap-3 text-center">
-            <a
-              href="mailto:alexgafita47@gmail.com"
-              className="text-white hover:text-stone-200 transition-colors"
-            >
-              alexgafita47@gmail.com
-            </a>
-            <span className="max-w-xl text-sm sm:text-base text-stone-400">
-              Outside of work I go to DevTalks, volunteer with the Untold crew for the second year, and spend the rest of the time at the gym.
-            </span>
-          </span>
-        }
+        description="GitHub, LinkedIn, or email. Happy to talk about the work above."
       />
 
       <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
@@ -78,6 +66,10 @@ export function ContactSection() {
           </Button>
         ))}
       </div>
+
+      <p className="text-center text-xs sm:text-sm text-stone-500 max-w-lg mx-auto">
+        Outside work: DevTalks, second year with the Untold crew, and the gym.
+      </p>
     </motion.section>
   );
 }

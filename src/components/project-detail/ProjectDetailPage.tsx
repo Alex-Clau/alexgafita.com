@@ -1,23 +1,24 @@
-// Main component for displaying project detail page – clean layout, no card box
+// Project detail page as a short case study
 
 'use client';
 
 import { motion, useInView } from 'framer-motion';
-import { getOptimizedTransition } from "@/lib/animations/transitions";
-import type { Project } from "@/types";
-import Link from "next/link";
-import { useRef } from "react";
-import { ProjectHeader } from "./ProjectHeader";
-import { HighlightsCard } from "./cards/HighlightsCard";
-import { QuickStackCard } from "./cards/QuickStackCard";
+import { getOptimizedTransition } from '@/lib/animations/transitions';
+import type { Project } from '@/types';
+import Link from 'next/link';
+import { useRef } from 'react';
+import { ProjectHeader } from './ProjectHeader';
+import { HighlightsCard } from './cards/HighlightsCard';
+import { QuickStackCard } from './cards/QuickStackCard';
+import { DecisionsCard } from './cards/DecisionsCard';
 
 interface ProjectDetailPageProps {
   readonly project: Project;
 }
 
 export function ProjectDetailPage({ project }: ProjectDetailPageProps) {
-  const descriptionRef = useRef(null);
-  const descriptionInView = useInView(descriptionRef, { once: true, amount: 0.2 });
+  const problemRef = useRef(null);
+  const problemInView = useInView(problemRef, { once: true, amount: 0.2 });
 
   return (
     <>
@@ -30,7 +31,7 @@ export function ProjectDetailPage({ project }: ProjectDetailPageProps) {
         <Link
           href="/"
           aria-label="Back to home"
-          className="inline-flex items-center gap-1.5 min-h-[44px] items-center text-xs sm:text-sm text-stone-400/90 hover:text-stone-200 transition-colors uppercase tracking-wider"
+          className="inline-flex items-center gap-1.5 min-h-[44px] text-xs sm:text-sm text-stone-400/90 hover:text-stone-200 transition-colors uppercase tracking-wider"
         >
           <span className="text-stone-600">←</span>
           <span>Back</span>
@@ -47,16 +48,16 @@ export function ProjectDetailPage({ project }: ProjectDetailPageProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-[1fr_minmax(0,280px)] gap-6 sm:gap-8 items-start">
           <motion.section
-            ref={descriptionRef}
+            ref={problemRef}
             initial={{ opacity: 0, y: 8 }}
-            animate={descriptionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
+            animate={problemInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
             transition={getOptimizedTransition({ duration: 0.2 })}
             className="space-y-2 max-w-2xl"
           >
             <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-stone-400/90">
-              Overview
+              Problem
             </h2>
-            <p className="text-base leading-relaxed text-stone-200/85">{project.description}</p>
+            <p className="text-base leading-relaxed text-stone-200/85">{project.problem}</p>
           </motion.section>
 
           <QuickStackCard project={project} />
@@ -65,6 +66,12 @@ export function ProjectDetailPage({ project }: ProjectDetailPageProps) {
         <div className="pt-2 border-t border-stone-800/80">
           <HighlightsCard project={project} />
         </div>
+
+        {project.decisions?.length ? (
+          <div className="pt-2 border-t border-stone-800/80">
+            <DecisionsCard project={project} />
+          </div>
+        ) : null}
       </motion.div>
     </>
   );

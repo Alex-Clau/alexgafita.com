@@ -13,12 +13,12 @@ export function SkillsSection() {
   return (
     <section id="skills" className="w-full space-y-8 sm:space-y-10 md:space-y-12 relative z-10">
       <SectionHeader
-        title="Stack"
-        description="Spring Boot and TypeScript first. Around them, the integrations a product needs, and the checks that say when production breaks. I also work on AI orchestration — agents, rules, and skills — so more of the repetitive work can be handed off."
+        title="Skills & Stack"
+        description="Curated by how production software is built: core application work, data and infrastructure, business integrations, observability, and agentic AI workflows."
       />
 
       <motion.div
-        className="grid gap-6 sm:gap-8 lg:grid-cols-3 overflow-visible"
+        className="grid gap-6 sm:gap-8 md:grid-cols-2 xl:grid-cols-3 overflow-visible"
         variants={staggerContainer}
         {...scrollVariantsProps}
       >

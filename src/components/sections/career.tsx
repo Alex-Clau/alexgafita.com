@@ -23,7 +23,7 @@ const journeyItems: Array<{
     period: 'May 2026 – Present',
     location: 'Cluj-Napoca · Hybrid',
     description:
-      'Stayed on after the internship as a full-stack developer. I work hands-on in a React and Spring Boot product, take part in architectural decisions, and join the client meetings. The role keeps teaching me the backend, how the project is planned, and how to automate more of the work with AI.',
+      'Promoted from Intern to Full-Stack Developer, owning feature lifecycles across a React and Spring Boot product. I lead architectural decisions on the backend, partner with clients in sprint planning and requirements gathering, and use AI orchestration to automate more of the engineering work.',
     skills: ['React', 'TypeScript', 'Spring Boot', 'Java'],
   },
   {
@@ -32,7 +32,7 @@ const journeyItems: Array<{
     period: 'Feb 2026 – Apr 2026',
     location: 'Remote',
     description:
-      'Shipped full-stack features in the same React and Spring Boot product, from REST APIs to the interface, inside an agile team.',
+      'Delivered full-stack features in the same product, from REST APIs to the interface. That work led to the full-time role and ownership of the systems I helped build.',
     skills: ['React', 'TypeScript', 'Spring Boot', 'Java'],
   },
   {
@@ -41,7 +41,7 @@ const journeyItems: Array<{
     period: 'Jan 2025 – Present',
     location: 'Remote',
     description:
-      'Built the store for a custom 3D-printing business, and brought the public site in line with the rebrand.',
+      'Built and still maintain a production 3D-printing store: catalog, custom orders, Stripe checkout, and the rebranded public site.',
     skills: ['Next.js', 'TypeScript', 'Supabase', 'Stripe'],
   },
 ];
@@ -55,7 +55,7 @@ export function CareerJourney() {
     >
       <SectionHeader
         title="Experience"
-        description="Full-stack at Moonlysoft since the internship, with more of the work moving into the backend, and the store I still run on the side."
+        description="Promoted from intern to full-stack at Moonlysoft. Ownership of features, backend architecture, and direct client work."
         className="text-center"
       />
 
@@ -101,7 +101,7 @@ export function CareerJourney() {
                       {item.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="inline-flex items-center rounded-full border border-stone-700 bg-stone-900/70 px-2 py-0.5 text-xs text-stone-200/85"
+                          className="inline-flex items-center border border-stone-700 bg-stone-900/70 px-2 py-0.5 text-xs text-stone-200/85"
                         >
                           {skill}
                         </span>

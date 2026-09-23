@@ -3,6 +3,15 @@
 import {JSX, ReactNode} from 'react';
 
 // Portfolio types
+export type ProjectDecision = {
+  readonly title: string;
+  readonly context: string;
+  readonly rejected: readonly string[];
+  readonly choice: string;
+  readonly tradeoff: string;
+  readonly retrospective: string;
+};
+
 export type Project = {
   readonly slug: string;
   readonly name: string;
@@ -11,7 +20,9 @@ export type Project = {
   readonly image: string;
   readonly imageFit?: 'cover' | 'contain';
   readonly description: string;
+  readonly problem: string;
   readonly highlights: readonly string[];
+  readonly decisions?: readonly ProjectDecision[];
   readonly stack: readonly string[];
 };
 

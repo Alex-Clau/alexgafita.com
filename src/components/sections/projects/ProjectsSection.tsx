@@ -14,7 +14,7 @@ export function ProjectsSection() {
     <section id="projects" className="w-full space-y-8 sm:space-y-10 md:space-y-12 relative z-10">
       <SectionHeader
         title="Projects"
-        description="MakeThePrint is the live store, after a full rebrand. The parcel assistant and Eco Rewards stay because they are finished systems, not exercises."
+        description="Three end-to-end systems. Each detail page starts with the business problem, then what shipped, then the architecture decision records."
       />
 
       <motion.div

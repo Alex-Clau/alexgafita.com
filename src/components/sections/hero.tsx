@@ -53,7 +53,7 @@ export function HeroSection() {
 
             <motion.div variants={heroItemVariants} className="pt-2 sm:pt-4">
               <p className="text-stone-300/90 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl">
-                Leaning into the backend. I take part in the architecture and the client meetings, and I use AI to automate more of the engineering work.
+                I identify the business problem, architect the solution, ship it, and keep it running — backend-leaning full-stack work at Moonlysoft, with client collaboration and AI automation around the product.
               </p>
             </motion.div>
 
