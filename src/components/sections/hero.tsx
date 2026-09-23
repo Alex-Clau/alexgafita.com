@@ -51,7 +51,7 @@ export function HeroSection() {
 
             <motion.div variants={heroItemVariants} className="pt-2 sm:pt-4">
               <p className="text-foreground text-sm sm:text-base md:text-lg leading-relaxed">
-                My work centers on backend and infrastructure, with architectural decisions that keep the whole business in mind, using AI to speed up my workflows. In client meetings I present features and propose changes with the product's success in mind.
+                I build systems and infrastructure with an eye on the broader product and business. I care about decisions that hold up, not just code that ships.
               </p>
             </motion.div>
 

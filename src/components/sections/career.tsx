@@ -23,7 +23,7 @@ const journeyItems: Array<{
     period: 'May 2026 – Present',
     location: 'Cluj-Napoca · Hybrid',
     description:
-      'I work on a React and Spring Boot product, make architectural decisions, and keep building business and engineering knowledge to thrive in my work.',
+      'I work on a React and Spring Boot product, make architectural decisions, and keep building business and engineering knowledge to thrive in my work. In client meetings I present features and propose changes with the product\'s success in mind.',
     skills: ['React', 'TypeScript', 'Spring Boot', 'Java'],
   },
   {
