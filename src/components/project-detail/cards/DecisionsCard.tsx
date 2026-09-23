@@ -34,10 +34,10 @@ export function DecisionsCard({ project }: DecisionsCardProps) {
           id="adr-heading"
           className="text-sm font-semibold uppercase tracking-[0.18em] text-primary"
         >
-          Architecture decisions
+          Decisions
         </h3>
         <p className="text-sm leading-relaxed text-muted-foreground">
-          What I picked, what I skipped, and what I would change.
+          Key technical choices, alternatives considered, and trade-offs.
         </p>
       </div>
 
@@ -59,7 +59,7 @@ export function DecisionsCard({ project }: DecisionsCardProps) {
 
             <div className="space-y-1.5">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                Skipped
+                Alternatives
               </p>
               <ul className="space-y-2">
                 {decision.rejected.map((option) => (
@@ -76,7 +76,7 @@ export function DecisionsCard({ project }: DecisionsCardProps) {
 
             <div className="space-y-1.5">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                Chose
+                Decision
               </p>
               <p className="text-base leading-relaxed text-foreground">
                 {decision.choice}
@@ -94,7 +94,7 @@ export function DecisionsCard({ project }: DecisionsCardProps) {
 
             <div className="space-y-1.5">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                Looking back
+                Notes
               </p>
               <p className="text-base leading-relaxed text-foreground">
                 {decision.retrospective}

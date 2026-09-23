@@ -23,7 +23,7 @@ const journeyItems: Array<{
     period: 'May 2026 – Present',
     location: 'Cluj-Napoca · Hybrid',
     description:
-      'Got hired after the internship. Same React and Spring Boot product, but now I own more of the features, help with architecture calls, join client meetings, and spend a lot of time learning how this team actually ships.',
+      'Moved into the full-time role after the internship. I work on a React and Spring Boot product, contribute to architecture decisions, join client meetings, and keep learning how the team delivers software.',
     skills: ['React', 'TypeScript', 'Spring Boot', 'Java'],
   },
   {
@@ -32,7 +32,7 @@ const journeyItems: Array<{
     period: 'Feb 2026 – Apr 2026',
     location: 'Remote',
     description:
-      'Built features across the stack — APIs on one side, UI on the other. That work is what got me the full-time role.',
+      'Built full-stack features across REST APIs and the interface. That work led to the full-time offer.',
     skills: ['React', 'TypeScript', 'Spring Boot', 'Java'],
   },
   {
@@ -41,7 +41,7 @@ const journeyItems: Array<{
     period: 'Jan 2025 – Present',
     location: 'Remote',
     description:
-      'Built the shop at maketheprint.store and still run it — products, custom orders, Stripe, and the rebrand.',
+      'Built and continue to maintain maketheprint.store, including catalog, custom orders, Stripe checkout, and the site rebrand.',
     skills: ['Next.js', 'TypeScript', 'Supabase', 'Stripe'],
   },
 ];
@@ -55,7 +55,7 @@ export function CareerJourney() {
     >
       <SectionHeader
         title="Experience"
-        description="Intern to full-time at Moonlysoft, plus the store I keep on the side."
+        description="From internship to full-time at Moonlysoft, with ongoing freelance work on maketheprint."
         className="text-center"
       />
 

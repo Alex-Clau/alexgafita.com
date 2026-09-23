@@ -14,7 +14,7 @@ export function ProjectsSection() {
     <section id="projects" className="w-full space-y-8 sm:space-y-10 md:space-y-12 relative z-10">
       <SectionHeader
         title="Projects"
-        description="A few things I built end to end. Open one if you want the messy details."
+        description="Selected projects built end to end. Open a project for the problem, implementation, and key decisions."
       />
 
       <motion.div

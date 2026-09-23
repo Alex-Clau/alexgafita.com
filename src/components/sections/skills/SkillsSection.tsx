@@ -14,7 +14,7 @@ export function SkillsSection() {
     <section id="skills" className="w-full space-y-8 sm:space-y-10 md:space-y-12 relative z-10">
       <SectionHeader
         title="Skills & Stack"
-        description="What I actually use day to day — not every tool I have ever touched."
+        description="Tools I use regularly for application work, data, integrations, production monitoring, and AI workflows."
       />
 
       <motion.div

@@ -16,13 +16,13 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
     title: "Gafița Alex - Full-Stack Developer",
-    description: "Full-stack developer at Moonlysoft. React, Spring Boot, and the store I still run on the side.",
+    description: "Full-stack developer at Moonlysoft. React, Spring Boot, client work, and side projects including maketheprint.",
     keywords: ["Full-Stack Developer", "Spring Boot", "TypeScript", "React", "Java", "Moonlysoft", "Portfolio"],
     authors: [{name: "Gafița Alex", url: "https://alexgafita.com"}],
     creator: "Gafița Alex",
     openGraph: {
       title: "Gafița Alex - Full-Stack Developer",
-      description: "Full-stack at Moonlysoft — React, Spring Boot, client work, and side projects like maketheprint.",
+      description: "Full-stack developer at Moonlysoft. React, Spring Boot, client work, and side projects including maketheprint.",
       type: "website",
       url: "https://alexgafita.com",
       siteName: "Gafița Alex Portfolio",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     twitter: {
       card: "summary_large_image",
       title: "Gafița Alex - Full-Stack Developer",
-      description: "Full-stack at Moonlysoft — React, Spring Boot, client work, and side projects like maketheprint.",
+      description: "Full-stack developer at Moonlysoft. React, Spring Boot, client work, and side projects including maketheprint.",
     },
     robots: {
       index: true,

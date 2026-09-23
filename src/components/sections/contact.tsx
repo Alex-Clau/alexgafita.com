@@ -44,7 +44,7 @@ export function ContactSection() {
     >
       <SectionHeader
         title="Get in touch"
-        description="GitHub, LinkedIn, or email — whatever is easiest."
+        description="GitHub, LinkedIn, or email."
       />
 
       <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
@@ -69,7 +69,7 @@ export function ContactSection() {
       </div>
 
       <p className="text-center text-xs sm:text-sm text-muted-foreground max-w-xl mx-auto leading-relaxed">
-        Off the clock I show up at DevTalks, volunteer with Untold for the second year, and live in the gym.
+        Outside of work I attend DevTalks, volunteer with the Untold crew for a second year, and train at the gym.
       </p>
     </motion.section>
   );

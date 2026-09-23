@@ -51,7 +51,7 @@ export function HeroSection() {
 
             <motion.div variants={heroItemVariants} className="pt-2 sm:pt-4">
               <p className="text-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-xl">
-                Full-stack at Moonlysoft, mostly on the backend. I write the features, sit in the client meetings, and keep figuring out how to use AI so less of the busywork sticks to me.
+                Full-stack developer at Moonlysoft with a focus on backend work. I build product features, join client meetings, and use AI tooling to move faster on engineering tasks.
               </p>
             </motion.div>
 
