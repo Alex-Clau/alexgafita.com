@@ -37,9 +37,22 @@ export function ProjectCard({ project }: ProjectCardProps) {
           
           {/* Content Section */}
           <div className="p-6 md:p-8 flex flex-col flex-1 border-t border-zinc-800">
-            <CardTitle className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">
-              {project.name}
-            </CardTitle>
+            <div className="flex items-center gap-3 mb-2 sm:mb-3">
+              {project.logo ? (
+                <div className="relative h-9 w-9 sm:h-10 sm:w-10 shrink-0 overflow-hidden border border-zinc-800 bg-black">
+                  <Image
+                    src={project.logo}
+                    alt=""
+                    fill
+                    sizes="40px"
+                    className="object-contain"
+                  />
+                </div>
+              ) : null}
+              <CardTitle className="text-xl sm:text-2xl font-bold text-white">
+                {project.name}
+              </CardTitle>
+            </div>
             <p className="text-sm sm:text-base text-stone-300/90 leading-relaxed line-clamp-2 mb-5 sm:mb-6 flex-1">
               {project.description}
             </p>

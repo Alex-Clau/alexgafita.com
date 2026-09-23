@@ -25,19 +25,22 @@ export const skillGroups: readonly SkillGroup[] = [
 
 export const projects: Project[] = [
   {
-    slug: 'make-the-print',
-    name: 'MakeThePrint',
+    slug: 'maketheprint',
+    name: 'maketheprint',
+    href: 'https://maketheprint.store',
+    linkLabel: 'Visit store',
     image: '/projectIcons/makeThePrint.jpg',
     imageFit: 'cover',
+    logo: '/projectIcons/maketheprint-icon.png',
     description:
       'Custom 3D-printing store for ready-to-order prints and designs made on request.',
     problem:
-      'A print shop needed one system for catalog sales, custom print requests, safe checkout, and order state that stayed correct after payment — then a full rebrand of the public storefront.',
+      'A print shop needed one system for catalog sales, custom print requests, safe checkout, and order state that stayed correct after payment — then a full rebrand of the public storefront as maketheprint.',
     highlights: [
       'Shipped the store end to end: catalog, custom orders, checkout, and order updates.',
       'Secured product and order data with PostgreSQL row-level security so accounts only see their own records.',
       'Handled Stripe webhooks with idempotent order transitions so payment confirmation, not the browser redirect, advanced order state.',
-      'Replaced the old storefront with the current brand as the live public face of the business.',
+      'Rebranded and shipped the live storefront at maketheprint.store as the public face of the business.',
     ],
     decisions: [
       {

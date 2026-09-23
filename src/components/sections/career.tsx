@@ -37,11 +37,11 @@ const journeyItems: Array<{
   },
   {
     role: 'Freelance Web Developer',
-    company: 'MakeThePrint',
+    company: 'maketheprint',
     period: 'Jan 2025 – Present',
     location: 'Remote',
     description:
-      'Built and still maintain a production 3D-printing store: catalog, custom orders, Stripe checkout, and the rebranded public site.',
+      'Built and still maintain the production store at maketheprint.store: catalog, custom orders, Stripe checkout, and the rebranded public site.',
     skills: ['Next.js', 'TypeScript', 'Supabase', 'Stripe'],
   },
 ];

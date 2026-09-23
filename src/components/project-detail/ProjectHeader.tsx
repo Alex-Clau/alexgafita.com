@@ -1,12 +1,12 @@
-// Hero section for project detail: image (no box) + title + CTA
+// Hero section for project detail: preview, brand mark, title, CTA
 
 'use client';
 
-import { motion } from "framer-motion";
-import { getOptimizedTransition } from "@/lib/animations/transitions";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import type { Project } from "@/types";
+import { motion } from 'framer-motion';
+import { getOptimizedTransition } from '@/lib/animations/transitions';
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import type { Project } from '@/types';
 
 interface ProjectHeaderProps {
   readonly project: Project;
@@ -41,11 +41,24 @@ export function ProjectHeader({ project }: ProjectHeaderProps) {
         transition={getOptimizedTransition({ duration: 0.2, delay: 0.1 })}
         className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4"
       >
-        <div>
-          <h1 className="text-2xl sm:text-3xl font-bold text-white mb-1">
-            {project.name}
-          </h1>
-          <div className="h-px w-12 bg-stone-600" />
+        <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+          {project.logo ? (
+            <div className="relative h-12 w-12 sm:h-14 sm:w-14 shrink-0 overflow-hidden border border-zinc-800 bg-black">
+              <Image
+                src={project.logo}
+                alt={`${project.name} logo`}
+                fill
+                sizes="56px"
+                className="object-contain"
+              />
+            </div>
+          ) : null}
+          <div className="min-w-0">
+            <h1 className="text-2xl sm:text-3xl font-bold text-white mb-1 truncate">
+              {project.name}
+            </h1>
+            <div className="h-px w-12 bg-stone-600" />
+          </div>
         </div>
         {project.href ? (
           <Button
@@ -67,4 +80,3 @@ export function ProjectHeader({ project }: ProjectHeaderProps) {
     </header>
   );
 }
-

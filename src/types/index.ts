@@ -19,6 +19,7 @@ export type Project = {
   readonly linkLabel?: string;
   readonly image: string;
   readonly imageFit?: 'cover' | 'contain';
+  readonly logo?: string;
   readonly description: string;
   readonly problem: string;
   readonly highlights: readonly string[];
