@@ -69,7 +69,7 @@ export function ContactSection() {
       </div>
 
       <p className="text-center text-xs sm:text-sm text-muted-foreground max-w-xl mx-auto leading-relaxed">
-        Outside of work I attend DevTalks, volunteer with the Untold crew for a second year, and train at the gym.
+        Outside of work I go to tech meetups and networking events, volunteer with the Untold crew for a second year, and train at the gym.
       </p>
     </motion.section>
   );
