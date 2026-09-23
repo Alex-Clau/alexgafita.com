@@ -26,15 +26,14 @@ export function ProjectDetailPage({ project }: ProjectDetailPageProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={getOptimizedTransition({ duration: 0.2 })}
-        className="sticky top-0 z-10 -mx-6 lg:-mx-8 px-6 lg:px-8 py-3 mb-4 sm:mb-6 bg-background/90 backdrop-blur-sm border-b border-border/60"
       >
         <Link
           href="/"
           aria-label="Back to home"
-          className="inline-flex items-center gap-1.5 min-h-[44px] text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors uppercase tracking-wider"
+          className="inline-flex items-center gap-1.5 min-h-[44px] text-sm text-muted-foreground hover:text-primary transition-colors"
         >
-          <span className="text-primary">←</span>
-          <span>Back</span>
+          <span aria-hidden="true">←</span>
+          Back
         </Link>
       </motion.div>
 

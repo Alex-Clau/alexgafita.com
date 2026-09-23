@@ -91,15 +91,6 @@ export function DecisionsCard({ project }: DecisionsCardProps) {
                 {decision.tradeoff}
               </p>
             </div>
-
-            <div className="space-y-1.5">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                Notes
-              </p>
-              <p className="text-base leading-relaxed text-foreground">
-                {decision.retrospective}
-              </p>
-            </div>
           </article>
         ))}
       </div>

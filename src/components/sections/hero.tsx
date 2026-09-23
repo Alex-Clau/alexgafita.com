@@ -37,9 +37,9 @@ export function HeroSection() {
             </div>
           </motion.div>
 
-          <div className="w-full md:w-auto md:max-w-2xl space-y-4 sm:space-y-6 text-center md:text-left">
+          <div className="@container w-full md:min-w-0 md:flex-1 space-y-4 sm:space-y-6 text-center md:text-left">
             <motion.div variants={heroItemVariants} className="space-y-2 sm:space-y-3">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-heading">
+              <h1 className="whitespace-nowrap text-[clamp(1.15rem,7.2cqi,3.75rem)] font-bold tracking-tight leading-none text-heading">
                 Gafița Claudiu-Alexandru
               </h1>
               <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 sm:gap-3 text-base sm:text-lg md:text-xl text-foreground">
@@ -50,8 +50,8 @@ export function HeroSection() {
             </motion.div>
 
             <motion.div variants={heroItemVariants} className="pt-2 sm:pt-4">
-              <p className="text-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-xl">
-                Full-stack developer at Moonlysoft with a focus on backend work. I build product features, join client meetings, and use AI tooling to move faster on engineering tasks.
+              <p className="text-foreground text-sm sm:text-base md:text-lg leading-relaxed">
+                My work centers on backend and infrastructure, with architectural decisions that keep the whole business in mind, using AI to speed up my workflows. In client meetings I present features and propose changes with the product's success in mind.
               </p>
             </motion.div>
 

@@ -3,23 +3,37 @@ import type {Project, SkillGroup} from '@/types';
 export const skillGroups: readonly SkillGroup[] = [
   {
     title: 'Application',
-    items: ['Spring Boot', 'TypeScript', 'React', 'Java', 'Next.js'],
+    items: [
+      'Spring Boot',
+      'Spring Security',
+      'Java',
+      'Gradle',
+      'OpenAPI',
+      'TypeScript',
+      'React',
+      'Next.js',
+      'Node.js',
+      'Express',
+      'Expo',
+      'Tailwind CSS',
+      'Vite',
+    ],
   },
   {
     title: 'Data & infrastructure',
-    items: ['Supabase', 'PostgreSQL', 'Docker', 'AWS'],
+    items: ['PostgreSQL', 'JPA', 'Flyway', 'Supabase', 'Docker', 'AWS', 'Hetzner', 'Linux'],
   },
   {
     title: 'Integrations',
-    items: ['Stripe', 'Oblio', 'Resend'],
+    items: ['Stripe', 'Oblio', 'Resend', 'Firebase'],
   },
   {
     title: 'Production',
-    items: ['Sentry', 'UptimeRobot', 'Playwright'],
+    items: ['Sentry', 'UptimeRobot', 'Playwright', 'Jest', 'JUnit'],
   },
   {
     title: 'AI tooling',
-    items: ['MCP', 'Rules', 'Skills'],
+    items: ['Spring AI', 'MCP'],
   },
 ];
 
@@ -29,18 +43,17 @@ export const projects: Project[] = [
     name: 'maketheprint',
     href: 'https://maketheprint.store',
     linkLabel: 'Visit store',
-    image: '/projectIcons/makeThePrint.jpg',
+    image: '/projectIcons/maketheprint.jpg',
     imageFit: 'cover',
-    logo: '/projectIcons/maketheprint-icon.png',
     description:
       'E-commerce store for ready-made 3D prints and custom print requests.',
     problem:
-      'The business needed one system for catalog sales, custom print requests, secure checkout, and reliable order state after payment, followed by a full rebrand of the public storefront.',
+      'The business needed one system for catalog sales, custom print requests, secure checkout, and reliable order state after payment.',
     highlights: [
       'Built the store end to end: catalog, custom orders, checkout, and order updates.',
       'Used PostgreSQL with row-level security so accounts only access their own records.',
       'Advanced order state from verified Stripe webhook events rather than browser redirects.',
-      'Rebranded and launched the live storefront at maketheprint.store.',
+      'Launched the live storefront at maketheprint.store.',
     ],
     decisions: [
       {
@@ -55,8 +68,6 @@ export const projects: Project[] = [
           'PostgreSQL through Supabase with row-level security, keeping product and order rules next to the data.',
         tradeoff:
           'Less control over the server process in exchange for shipping a secure storefront sooner.',
-        retrospective:
-          'Row-level security held up well. Webhook edge cases should have been documented with the same care from the start.',
       },
       {
         title: 'Stripe webhooks for payment confirmation',
@@ -70,8 +81,6 @@ export const projects: Project[] = [
           'Advance order state only from verified Stripe webhook events, with idempotent handlers for retries.',
         tradeoff:
           'More implementation work than a thank-you page, with more reliable order state.',
-        retrospective:
-          'A view for unmatched webhook events would have made the rare failure cases easier to inspect.',
       },
     ],
     stack: ['TypeScript', 'Next.js', 'Stripe', 'Supabase', 'TailwindCSS'],
@@ -104,8 +113,6 @@ export const projects: Project[] = [
           'Classify common intents with validation and regex, and pass ambiguous requests to an LLM for context.',
         tradeoff:
           'Less open-ended coverage early on, with more predictable answers on the common path.',
-        retrospective:
-          'The hybrid approach was right. Intent miss rates should have been tracked earlier to tune what counted as ambiguous.',
       },
       {
         title: 'Docker Compose on a single EC2 host',
@@ -119,8 +126,6 @@ export const projects: Project[] = [
           'Ship the API and dependencies as one Docker Compose stack on EC2.',
         tradeoff:
           'Simple to deploy and demo, with less horizontal scale than a managed container platform.',
-        retrospective:
-          'Compose was appropriate for the assignment. A longer-lived product would need the data store split out sooner, with health checks in front.',
       },
     ],
     stack: ['JavaScript', 'Node.js', 'Docker', 'React', 'Express.js', 'PostgreSQL', 'TailwindCSS'],
@@ -153,8 +158,6 @@ export const projects: Project[] = [
           'Send donation photos through Google Gemini and gate rewards on the model response.',
         tradeoff:
           'Faster to ship and demo, with quality judgments dependent on an external model.',
-        retrospective:
-          'For a production version, Gemini would stay as a first pass, with human review for borderline scores before rewards are issued.',
       },
     ],
     stack: [

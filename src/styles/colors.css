@@ -1,5 +1,7 @@
-/* Nord theme - Polar Night backgrounds, Snow Storm text, Frost accent.
-   Hex values live only here. UI and atmosphere consume semantic tokens. */
+/* Nord theme.
+   Polar Night: backgrounds and chrome. Snow Storm: text.
+   Frost: one accent (nord8). Aurora: status only.
+   Hex values live only here. UI consumes semantic tokens. */
 
 @theme {
   --color-background: var(--background);
@@ -76,7 +78,12 @@
   --nord14: #a3be8c;
   --nord15: #b48ead;
 
-  /* Semantic UI tokens */
+  /* Semantic UI tokens.
+     Polar Night is the canvas (background → surface → border).
+     Snow Storm is text (heading → body → muted). Muted stays on that
+     gray axis; nord3 alone is too dark to read, so it is mixed toward nord4.
+     Frost is one accent: nord8 for actions, focus, and small markers.
+     Aurora is status only (nord11 = destructive). */
   --background: var(--nord0);
   --foreground: var(--nord4);
   --heading: var(--nord6);
@@ -89,27 +96,28 @@
   --secondary: var(--nord2);
   --secondary-foreground: var(--nord5);
   --muted: var(--nord1);
-  --muted-foreground: var(--nord9);
-  --accent: var(--nord8);
-  --accent-foreground: var(--nord0);
+  --muted-foreground: color-mix(in srgb, var(--nord4) 70%, var(--nord3));
+  --accent: var(--nord2);
+  --accent-foreground: var(--nord6);
   --destructive: var(--nord11);
   --border: var(--nord2);
   --input: var(--nord2);
   --ring: var(--nord8);
   --surface: var(--nord1);
 
-  /* Atmosphere — mesh stops + frost wash (alpha via color-mix, no hard rgba) */
+  /* Atmosphere stays Polar Night. One deep Frost stop (nord10) so the
+     accent button (nord8) still separates from the canvas. */
   --atmosphere-mesh-1: var(--nord0);
   --atmosphere-mesh-2: var(--nord1);
-  --atmosphere-mesh-3: var(--nord8);
-  --atmosphere-mesh-4: var(--nord10);
-  --atmosphere-mesh-5: var(--nord7);
-  --atmosphere-mesh-opacity: 0.5;
+  --atmosphere-mesh-3: var(--nord2);
+  --atmosphere-mesh-4: var(--nord0);
+  --atmosphere-mesh-5: var(--nord10);
+  --atmosphere-mesh-opacity: 0.55;
 
-  --atmosphere-glow-top: color-mix(in srgb, var(--nord8) 14%, transparent);
-  --atmosphere-glow-a: color-mix(in srgb, var(--nord8) 12%, transparent);
-  --atmosphere-glow-b: color-mix(in srgb, var(--nord10) 10%, transparent);
-  --atmosphere-glow-c: color-mix(in srgb, var(--nord7) 8%, transparent);
+  --atmosphere-glow-top: color-mix(in srgb, var(--nord10) 18%, transparent);
+  --atmosphere-glow-a: color-mix(in srgb, var(--nord8) 6%, transparent);
+  --atmosphere-glow-b: color-mix(in srgb, var(--nord10) 8%, transparent);
+  --atmosphere-glow-c: color-mix(in srgb, var(--nord1) 28%, transparent);
 
   overflow-x: hidden;
 }

@@ -1,4 +1,4 @@
-// Displays a single project card with image and title
+// Project card: preview, title, description, stack. Same structure for every project.
 
 'use client';
 
@@ -15,10 +15,16 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <motion.div variants={fadeScaleDownVariants}>
-      <Link href={`/projects/${project.slug}`} className="block group">
-        <Card className="overflow-hidden border border-border bg-card h-full flex flex-col p-0 gap-0 rounded-none hover:border-primary/60 transition-colors shadow-none">
-          <div className="relative aspect-2/1 w-full overflow-hidden bg-surface">
+    <motion.div variants={fadeScaleDownVariants} className="h-full">
+      <Link href={`/projects/${project.slug}`} className="block h-full group">
+        <Card className="h-full overflow-hidden border border-border bg-card p-0 gap-0 rounded-none shadow-none hover:border-primary transition-colors">
+          <div
+            className={
+              project.imageFit === 'cover'
+                ? 'relative aspect-[1024/562] w-full overflow-hidden bg-background'
+                : 'relative aspect-[2/1] w-full overflow-hidden bg-background'
+            }
+          >
             <Image
               src={project.image}
               alt={`${project.name} - Project preview`}
@@ -27,44 +33,29 @@ export function ProjectCard({ project }: ProjectCardProps) {
               decoding="async"
               className={
                 project.imageFit === 'cover'
-                  ? 'object-cover object-center'
+                  ? 'object-contain object-center'
                   : 'object-contain p-3 sm:p-4'
               }
-              sizes="(min-width: 768px) 50vw, 100vw"
+              sizes="(min-width: 768px) 33vw, 100vw"
             />
           </div>
 
-          <div className="p-6 md:p-8 flex flex-col flex-1 border-t border-border">
-            <div className="flex items-center gap-3 mb-2 sm:mb-3">
-              {project.logo ? (
-                <div className="relative h-9 w-9 sm:h-10 sm:w-10 shrink-0 overflow-hidden border border-border bg-background">
-                  <Image
-                    src={project.logo}
-                    alt=""
-                    fill
-                    sizes="40px"
-                    className="object-contain"
-                  />
-                </div>
-              ) : null}
-              <CardTitle className="text-xl sm:text-2xl font-bold text-heading group-hover:text-primary transition-colors">
-                {project.name}
-              </CardTitle>
-            </div>
-            <p className="text-sm sm:text-base text-foreground leading-relaxed line-clamp-2 mb-5 sm:mb-6 flex-1">
+          <div className="flex flex-1 flex-col gap-3 p-5 sm:p-6">
+            <CardTitle className="text-lg sm:text-xl font-semibold leading-snug text-heading line-clamp-2">
+              {project.name}
+            </CardTitle>
+            <p className="text-sm leading-relaxed text-foreground line-clamp-3 flex-1">
               {project.description}
             </p>
-            <div className="flex items-center justify-start pt-4 border-t border-border mt-auto">
-              <div className="flex gap-1.5 sm:gap-2">
-                {project.stack.slice(0, 3).map((tech) => (
-                  <span
-                    key={tech}
-                    className="text-xs px-2.5 py-1 border border-border bg-surface text-foreground font-medium group-hover:border-primary/40 transition-colors"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+            <div className="flex flex-wrap gap-1.5">
+              {project.stack.slice(0, 3).map((tech) => (
+                <span
+                  key={tech}
+                  className="text-xs px-2.5 py-1 border border-border bg-background text-foreground font-medium group-hover:border-primary/40 transition-colors"
+                >
+                  {tech}
+                </span>
+              ))}
             </div>
           </div>
         </Card>

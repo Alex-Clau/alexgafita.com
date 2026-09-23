@@ -23,16 +23,16 @@ const journeyItems: Array<{
     period: 'May 2026 – Present',
     location: 'Cluj-Napoca · Hybrid',
     description:
-      'Moved into the full-time role after the internship. I work on a React and Spring Boot product, contribute to architecture decisions, join client meetings, and keep learning how the team delivers software.',
+      'I work on a React and Spring Boot product, make architectural decisions, and keep building business and engineering knowledge to thrive in my work.',
     skills: ['React', 'TypeScript', 'Spring Boot', 'Java'],
   },
   {
     role: 'Software Engineer Intern',
     company: 'Moonlysoft',
     period: 'Feb 2026 – Apr 2026',
-    location: 'Remote',
+    location: 'Cluj-Napoca · Hybrid',
     description:
-      'Built full-stack features across REST APIs and the interface. That work led to the full-time offer.',
+      'Built full-stack features across REST APIs and the interface, and took part in the team\'s social events. That work led to the full-time offer.',
     skills: ['React', 'TypeScript', 'Spring Boot', 'Java'],
   },
   {
@@ -41,7 +41,7 @@ const journeyItems: Array<{
     period: 'Jan 2025 – Present',
     location: 'Remote',
     description:
-      'Built and continue to maintain maketheprint.store, including catalog, custom orders, Stripe checkout, and the site rebrand.',
+      'Built and continue to maintain maketheprint.store, including catalog, custom orders, and Stripe checkout.',
     skills: ['Next.js', 'TypeScript', 'Supabase', 'Stripe'],
   },
 ];

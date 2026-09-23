@@ -68,9 +68,12 @@ export function ContactSection() {
         ))}
       </div>
 
-      <p className="text-center text-xs sm:text-sm text-muted-foreground max-w-xl mx-auto leading-relaxed">
-        Outside of work I go to tech meetups and networking events, volunteer with the Untold crew for a second year, and train at the gym.
-      </p>
+      <div className="mx-auto max-w-xl space-y-4">
+        <div className="mx-auto h-px w-16 bg-primary" aria-hidden="true" />
+        <p className="text-center text-xs sm:text-sm text-primary max-w-xl mx-auto leading-relaxed">
+          Outside of work I go to tech meetups, volunteer backstage at Untold for a second year, and play sports to stay active.
+        </p>
+      </div>
     </motion.section>
   );
 }

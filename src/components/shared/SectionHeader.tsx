@@ -18,11 +18,11 @@ export function SectionHeader({
       className={cn('space-y-3 sm:space-y-4', className)}
     >
       <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
-        <div className="h-px flex-1 bg-border" />
+        <div className="h-px flex-1 bg-gradient-to-r from-transparent to-primary/70" />
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-heading">
           {title}
         </h2>
-        <div className="h-px flex-1 bg-border" />
+        <div className="h-px flex-1 bg-gradient-to-l from-transparent to-primary/70" />
       </div>
       {description ? (
         <div className="flex flex-col items-center text-center text-sm sm:text-base md:text-lg text-foreground leading-relaxed">
