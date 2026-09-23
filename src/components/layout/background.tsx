@@ -1,4 +1,4 @@
-// Cloud infrastructure & backend systems visualization — Nord-tuned
+// Cloud infrastructure & backend systems visualization - Nord-tuned
 
 'use client';
 

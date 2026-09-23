@@ -1,4 +1,4 @@
-// Particle system configurations — Nord frost palette
+// Particle system configurations - Nord frost palette
 
 import type { ISourceOptions } from '@tsparticles/engine';
 

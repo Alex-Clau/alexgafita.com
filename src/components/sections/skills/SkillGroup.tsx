@@ -1,4 +1,4 @@
-// Skill cluster — title + chips, no card and no inventory chrome
+// Skill cluster - title + chips, no card and no inventory chrome
 
 'use client';
 
