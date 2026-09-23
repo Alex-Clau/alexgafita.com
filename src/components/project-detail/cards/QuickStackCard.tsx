@@ -24,7 +24,7 @@ export function QuickStackCard({ project }: QuickStackCardProps) {
       transition={getOptimizedTransition({ duration: 0.2 })}
       className="space-y-3"
     >
-      <p className="text-xs font-semibold uppercase tracking-[0.15em] text-stone-300/90">
+      <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary">
         Tech stack
       </p>
       <motion.div
@@ -44,7 +44,7 @@ export function QuickStackCard({ project }: QuickStackCardProps) {
                 transition: getOptimizedTransition({ duration: 0.15 })
               }
             }}
-            className="inline-flex items-center border border-zinc-800 bg-zinc-900 px-3 py-1.5 text-xs text-stone-300/90 min-h-[32px]"
+            className="inline-flex items-center border border-border bg-surface px-3 py-1.5 text-xs text-foreground min-h-[32px]"
           >
             {tech}
           </motion.span>
@@ -53,4 +53,3 @@ export function QuickStackCard({ project }: QuickStackCardProps) {
     </motion.section>
   );
 }
-

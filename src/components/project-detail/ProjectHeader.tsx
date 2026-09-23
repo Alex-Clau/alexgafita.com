@@ -22,7 +22,7 @@ export function ProjectHeader({ project }: ProjectHeaderProps) {
         initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={getOptimizedTransition({ duration: 0.25, delay: 0.05 })}
-        className="relative aspect-[2/1] w-full overflow-hidden bg-zinc-950"
+        className="relative aspect-[2/1] w-full overflow-hidden bg-surface border border-border"
       >
         <Image
           src={project.image}
@@ -43,7 +43,7 @@ export function ProjectHeader({ project }: ProjectHeaderProps) {
       >
         <div className="flex items-center gap-3 sm:gap-4 min-w-0">
           {project.logo ? (
-            <div className="relative h-12 w-12 sm:h-14 sm:w-14 shrink-0 overflow-hidden border border-zinc-800 bg-black">
+            <div className="relative h-12 w-12 sm:h-14 sm:w-14 shrink-0 overflow-hidden border border-border bg-background">
               <Image
                 src={project.logo}
                 alt={`${project.name} logo`}
@@ -54,17 +54,17 @@ export function ProjectHeader({ project }: ProjectHeaderProps) {
             </div>
           ) : null}
           <div className="min-w-0">
-            <h1 className="text-2xl sm:text-3xl font-bold text-white mb-1 truncate">
+            <h1 className="text-2xl sm:text-3xl font-bold text-heading mb-1 truncate">
               {project.name}
             </h1>
-            <div className="h-px w-12 bg-stone-600" />
+            <div className="h-px w-12 bg-primary" />
           </div>
         </div>
         {project.href ? (
           <Button
             asChild
             size="lg"
-            className="min-h-[44px] w-full sm:w-auto bg-white text-black hover:bg-stone-200 font-medium border-0 shrink-0"
+            className="min-h-[44px] w-full sm:w-auto font-medium shrink-0"
           >
             <a
               href={project.href}

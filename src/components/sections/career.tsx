@@ -65,7 +65,7 @@ export function CareerJourney() {
         {...scrollVariantsProps}
       >
         <motion.div
-          className="pointer-events-none absolute left-1.5 sm:left-2 top-2 bottom-8 w-[2px] rounded-full bg-gradient-to-b from-stone-500 to-transparent origin-top"
+          className="pointer-events-none absolute left-1.5 sm:left-2 top-2 bottom-8 w-[2px] rounded-full bg-gradient-to-b from-primary to-transparent origin-top"
           initial={{scaleY: 0}}
           whileInView={{scaleY: 1}}
           viewport={defaultViewport}
@@ -78,22 +78,22 @@ export function CareerJourney() {
             className="relative z-10"
             variants={fadeScaleDownVariants}
           >
-            <div className="absolute -left-1 sm:-left-1.5 top-2 sm:top-2.5 h-3 w-3 rounded-full border border-stone-200/80 bg-stone-100 shadow-[0_0_0_3px_rgba(15,23,42,0.9)]"/>
+            <div className="absolute -left-1 sm:-left-1.5 top-2 sm:top-2.5 h-3 w-3 rounded-full border border-primary bg-primary shadow-[0_0_0_3px_rgba(46,52,64,0.95)]"/>
             <div className="ml-4 sm:ml-5 md:ml-6">
               <div className="grid gap-3 sm:gap-4 md:gap-8 lg:gap-10 grid-cols-1 md:grid-cols-[280px_1fr] lg:grid-cols-[320px_1fr] items-start">
                 <div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-heading">
                     {item.role}
                   </h3>
-                  <p className="mt-0.5 text-sm sm:text-base text-stone-200/85">
+                  <p className="mt-0.5 text-sm sm:text-base text-foreground">
                     {item.company}
                   </p>
-                  <p className="mt-1 text-[11px] sm:text-xs text-stone-400/90 uppercase tracking-wide">
+                  <p className="mt-1 text-[11px] sm:text-xs text-muted-foreground uppercase tracking-wide">
                     {item.period} · {item.location}
                   </p>
                 </div>
                 <div className="max-w-2xl space-y-2 ">
-                  <p className="text-sm sm:text-base text-stone-200/85 leading-relaxed">
+                  <p className="text-sm sm:text-base text-foreground leading-relaxed">
                     {item.description}
                   </p>
                   {item.skills.length > 0 && (
@@ -101,7 +101,7 @@ export function CareerJourney() {
                       {item.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="inline-flex items-center border border-stone-700 bg-stone-900/70 px-2 py-0.5 text-xs text-stone-200/85"
+                          className="inline-flex items-center border border-border bg-surface/70 px-2 py-0.5 text-xs text-foreground"
                         >
                           {skill}
                         </span>

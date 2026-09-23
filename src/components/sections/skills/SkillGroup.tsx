@@ -13,19 +13,19 @@ interface SkillGroupProps {
 export function SkillGroup({ title, items }: SkillGroupProps) {
   return (
     <motion.div variants={fadeScaleVariants} className="group relative overflow-visible">
-      <div className="space-y-5 sm:space-y-6 border border-zinc-800 bg-zinc-950 p-4 sm:p-6 md:p-7 hover:border-zinc-700 transition-colors h-full">
+      <div className="space-y-5 sm:space-y-6 border border-border bg-card p-4 sm:p-6 md:p-7 hover:border-primary/50 transition-colors h-full">
         <div className="relative">
-          <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-stone-300/90 mb-1.5 sm:mb-2">
+          <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-primary mb-1.5 sm:mb-2">
             {title}
           </h3>
-          <div className="h-px w-12 sm:w-16 bg-stone-800" />
+          <div className="h-px w-12 sm:w-16 bg-border" />
         </div>
 
         <ul className="flex flex-wrap gap-2">
           {items.map((item) => (
             <li
               key={item}
-              className="inline-flex items-center border border-zinc-800 bg-zinc-900 px-3 py-1.5 text-sm text-stone-200/90"
+              className="inline-flex items-center border border-border bg-surface px-3 py-1.5 text-sm text-foreground"
             >
               {item}
             </li>

@@ -26,14 +26,14 @@ export function ProjectDetailPage({ project }: ProjectDetailPageProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={getOptimizedTransition({ duration: 0.2 })}
-        className="sticky top-0 z-10 -mx-6 lg:-mx-8 px-6 lg:px-8 py-3 mb-4 sm:mb-6 bg-black/90 backdrop-blur-sm"
+        className="sticky top-0 z-10 -mx-6 lg:-mx-8 px-6 lg:px-8 py-3 mb-4 sm:mb-6 bg-background/90 backdrop-blur-sm border-b border-border/60"
       >
         <Link
           href="/"
           aria-label="Back to home"
-          className="inline-flex items-center gap-1.5 min-h-[44px] text-xs sm:text-sm text-stone-400/90 hover:text-stone-200 transition-colors uppercase tracking-wider"
+          className="inline-flex items-center gap-1.5 min-h-[44px] text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors uppercase tracking-wider"
         >
-          <span className="text-stone-600">←</span>
+          <span className="text-primary">←</span>
           <span>Back</span>
         </Link>
       </motion.div>
@@ -54,21 +54,21 @@ export function ProjectDetailPage({ project }: ProjectDetailPageProps) {
             transition={getOptimizedTransition({ duration: 0.2 })}
             className="space-y-2 max-w-2xl"
           >
-            <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-stone-400/90">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
               Problem
             </h2>
-            <p className="text-base leading-relaxed text-stone-200/85">{project.problem}</p>
+            <p className="text-base leading-relaxed text-foreground">{project.problem}</p>
           </motion.section>
 
           <QuickStackCard project={project} />
         </div>
 
-        <div className="pt-2 border-t border-stone-800/80">
+        <div className="pt-2 border-t border-border">
           <HighlightsCard project={project} />
         </div>
 
         {project.decisions?.length ? (
-          <div className="pt-2 border-t border-stone-800/80">
+          <div className="pt-2 border-t border-border">
             <DecisionsCard project={project} />
           </div>
         ) : null}

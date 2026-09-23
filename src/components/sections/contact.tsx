@@ -53,7 +53,8 @@ export function ContactSection() {
             key={label}
             asChild
             size="icon"
-            className="size-12 sm:size-14 rounded-md border border-zinc-800 text-stone-300/90 hover:bg-zinc-900 hover:text-white hover:border-zinc-700 [&_svg]:size-5 transition-colors"
+            variant="outline"
+            className="size-12 sm:size-14 rounded-md border-border text-foreground hover:bg-primary/10 hover:text-primary hover:border-primary [&_svg]:size-5 transition-colors"
           >
             <a
               href={href}
@@ -67,7 +68,7 @@ export function ContactSection() {
         ))}
       </div>
 
-      <p className="text-center text-xs sm:text-sm text-stone-500 max-w-lg mx-auto">
+      <p className="text-center text-xs sm:text-sm text-muted-foreground max-w-lg mx-auto">
         Outside work: DevTalks, second year with the Untold crew, and the gym.
       </p>
     </motion.section>

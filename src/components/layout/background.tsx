@@ -1,4 +1,4 @@
-// Cloud infrastructure & backend systems visualization
+// Cloud infrastructure & backend systems visualization — Nord-tuned
 
 'use client';
 
@@ -7,18 +7,17 @@ import { loadSlim } from '@tsparticles/slim';
 import { useEffect, useMemo, useState } from 'react';
 import { MOBILE_BREAKPOINT, getInfrastructureConfig, getDataPacketsConfig } from '@/lib/particles/config';
 
-// Infrastructure grid - represents cloud infrastructure layout (void-oriented, barely visible)
 function InfrastructureGrid() {
   return (
-    <div className="absolute inset-0 opacity-[0.015] pointer-events-none">
+    <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
       <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <pattern id="infrastructure-grid" width="80" height="80" patternUnits="userSpaceOnUse">
             <path d="M 80 0 L 0 0 0 80" fill="none" stroke="currentColor" strokeWidth="0.3" />
-            <circle cx="40" cy="40" r="1.5" fill="currentColor" opacity="0.2" />
+            <circle cx="40" cy="40" r="1.5" fill="currentColor" opacity="0.25" />
           </pattern>
         </defs>
-        <rect width="100%" height="100%" fill="url(#infrastructure-grid)" className="text-stone-600" />
+        <rect width="100%" height="100%" fill="url(#infrastructure-grid)" className="text-primary/40" />
       </svg>
     </div>
   );
@@ -32,7 +31,7 @@ export function BackgroundAnimations() {
     const checkMobile = () => setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
     checkMobile();
     window.addEventListener('resize', checkMobile);
-    
+
     initParticlesEngine(async (engine) => {
       await loadSlim(engine);
     }).then(() => {
@@ -52,14 +51,11 @@ export function BackgroundAnimations() {
   return (
     <>
       <div className="pointer-events-none fixed inset-0 z-0" aria-hidden>
-        {/* Deep space base - represents scalable cloud infrastructure */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-slate-950 to-neutral-900" />
-
-        {/* Infrastructure grid - cloud infrastructure layout */}
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,#2e3440_0%,#3b4252_55%,#2e3440_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(136,192,208,0.08),transparent_55%)]" />
         <InfrastructureGrid />
       </div>
 
-      {/* Cloud infrastructure nodes (services, APIs, databases) */}
       {init && (
         <Particles
           id="tsparticles-infrastructure"
@@ -68,7 +64,6 @@ export function BackgroundAnimations() {
         />
       )}
 
-      {/* Backend data packets (API requests, data processing) */}
       {init && (
         <Particles
           id="tsparticles-data"

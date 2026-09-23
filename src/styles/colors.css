@@ -1,12 +1,28 @@
-/* stylelint-disable-next-line at-rule-no-unknown */
+/* Nord theme — Polar Night backgrounds, Snow Storm text, Frost accent */
+
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+  --color-heading: var(--heading);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -15,11 +31,51 @@
 
 :root {
   --radius: 0.625rem;
-  /* Dark mode only - site doesn't use light mode */
-  --background: oklch(0.16 0.04 150);
-  --foreground: oklch(0.96 0.02 150);
-  --border: oklch(0.27 0.02 150);
-  --input: oklch(0.22 0.02 150);
-  --ring: oklch(0.7 0.08 150);
+
+  /* Polar Night */
+  --nord0: #2e3440;
+  --nord1: #3b4252;
+  --nord2: #434c5e;
+  --nord3: #4c566a;
+
+  /* Snow Storm */
+  --nord4: #d8dee9;
+  --nord5: #e5e9f0;
+  --nord6: #eceff4;
+
+  /* Frost */
+  --nord7: #8fbcbb;
+  --nord8: #88c0d0;
+  --nord9: #81a1c1;
+  --nord10: #5e81ac;
+
+  /* Aurora */
+  --nord11: #bf616a;
+  --nord12: #d08770;
+  --nord13: #ebcb8b;
+  --nord14: #a3be8c;
+  --nord15: #b48ead;
+
+  --background: var(--nord0);
+  --foreground: var(--nord4);
+  --heading: var(--nord6);
+  --card: var(--nord1);
+  --card-foreground: var(--nord4);
+  --popover: var(--nord1);
+  --popover-foreground: var(--nord4);
+  --primary: var(--nord8);
+  --primary-foreground: var(--nord0);
+  --secondary: var(--nord2);
+  --secondary-foreground: var(--nord5);
+  --muted: var(--nord1);
+  --muted-foreground: var(--nord3);
+  --accent: var(--nord8);
+  --accent-foreground: var(--nord0);
+  --destructive: var(--nord11);
+  --border: var(--nord2);
+  --input: var(--nord2);
+  --ring: var(--nord8);
+  --surface: var(--nord1);
+
   overflow-x: hidden;
 }
