@@ -68,7 +68,7 @@
   --secondary: var(--nord2);
   --secondary-foreground: var(--nord5);
   --muted: var(--nord1);
-  --muted-foreground: var(--nord3);
+  --muted-foreground: var(--nord9);
   --accent: var(--nord8);
   --accent-foreground: var(--nord0);
   --destructive: var(--nord11);
