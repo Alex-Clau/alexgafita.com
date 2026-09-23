@@ -51,7 +51,7 @@ export function HeroSection() {
 
             <motion.div variants={heroItemVariants} className="pt-2 sm:pt-4">
               <p className="text-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-xl">
-                I identify the business problem, architect the solution, ship it, and keep it running — backend-leaning full-stack work at Moonlysoft, with client collaboration and AI automation around the product.
+                Full-stack at Moonlysoft, mostly on the backend. I write the features, sit in the client meetings, and keep figuring out how to use AI so less of the busywork sticks to me.
               </p>
             </motion.div>
 

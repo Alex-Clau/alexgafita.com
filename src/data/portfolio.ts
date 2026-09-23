@@ -2,24 +2,24 @@ import type {Project, SkillGroup} from '@/types';
 
 export const skillGroups: readonly SkillGroup[] = [
   {
-    title: 'Core Engineering',
+    title: 'App',
     items: ['Spring Boot', 'TypeScript', 'React', 'Java', 'Next.js'],
   },
   {
-    title: 'Data & Infrastructure',
+    title: 'Data & infra',
     items: ['Supabase', 'PostgreSQL', 'Docker', 'AWS'],
   },
   {
-    title: 'Integrations & Business Logic',
+    title: 'Integrations',
     items: ['Stripe', 'Oblio', 'Resend'],
   },
   {
-    title: 'Observability & QA',
+    title: 'Production',
     items: ['Sentry', 'UptimeRobot', 'Playwright'],
   },
   {
-    title: 'AI & Agentic Workflows',
-    items: ['MCP', 'Context Rules', 'Custom Skills'],
+    title: 'AI tooling',
+    items: ['MCP', 'Rules', 'Skills'],
   },
 ];
 
@@ -33,45 +33,45 @@ export const projects: Project[] = [
     imageFit: 'cover',
     logo: '/projectIcons/maketheprint-icon.png',
     description:
-      'Custom 3D-printing store for ready-to-order prints and designs made on request.',
+      '3D print shop — ready-made products and prints on request.',
     problem:
-      'A print shop needed one system for catalog sales, custom print requests, safe checkout, and order state that stayed correct after payment — then a full rebrand of the public storefront as maketheprint.',
+      'Needed a real store: sell products, take custom jobs, charge people safely, and not lose order state when someone closes the tab. Then rebrand the whole front.',
     highlights: [
-      'Shipped the store end to end: catalog, custom orders, checkout, and order updates.',
-      'Secured product and order data with PostgreSQL row-level security so accounts only see their own records.',
-      'Handled Stripe webhooks with idempotent order transitions so payment confirmation, not the browser redirect, advanced order state.',
-      'Rebranded and shipped the live storefront at maketheprint.store as the public face of the business.',
+      'Built the shop myself — catalog, custom orders, checkout, order updates.',
+      'Postgres with row-level security so people only see their own stuff.',
+      'Stripe webhooks decide when an order is paid, not the thank-you page.',
+      'Rebranded it and put it live at maketheprint.store.',
     ],
     decisions: [
       {
-        title: 'Data layer: Supabase with row-level security',
+        title: 'Supabase instead of a custom backend from scratch',
         context:
-          'A solo-maintained store needed auth, product data, and order rules without standing up a custom auth service and admin API first.',
+          'It was mostly me. I needed auth, products, and orders without spending weeks on plumbing before the first sale.',
         rejected: [
-          'Custom Node API plus a managed Postgres instance — more control, but weeks of auth, migrations, and policy work before the first sale.',
-          'Firebase documents for products and orders — faster to start, weaker relational constraints for inventory, pricing, and order history.',
+          'Write my own API + hosted Postgres — more control, way more setup before anything ships.',
+          'Firebase documents — fine for a prototype, messy for pricing, inventory, and order history.',
         ],
         choice:
-          'PostgreSQL through Supabase with row-level security, keeping product and order rules next to the data.',
+          'Supabase with Postgres and row-level security. Rules live next to the data.',
         tradeoff:
-          'Less control over the server process, in exchange for shipping a secure storefront faster.',
+          'Less control over the server. Faster to get a secure store live.',
         retrospective:
-          'I would write the payment and order policies as explicit ADRs earlier. The RLS model held, but the webhook edge cases deserved the same written treatment from day one.',
+          'RLS was the right call. I should have written down the webhook edge cases the same way from day one.',
       },
       {
-        title: 'Checkout: Stripe webhooks over redirect-only confirmation',
+        title: 'Stripe webhooks, not “they hit the success page”',
         context:
-          'Orders could not mark as paid just because a shopper landed on a success page. Network drops and abandoned tabs were expected.',
+          'People drop wifi. They close the tab. A success URL is not proof of payment.',
         rejected: [
-          'Trust the client redirect as payment proof — simple, and wrong when the browser never returns.',
-          'Poll Stripe from the client after checkout — works for demos, burns rate limits and still races the UI.',
+          'Trust the browser redirect — easy, and wrong.',
+          'Poll Stripe from the client — works in demos, races the UI, burns rate limits.',
         ],
         choice:
-          'Advance order state only from verified Stripe webhook events, with idempotent handlers for retries.',
+          'Only move an order forward from verified Stripe webhook events, and make those handlers safe to retry.',
         tradeoff:
-          'Webhook verification, retries, and replay protection cost more up front than a thank-you page.',
+          'More work up front than a thank-you page. Orders stay honest.',
         retrospective:
-          'I would add a dead-letter view for unmatched events sooner. Most failures were retries; the few that were not were harder to spot without one.',
+          'I would add a simple place to inspect unmatched events sooner. Retries were fine; the weird ones were hard to find.',
       },
     ],
     stack: ['TypeScript', 'Next.js', 'Stripe', 'Supabase', 'TailwindCSS'],
@@ -82,45 +82,45 @@ export const projects: Project[] = [
     href: 'https://github.com/Alex-Clau/FarmerParcelAssistant-CO2ANGELS',
     image: '/projectIcons/farmerAssistant.png',
     description:
-      'Chat-based assistant that helps farmers get information about their parcels.',
+      'Chat assistant so farmers can ask about their parcels in plain language.',
     problem:
-      'An AgriTech team needed farmers to ask about parcels in plain language, without teaching them a form-heavy admin tool, while keeping answers grounded in real parcel data.',
+      'Farmers were not going to learn an admin panel. They needed to ask about parcels in chat, and the answers had to come from real data.',
     highlights: [
-      'Designed a conversational backend for parcel lookup, phone linking, and strict message validation.',
-      'Classified routine intents with validation and regex, and only used LLM context when a request was ambiguous.',
-      'Containerized the stack with Docker Compose and deployed it on AWS EC2.',
-      'Added a thin frontend so the message flow was visible while the API did the real work.',
+      'Backend for parcel lookup, phone linking, and strict message checks.',
+      'Regex and validation for the common questions; LLM only when it was unclear.',
+      'Docker Compose on an AWS EC2 box for the demo.',
+      'Small frontend just to show the message flow while the API did the work.',
     ],
     decisions: [
       {
-        title: 'Intent handling: regex first, LLM second',
+        title: 'Regex first, LLM second',
         context:
-          'Most farmer questions repeated a small set of parcel lookups. An always-on LLM path would raise cost and make wrong answers harder to debug.',
+          'Most questions were the same parcel lookups. Sending everything to an LLM would cost more and make bad answers harder to catch.',
         rejected: [
-          'Send every message to an LLM — natural, expensive, and hard to guarantee against hallucinated parcel data.',
-          'Forms only — safest for the backend, useless for the farmers who needed chat.',
+          'LLM on every message — nicer chat, worse control, worse cost.',
+          'Only forms — safe for me, useless for them.',
         ],
         choice:
-          'Validate and classify common intents with regex and structured handlers; hand ambiguous requests to an LLM for context only.',
+          'Handle the common intents with validation and regex. Hand the weird ones to an LLM for context.',
         tradeoff:
-          'Less open-ended language coverage on day one, in exchange for predictable answers and lower cost on the common path.',
+          'Less free-form chat at first. Answers I could actually trust on the common path.',
         retrospective:
-          'I would log intent miss rates from the start. The hybrid path was right; the tuning of what counted as “ambiguous” needed production traffic sooner.',
+          'Hybrid was right. I would have tracked miss rates earlier so “ambiguous” was not a guess.',
       },
       {
-        title: 'Deployment: Docker Compose on a single EC2 host',
+        title: 'Docker Compose on one EC2',
         context:
-          'The assignment needed a reproducible demo environment under a short delivery window, not a multi-service platform.',
+          'Short assignment. Needed something I could rebuild and demo, not a platform.',
         rejected: [
-          'Managed containers from day one — cleaner ops later, more setup than the brief allowed.',
-          'Bare processes on the host — fastest to SSH in, hardest to rebuild cleanly.',
+          'Managed containers from day one — cleaner later, too much setup for the deadline.',
+          'Bare processes on the box — fast to SSH in, painful to rebuild cleanly.',
         ],
         choice:
-          'Ship the API and dependencies as one Docker Compose stack on EC2.',
+          'One Compose stack on EC2.',
         tradeoff:
-          'Simple to deploy and demo, with less horizontal scale than a managed container platform.',
+          'Easy to ship and show. Not built for horizontal scale.',
         retrospective:
-          'Compose was the right first ship. For a longer-lived product I would split the data store and put a reverse proxy and health checks in front earlier.',
+          'Fine for the brief. For a real product I would split the database and put health checks in front sooner.',
       },
     ],
     stack: ['JavaScript', 'Node.js', 'Docker', 'React', 'Express.js', 'PostgreSQL', 'TailwindCSS'],
@@ -131,30 +131,30 @@ export const projects: Project[] = [
     href: 'https://github.com/Alex-Clau/Hackathon',
     image: '/projectIcons/hackathonApp.png',
     description:
-      'Mobile app that gamifies fashion by rewarding users for recycling clothing.',
+      'Hackathon app that rewards people for recycling clothes.',
     problem:
-      'A hackathon brief asked for a way to get people to donate and recycle clothing, with a reward loop that still checked item quality before issuing offers.',
+      'Hackathon brief: get people to donate and recycle clothing, with rewards that only go out if the item is actually decent.',
     highlights: [
-      'Led a six-person team to first place with a full-stack mobile flow for donation and rewards.',
-      'Built Node.js and Express on the backend, React Native and Expo on the client, and Firebase for data.',
-      'Used Google Gemini to assess donated clothing quality before rewards were issued.',
-      'Added QR generation and verification so offer redemption stayed tied to a checked item.',
+      'Led a team of six. We took first place.',
+      'Node/Express backend, React Native/Expo app, Firebase for data.',
+      'Gemini looked at donation photos before rewards went out.',
+      'QR codes so redemption stayed tied to a checked item.',
     ],
     decisions: [
       {
-        title: 'Quality checks: Gemini instead of a custom vision model',
+        title: 'Gemini instead of training a vision model',
         context:
-          'Rewards only made sense if donated items passed a quality bar, and the team had hours, not weeks, to ship a demo judges could use.',
+          'We had hours, not weeks, and rewards without a quality check would have been pointless.',
         rejected: [
-          'Train or fine-tune a custom classifier — too slow for the hackathon clock.',
-          'Manual moderator review only — honest, but not a product demo under load.',
+          'Train our own classifier — not happening on that clock.',
+          'Only manual review — honest, but not a demo judges could poke at.',
         ],
         choice:
-          'Send donation photos through Google Gemini and gate rewards on the model response.',
+          'Send photos to Gemini and gate rewards on the result.',
         tradeoff:
-          'Faster to ship and demo, with quality judgments that depend on an external model rather than an in-house classifier.',
+          'Shipped and demoed. Quality depends on an external model.',
         retrospective:
-          'For a production version I would keep Gemini as a first pass and add a human review queue for borderline scores before rewards leave the system.',
+          'For a real product I would keep Gemini as a first pass and put a human check on the borderline ones.',
       },
     ],
     stack: [

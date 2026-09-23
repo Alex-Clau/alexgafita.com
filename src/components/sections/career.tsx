@@ -23,7 +23,7 @@ const journeyItems: Array<{
     period: 'May 2026 – Present',
     location: 'Cluj-Napoca · Hybrid',
     description:
-      'Promoted from Intern to Full-Stack Developer, owning feature lifecycles across a React and Spring Boot product. I lead architectural decisions on the backend, partner with clients in sprint planning and requirements gathering, and use AI orchestration to automate more of the engineering work.',
+      'Got hired after the internship. Same React and Spring Boot product, but now I own more of the features, help with architecture calls, join client meetings, and spend a lot of time learning how this team actually ships.',
     skills: ['React', 'TypeScript', 'Spring Boot', 'Java'],
   },
   {
@@ -32,7 +32,7 @@ const journeyItems: Array<{
     period: 'Feb 2026 – Apr 2026',
     location: 'Remote',
     description:
-      'Delivered full-stack features in the same product, from REST APIs to the interface. That work led to the full-time role and ownership of the systems I helped build.',
+      'Built features across the stack — APIs on one side, UI on the other. That work is what got me the full-time role.',
     skills: ['React', 'TypeScript', 'Spring Boot', 'Java'],
   },
   {
@@ -41,7 +41,7 @@ const journeyItems: Array<{
     period: 'Jan 2025 – Present',
     location: 'Remote',
     description:
-      'Built and still maintain the production store at maketheprint.store: catalog, custom orders, Stripe checkout, and the rebranded public site.',
+      'Built the shop at maketheprint.store and still run it — products, custom orders, Stripe, and the rebrand.',
     skills: ['Next.js', 'TypeScript', 'Supabase', 'Stripe'],
   },
 ];
@@ -55,7 +55,7 @@ export function CareerJourney() {
     >
       <SectionHeader
         title="Experience"
-        description="Promoted from intern to full-stack at Moonlysoft. Ownership of features, backend architecture, and direct client work."
+        description="Intern to full-time at Moonlysoft, plus the store I keep on the side."
         className="text-center"
       />
 

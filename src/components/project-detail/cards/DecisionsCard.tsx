@@ -34,10 +34,10 @@ export function DecisionsCard({ project }: DecisionsCardProps) {
           id="adr-heading"
           className="text-sm font-semibold uppercase tracking-[0.18em] text-primary"
         >
-          Architecture Decision Records
+          Architecture decisions
         </h3>
         <p className="text-sm leading-relaxed text-muted-foreground">
-          What was chosen, what was rejected, what it cost, and what I would revisit.
+          What I picked, what I skipped, and what I would change.
         </p>
       </div>
 
@@ -50,7 +50,7 @@ export function DecisionsCard({ project }: DecisionsCardProps) {
 
             <div className="space-y-1.5">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                Context & constraints
+                Context
               </p>
               <p className="text-base leading-relaxed text-foreground">
                 {decision.context}
@@ -59,7 +59,7 @@ export function DecisionsCard({ project }: DecisionsCardProps) {
 
             <div className="space-y-1.5">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                Rejected options
+                Skipped
               </p>
               <ul className="space-y-2">
                 {decision.rejected.map((option) => (
@@ -76,7 +76,7 @@ export function DecisionsCard({ project }: DecisionsCardProps) {
 
             <div className="space-y-1.5">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                Chosen architecture
+                Chose
               </p>
               <p className="text-base leading-relaxed text-foreground">
                 {decision.choice}
@@ -85,7 +85,7 @@ export function DecisionsCard({ project }: DecisionsCardProps) {
 
             <div className="space-y-1.5">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                Accepted trade-offs
+                Trade-off
               </p>
               <p className="text-base leading-relaxed text-foreground">
                 {decision.tradeoff}
@@ -94,7 +94,7 @@ export function DecisionsCard({ project }: DecisionsCardProps) {
 
             <div className="space-y-1.5">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                Retrospective
+                Looking back
               </p>
               <p className="text-base leading-relaxed text-foreground">
                 {decision.retrospective}
