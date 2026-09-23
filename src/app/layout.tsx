@@ -15,22 +15,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "Gafița Alex - Software Engineer & Computer Science Student",
-    description: "Software Engineer specializing in backend development, scalable APIs, data workflows, and cloud infrastructure. React, Node.js, TypeScript, AWS.",
-    keywords: ["Software Engineer", "Backend Developer", "React", "Node.js", "TypeScript", "AWS", "Portfolio", "Computer Science"],
+    title: "Gafița Alex - Full-Stack Developer",
+    description: "Full-stack developer at Moonlysoft, leaning into backend work and AI automation. TypeScript, React, and Spring Boot.",
+    keywords: ["Full-Stack Developer", "React", "TypeScript", "Spring Boot", "Java", "Next.js", "Portfolio"],
     authors: [{name: "Gafița Alex", url: "https://alexgafita.com"}],
     creator: "Gafița Alex",
     openGraph: {
-      title: "Gafița Alex - Software Engineer",
-      description: "Software Engineer specializing in backend development, scalable APIs, data workflows, and cloud infrastructure.",
+      title: "Gafița Alex - Full-Stack Developer",
+      description: "Full-stack developer at Moonlysoft, leaning into backend work and AI automation.",
       type: "website",
       url: "https://alexgafita.com",
       siteName: "Gafița Alex Portfolio",
     },
     twitter: {
       card: "summary_large_image",
-      title: "Gafița Alex - Software Engineer",
-      description: "Software Engineer specializing in backend development and cloud infrastructure.",
+      title: "Gafița Alex - Full-Stack Developer",
+      description: "Full-stack developer at Moonlysoft, leaning into backend work and AI automation.",
     },
     robots: {
       index: true,

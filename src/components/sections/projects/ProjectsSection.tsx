@@ -13,8 +13,8 @@ export function ProjectsSection() {
   return (
     <section id="projects" className="w-full space-y-8 sm:space-y-10 md:space-y-12 relative z-10">
       <SectionHeader
-        title="Main Projects"
-        description="Click a project card to see details, tech stack, and links."
+        title="Projects"
+        description="MakeThePrint is the live store, after a full rebrand. The parcel assistant and Eco Rewards stay because they are finished systems, not exercises."
       />
 
       <motion.div

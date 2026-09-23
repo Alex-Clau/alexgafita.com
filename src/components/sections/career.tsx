@@ -18,13 +18,22 @@ const journeyItems: Array<{
   skills: readonly string[];
 }> = [
   {
-    role: 'Software Developer Intern',
+    role: 'Junior Software Engineer',
     company: 'Moonlysoft',
-    period: 'Feb 2026 – Present',
-    location: 'Cluj-Napoca',
+    period: 'May 2026 – Present',
+    location: 'Cluj-Napoca · Hybrid',
     description:
-      'Building full-stack features across a React and Spring Boot ecosystem. Collaborating within an agile team to implement robust REST APIs and responsive UI components.',
-    skills: ['React', 'TypeScript', 'TanStack Query & Router', 'Spring Boot', 'Java', 'Agile'],
+      'Stayed on after the internship as a full-stack developer. I work hands-on in a React and Spring Boot product, take part in architectural decisions, and join the client meetings. The role keeps teaching me the backend, how the project is planned, and how to automate more of the work with AI.',
+    skills: ['React', 'TypeScript', 'Spring Boot', 'Java'],
+  },
+  {
+    role: 'Software Engineer Intern',
+    company: 'Moonlysoft',
+    period: 'Feb 2026 – Apr 2026',
+    location: 'Remote',
+    description:
+      'Shipped full-stack features in the same React and Spring Boot product, from REST APIs to the interface, inside an agile team.',
+    skills: ['React', 'TypeScript', 'Spring Boot', 'Java'],
   },
   {
     role: 'Freelance Web Developer',
@@ -32,13 +41,12 @@ const journeyItems: Array<{
     period: 'Jan 2025 – Present',
     location: 'Remote',
     description:
-      'Built an end-to-end e-commerce platform, implementing custom product management, secure Stripe checkouts, and shipping API integrations to drive sales.',
+      'Built the store for a custom 3D-printing business, and brought the public site in line with the rebrand.',
     skills: ['Next.js', 'TypeScript', 'Supabase', 'Stripe'],
   },
-
 ];
 
-export function CarrerJourney() {
+export function CareerJourney() {
   return (
     <section
       id="journey"
@@ -46,8 +54,8 @@ export function CarrerJourney() {
       aria-labelledby="journey-heading"
     >
       <SectionHeader
-        title="Career Journey"
-        description="How I’ve been growing as a software developer"
+        title="Experience"
+        description="Full-stack at Moonlysoft since the internship, with more of the work moving into the backend, and the store I still run on the side."
         className="text-center"
       />
 

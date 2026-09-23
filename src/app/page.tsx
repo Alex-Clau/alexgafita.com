@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 const CareerJourneySection = dynamic(
   () =>
     import("@/components/sections/career").then((mod) => ({
-      default: mod.CarrerJourney,
+      default: mod.CareerJourney,
     })),
   { ssr: true },
 );

@@ -6,18 +6,18 @@ import {JSX, ReactNode} from 'react';
 export type Project = {
   readonly slug: string;
   readonly name: string;
-  readonly href: string;
+  readonly href?: string;
+  readonly linkLabel?: string;
   readonly image: string;
+  readonly imageFit?: 'cover' | 'contain';
   readonly description: string;
   readonly highlights: readonly string[];
   readonly stack: readonly string[];
 };
 
-export type Skills = {
-  readonly programmingLanguages: readonly string[];
-  readonly frameworksLibraries: readonly string[];
-  readonly cloudDevops: readonly string[];
-  readonly databasesTools: readonly string[];
+export type SkillGroup = {
+  readonly title: string;
+  readonly items: readonly string[];
 };
 
 // Component types
@@ -26,7 +26,7 @@ export type ButtonVariant = 'primary' | 'outline';
 
 export interface SectionHeaderProps {
   readonly title: string | JSX.Element;
-  readonly description: string;
+  readonly description?: ReactNode;
   readonly className?: string;
 }
 

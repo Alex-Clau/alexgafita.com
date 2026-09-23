@@ -28,7 +28,7 @@ export function HeroSection() {
             <div className="relative w-36 h-36 sm:w-40 sm:h-40 md:w-56 md:h-56">
               <Image
                 src="/profil.jpeg"
-                alt="Alex Gafița - Software Developer & Cloud Engineer"
+                alt="Alex Gafița, full-stack developer at Moonlysoft"
                 fill
                 priority
                 fetchPriority="high"
@@ -45,17 +45,15 @@ export function HeroSection() {
                 Gafița Claudiu-Alexandru
               </h1>
               <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 sm:gap-3 text-base sm:text-lg md:text-xl text-stone-300/90">
-                  <span>Software Developer</span>
+                  <span>Full-Stack Developer</span>
                   <span className="text-stone-600">·</span>
-                  <span>Cloud Engineer</span>
-                  <span className="text-stone-600">·</span>
-                  <span>Computer Science Student</span>
+                  <span>Moonlysoft</span>
               </div>
             </motion.div>
 
             <motion.div variants={heroItemVariants} className="pt-2 sm:pt-4">
-              <p className="text-stone-300/90 text-sm sm:text-base md:text-lg leading-relaxed">
-                Building scalable backend systems, cloud infrastructure, and APIs. 
+              <p className="text-stone-300/90 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl">
+                Leaning into the backend. I take part in the architecture and the client meetings, and I use AI to automate more of the engineering work.
               </p>
             </motion.div>
 

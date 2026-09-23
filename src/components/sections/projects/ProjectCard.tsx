@@ -26,7 +26,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
               fill
               loading="lazy"
               decoding="async"
-              className="object-contain p-3 sm:p-4"
+              className={
+                project.imageFit === 'cover'
+                  ? 'object-cover object-center'
+                  : 'object-contain p-3 sm:p-4'
+              }
               sizes="(min-width: 768px) 50vw, 100vw"
             />
           </div>
@@ -39,7 +43,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <p className="text-sm sm:text-base text-stone-300/90 leading-relaxed line-clamp-2 mb-5 sm:mb-6 flex-1">
               {project.description}
             </p>
-            <div className="hidden lg:flex items-center justify-start pt-4 border-t border-zinc-800 mt-auto">
+            <div className="flex items-center justify-start pt-4 border-t border-zinc-800 mt-auto">
               <div className="flex gap-1.5 sm:gap-2">
                 {project.stack.slice(0, 3).map((tech) => (
                   <span

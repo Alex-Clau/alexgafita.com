@@ -61,7 +61,7 @@ This project is private and proprietary.
 
 
 **Gafița Claudiu-Alexandru**  
-Software Developer & Cloud Engineer | Computer Science Student
+Full-Stack Developer at Moonlysoft | Computer Science Student
 
 - Website: [alexgafita.com](https://alexgafita.com)
 - GitHub: [@Alex-Clau](https://github.com/Alex-Clau)

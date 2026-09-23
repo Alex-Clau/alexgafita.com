@@ -24,11 +24,11 @@ export function SectionHeader({
         </h2>
         <div className="h-px flex-1 bg-stone-800" />
       </div>
-      {description && (
-        <p className="flex flex-col items-center text-sm sm:text-base md:text-lg text-stone-300/90 leading-relaxed">
+      {description ? (
+        <div className="flex flex-col items-center text-center text-sm sm:text-base md:text-lg text-stone-300/90 leading-relaxed">
           {description}
-        </p>
-      )}
+        </div>
+      ) : null}
     </motion.div>
   );
 }

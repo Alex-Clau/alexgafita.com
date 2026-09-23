@@ -1,4 +1,4 @@
-// Contact section with call-to-action icon links
+// Contact section with a direct email and profile links
 
 'use client';
 
@@ -43,31 +43,41 @@ export function ContactSection() {
       className="mt-auto w-full space-y-8 sm:space-y-10 md:space-y-12 relative z-10"
     >
       <SectionHeader
-        title={<div className="flex flex-wrap items-center gap-3 sm:gap-4">
-          {links.map(({href, label, icon: Icon}) => (
-            <Button
-              key={label}
-              asChild
-              size="icon"
-              className={'size-12 sm:size-14 rounded-md border border-zinc-800 text-stone-300/90 hover:bg-zinc-900 hover:text-white hover:border-zinc-700 [&_svg]:size-5 transition-colors'}
+        title="Get in touch"
+        description={
+          <span className="flex flex-col items-center gap-3 text-center">
+            <a
+              href="mailto:alexgafita47@gmail.com"
+              className="text-white hover:text-stone-200 transition-colors"
             >
-              <a
-                href={href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={label}
-              >
-                <Icon
-                  size={iconSize}
-                  strokeWidth={1.75}
-                />
-              </a>
-            </Button>
-          ))}
-        </div>}
-        description={''}
+              alexgafita47@gmail.com
+            </a>
+            <span className="max-w-xl text-sm sm:text-base text-stone-400">
+              Outside of work I go to DevTalks, volunteer with the Untold crew for the second year, and spend the rest of the time at the gym.
+            </span>
+          </span>
+        }
       />
+
+      <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+        {links.map(({href, label, icon: Icon}) => (
+          <Button
+            key={label}
+            asChild
+            size="icon"
+            className="size-12 sm:size-14 rounded-md border border-zinc-800 text-stone-300/90 hover:bg-zinc-900 hover:text-white hover:border-zinc-700 [&_svg]:size-5 transition-colors"
+          >
+            <a
+              href={href}
+              target={href.startsWith('mailto:') ? undefined : '_blank'}
+              rel={href.startsWith('mailto:') ? undefined : 'noreferrer'}
+              aria-label={label}
+            >
+              <Icon size={iconSize} strokeWidth={1.75} />
+            </a>
+          </Button>
+        ))}
+      </div>
     </motion.section>
   );
 }
-
